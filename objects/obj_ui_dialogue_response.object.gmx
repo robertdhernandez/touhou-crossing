@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>0</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>obj_ui_dialogue_component</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -53,7 +53,8 @@ selection = instance_create(0, 0, obj_ui_dialogue_response_selection);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with (selection) instance_destroy();
+            <string>event_inherited();
+with (selection) { instance_destroy(); }
 </string>
           </argument>
         </arguments>
@@ -95,7 +96,7 @@ if (visible)
     if (input_check_pressed(input.a))
     {
         obj_ui_dialogue.message_index = response_index + 1;
-        with (obj_ui_dialogue) event_user(0);
+        with (obj_ui_dialogue) { event_user(0); }
         
         response_index = 0;
         show = false;

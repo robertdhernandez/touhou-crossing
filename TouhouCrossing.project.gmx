@@ -573,6 +573,7 @@
         <script>scripts\endaction_fairy_build.gml</script>
         <script>scripts\endaction_fairy_follow.gml</script>
         <script>scripts\endaction_fairy_unfollow.gml</script>
+        <script>scripts\endaction_player_movein.gml</script>
       </scripts>
       <script>scripts\dialogue_init.gml</script>
       <script>scripts\dialogue_is_shown.gml</script>
@@ -684,19 +685,20 @@
       <script>scripts\player_interact.gml</script>
       <scripts name="Properties">
         <script>scripts\player_get_follower.gml</script>
+        <script>scripts\player_get_home.gml</script>
         <script>scripts\player_get_name.gml</script>
         <script>scripts\player_get_sprite.gml</script>
-        <script>scripts\player_set_follower.gml</script>
         <script>scripts\player_has_follower.gml</script>
-        <script>scripts\player_is_outside.gml</script>
+        <script>scripts\player_is_homeless.gml</script>
         <script>scripts\player_is_inside.gml</script>
+        <script>scripts\player_is_outside.gml</script>
+        <script>scripts\player_set_follower.gml</script>
       </scripts>
     </scripts>
     <scripts name="Structure">
       <scripts name="House">
         <scripts name="Properties">
           <script>scripts\struct_house_can_enter.gml</script>
-          <script>scripts\struct_house_show_info.gml</script>
           <script>scripts\struct_house_get_max_occupancy.gml</script>
           <script>scripts\struct_house_get_occupancy.gml</script>
           <script>scripts\struct_house_get_owner.gml</script>
@@ -704,7 +706,9 @@
           <script>scripts\struct_house_is_full.gml</script>
           <script>scripts\struct_house_is_occupied.gml</script>
           <script>scripts\struct_house_is_owned.gml</script>
+          <script>scripts\struct_house_is_player_owned.gml</script>
           <script>scripts\struct_house_is_unowned.gml</script>
+          <script>scripts\struct_house_show_info.gml</script>
         </scripts>
         <script>scripts\struct_house_enter.gml</script>
         <script>scripts\struct_house_exit.gml</script>
@@ -728,6 +732,7 @@
     </scripts>
     <scripts name="UI">
       <script>scripts\ui_display_money.gml</script>
+      <script>scripts\ui_init.gml</script>
       <script>scripts\ui_ticker_post.gml</script>
     </scripts>
   </scripts>
@@ -769,6 +774,7 @@
     <object>objects\obj_game</object>
     <object>objects\obj_newgame</object>
     <object>objects\obj_player</object>
+    <object>objects\obj_weather</object>
     <objects name="Structures">
       <object>objects\obj_struct_base</object>
       <object>objects\obj_struct_entrance</object>
@@ -810,9 +816,6 @@
     <room>rooms\rm_demo</room>
     <room>rooms\rm_newgame</room>
     <room>rooms\rm_title</room>
-    <rooms name="Debug">
-      <room>rooms\rm_parade</room>
-    </rooms>
     <rooms name="Interior">
       <room>rooms\rm_house</room>
     </rooms>

@@ -2,10 +2,10 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_ui_base</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,33 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xoffset = x;
-yoffset = y;
+            <string>enum weather
+{
+    clear,
+    rain,
+    snow
+}
 
-if (global.debug) show_debug_message(object_get_name(object_index) + " created");
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (global.debug) show_debug_message(object_get_name(object_index) + " destroyed");
+cur_weather = weather.clear;
 </string>
           </argument>
         </arguments>
@@ -74,11 +55,16 @@ if (global.debug) show_debug_message(object_get_name(object_index) + " created")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = obj_ui_dialogue.depth - 100;
-image_alpha = obj_ui_dialogue.image_alpha;
-x = obj_ui_dialogue.x + xoffset;
-y = obj_ui_dialogue.y + yoffset;
-visible = obj_ui_dialogue.visible;
+            <string>switch (cur_weather)
+{
+    case weather.rain: 
+        effect_create_above(ef_rain, 0, 0, 0, c_aqua);
+    break;
+    
+    case weather.snow:
+        effect_create_above(ef_snow, 0, 0, 0, c_white);
+    break;
+}
 </string>
           </argument>
         </arguments>

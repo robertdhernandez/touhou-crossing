@@ -202,7 +202,14 @@ draw_set_font(global.font_dialogue);
 
 var str = "Empty House";
 if (owner != -1)
-    str = npc_get_name(owner) + "'s House";
+{
+    if (owner == npc.player)
+        str = player_get_name();
+    else
+        str = npc_get_name(owner);
+        
+    str += "'s House";
+}
 
 var w = string_width(str) * scale;
 var h = string_height(str) * scale;

@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>1000</depth>
   <persistent>-1</persistent>
   <parentName>obj_ui_base</parentName>
@@ -90,12 +90,13 @@ var vis = show_rate;
 if (not show) { vis = -vis; last = noone; }
 
 height = clamp(height + vis, 0, max_height);
+visible = height != 0;
 
 if (height == max_height)
 {
     if (ds_queue_size(queue) &gt; 0)
     {
-        draw_set_font(font);    
+        draw_set_font(font);
         
         with (instance_create(320, 3, obj_ui_ticker_text))
         {
@@ -132,9 +133,7 @@ if (height == max_height)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (height == 0) exit;
-
-event_inherited();
+            <string>event_inherited();
 
 draw_set_color(c_black);
 draw_set_alpha(0.30);

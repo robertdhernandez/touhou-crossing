@@ -1,8 +1,5 @@
 /// dialogue_show(type)
 
-if (not instance_exists(obj_ui_dialogue))
-    instance_create(0, 0, obj_ui_dialogue);
-
 with (obj_ui_dialogue)
 {
     image_index = argument0;

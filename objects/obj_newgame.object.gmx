@@ -125,7 +125,7 @@ global.axislv_previous = gamepad_axis_value(0, gp_axislv);
     x = 160;
     y = 120;
     
-    sprite_index = data.walk_270[select]
+    //sprite_index = data.walk_270[select]
     image_speed = 5 / room_speed;
 }
 else

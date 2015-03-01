@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>0</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>obj_ui_base</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -41,10 +41,10 @@ message = "";
 message_index = 0;
 message_queue = ds_queue_create();
 
-obj_continue = instance_create(90, -14, obj_ui_dialogue_continue);
-obj_response = instance_create(20, -50, obj_ui_dialogue_response);
-obj_speaker  = instance_create(-55, -71, obj_ui_dialogue_speaker);
-obj_text     = instance_create(-86, -53, obj_ui_dialogue_text);
+instance_create(90, -14, obj_ui_dialogue_continue);
+instance_create(20, -50, obj_ui_dialogue_response);
+instance_create(-55, -71, obj_ui_dialogue_speaker);
+instance_create(-86, -53, obj_ui_dialogue_text);
 </string>
           </argument>
         </arguments>
@@ -67,10 +67,7 @@ obj_text     = instance_create(-86, -53, obj_ui_dialogue_text);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with (obj_continue) instance_destroy();
-with (obj_response) instance_destroy();
-with (obj_speaker) instance_destroy();
-with (obj_text) instance_destroy();
+            <string>with (obj_ui_dialogue_component) { instance_destroy(); }
 
 ds_queue_destroy(message_queue);
 
@@ -108,8 +105,8 @@ if (y == min_y)
 
 visible = (y != max_y);
 
-if (not visible)
-    instance_destroy();
+//if (not visible)
+//    instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -177,9 +174,9 @@ if (not ds_queue_empty(buffer))
 }
 
 // show responses
-else if (not responded and global.dialogue_num_responses &gt; 0 and not obj_response.show)
+else if (not responded and global.dialogue_num_responses &gt; 0 and not obj_ui_dialogue_response.show)
 {
-    obj_response.show = true;
+    obj_ui_dialogue_response.show = true;
     responded = true;
 }
 

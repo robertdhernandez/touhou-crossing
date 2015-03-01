@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -32,11 +32,9 @@ if (not global.debug) randomize();
 dialogue_init();
 npc_init();
 struct_init();
+ui_init();
 
 instance_create(0, 0, obj_debug);
-instance_create(0, 0, obj_ui_clock);
-instance_create(0, 0, obj_ui_ticker);
-instance_create(0, 0, obj_ui_money);
 instance_create(0, 0, obj_util_tint);
 
 global.axislh_previous = 0;

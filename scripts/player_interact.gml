@@ -14,25 +14,22 @@ with (obj_player)
         switch (object_index)
         {
             case obj_interior_exit:
-                scr = player_interact_exit;
+                player_interact_exit(id);
             break;
         
             case obj_npc:
             case obj_npc_fairy:
-                scr = player_interact_npc;
+                player_interact_npc(id);
             break;
             
             case obj_struct_project: 
-                scr = player_interact_project;
+                player_interact_project(id);
             break;
             
             case obj_struct_house:
-                scr = player_interact_house;
+                player_interact_house(id);
             break;
         }
-        
-        if (scr != -1)
-            script_execute(scr, id);
         
         if (global.debug)
             show_debug_message(object_get_name(object_index));

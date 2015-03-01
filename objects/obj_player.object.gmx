@@ -34,6 +34,7 @@
 direction = 270;
 follower = noone;
 type = player_type.maribel;
+home = -1;
 </string>
           </argument>
         </arguments>

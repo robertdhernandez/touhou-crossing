@@ -84,7 +84,9 @@ if (struct_project_is_finished(id))
     if (constructing)
     {
         ui_ticker_post(struct_get_name(struct_id) + " constructed");
-        instance_change(struct_get_object(struct_id), true);
+        instance_create(x, y, struct_get_object(struct_id));
+        instance_destroy();
+        //instance_change(struct_get_object(struct_id), true);
     }
     else
     {

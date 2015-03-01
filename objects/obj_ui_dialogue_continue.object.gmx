@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>0</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>obj_ui_dialogue_component</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -52,8 +52,7 @@ image_speed = 2 / room_speed;
             <string>/// Move to next page (if visible)
 
 if (visible and input_check_pressed(input.a))
-    with (obj_ui_dialogue)
-        event_user(0);
+    with (obj_ui_dialogue) event_user(0);
 </string>
           </argument>
         </arguments>
@@ -80,7 +79,7 @@ event_inherited();
 
 visible = visible 
     and ds_queue_empty(obj_ui_dialogue.message_queue) 
-    and not obj_ui_dialogue.obj_response.show;
+    and not obj_ui_dialogue_response.show;
 </string>
           </argument>
         </arguments>

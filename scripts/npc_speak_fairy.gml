@@ -19,7 +19,7 @@ with (argument0)
                 dialogue_set_responses("How are you?", 
                                        "Can you help me?", 
                                        "Nevermind");
-                dialogue_set_result(1, speak.talk);    
+                dialogue_set_result(1, speak.talk);
                 dialogue_set_result(2, speak.help_me);
                 dialogue_set_result(3, speak.goodbye);
             }
