@@ -1,27 +1,26 @@
 [
 	{
-		"greeting" : true,
+		"tag" : "greeting",
 		"priority" : 1,
-		"requirement" : [ "npc_is_following_player" ],
+		"requirement" : [ "fairy_is_following" ],
 		"text" : [ "Is something wrong?" ],
 		"response" : [
 			{
 				"reply" : "Forget about that",
-				"text" : "Alright. If you need anything, feel free to ask.",
-				"endaction" : "endaction_fairy_unfollow"
+				"text" : [ "Alright. If you need anything, feel free to ask." ],
+				"endaction" : "fairy_unfollow"
 			},
 			{
 				"reply" : "Not really",
-				"text" : "Alrighty then."
+				"text" : [ "Alrighty then." ]
 			}
 		]
 	},
 
 	{
-		"greeting" : true,
 		"tag" : "greeting",
 		"text" : [
-			"Oh, hello there %PLAYER%.",
+			"Oh, hello there %PLAYER.",
 			"Is something on your mind?"
 		],
 		"response" : [
@@ -39,25 +38,25 @@
 	{
 		"tag" : "help_me",
 		"priority" : 2,
-		"requirement" : [ "req_fairy_has_follower" ],
-		"text" : "Sorry, but you already have someone helping you."
+		"requirement" : [ "player_has_follower" ],
+		"text" : [ "Sorry, but you already have someone helping you." ]
 	},
 	
 	{
 		"tag" : "help_me",
 		"priority" : 1,
-		"requirement" : [ "req_fairy_no_energy" ],
-		"text" : "Sorry, I'm too tired.",
+		"requirement" : [ "fairy_is_tired" ],
+		"text" : [ "Sorry, I'm too tired." ]
 	},
 	
 	{
 		"tag" : "help_me",
 		"text" : [ "Sure!" ],
-		"endaction" : "endaction_fairy_follow"
-	}
+		"endaction" : "fairy_follow"
+	},
 	
 	{
 		"tag" : "goodbye",
-		"text" : "Alright then. Maybe another time."
+		"text" : [ "Alright then. Maybe another time." ]
 	}
 ]

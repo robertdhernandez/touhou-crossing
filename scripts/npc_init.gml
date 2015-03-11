@@ -505,6 +505,8 @@ global.npc_fairy_walk_225[4] = spr_fairy_e_225;
 global.npc_fairy_walk_270[4] = spr_fairy_e_270;
 global.npc_fairy_walk_315[4] = spr_fairy_e_315;
 
+global.npc_fairy_dialogue = dialogue_json_load("Dialogue/dialogue_fairy.json");
+
 /// NPC world data
 
 for (var i = 0; i < global.npc_count; i++)

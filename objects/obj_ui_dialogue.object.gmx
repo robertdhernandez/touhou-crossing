@@ -131,7 +131,7 @@ visible = (y != max_y);
             <kind>1</kind>
             <string>/// Perform endaction
 
-if (global.dialogue_endaction[message_index] != -1)
+if (not is_undefined(global.dialogue_endaction[message_index]))
     script_execute(global.dialogue_endaction[message_index]);
 </string>
           </argument>
@@ -181,7 +181,7 @@ else if (not responded and global.dialogue_num_responses &gt; 0 and not obj_ui_d
 }
 
 // no more, no responses
-else if (global.dialogue_result[message_index] != -1)
+else if (not is_undefined(global.dialogue_result[message_index]))
 {
     event_user(1);
     npc_speak(global.dialogue_npc, global.dialogue_result[message_index]);

@@ -8,5 +8,5 @@ with (argument0)
     dest_id = -1;
     path_end();
     
-    npc_speak(id, speak.greet);
+    npc_speak(id, json_greeting);
 }

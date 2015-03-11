@@ -27,8 +27,6 @@
             <kind>1</kind>
             <string>xoffset = x;
 yoffset = y;
-
-if (global.debug) show_debug_message(object_get_name(object_index) + " created");
 </string>
           </argument>
         </arguments>

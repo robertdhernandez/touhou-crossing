@@ -3,11 +3,30 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="1" name="datafiles">
+  <datafiles number="3" name="datafiles">
+    <datafiles number="3" name="Dialogue">
+      <datafile>
+        <name>dialogue_fairy.json</name>
+        <exists>-1</exists>
+        <size>381</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>17593040736494</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>dialogue_fairy.json</filename>
+      </datafile>
+    </datafiles>
     <datafile>
-      <name>dialogue_fairy.json</name>
+      <name>npc.json</name>
       <exists>-1</exists>
-      <size>381</size>
+      <size>4</size>
       <exportAction>2</exportAction>
       <exportDir></exportDir>
       <overwrite>0</overwrite>
@@ -19,7 +38,24 @@
           <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
-      <filename>dialogue_fairy.json</filename>
+      <filename>npc.json</filename>
+    </datafile>
+    <datafile>
+      <name>structures.json</name>
+      <exists>-1</exists>
+      <size>5</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>structures.json</filename>
     </datafile>
   </datafiles>
   <NewExtensions>
@@ -588,22 +624,43 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Dialogue">
-      <scripts name="Action">
-        <script>scripts\endaction_fairy_build.gml</script>
-        <script>scripts\endaction_fairy_follow.gml</script>
-        <script>scripts\endaction_fairy_unfollow.gml</script>
-        <script>scripts\endaction_player_movein.gml</script>
-      </scripts>
       <script>scripts\dialogue_init.gml</script>
       <script>scripts\dialogue_is_shown.gml</script>
       <script>scripts\dialogue_reset.gml</script>
       <script>scripts\dialogue_set_endaction.gml</script>
       <script>scripts\dialogue_set_message.gml</script>
       <script>scripts\dialogue_set_npc.gml</script>
+      <script>scripts\dialogue_set_num_responses.gml</script>
+      <script>scripts\dialogue_set_response.gml</script>
       <script>scripts\dialogue_set_responses.gml</script>
       <script>scripts\dialogue_set_result.gml</script>
       <script>scripts\dialogue_set_speaker.gml</script>
       <script>scripts\dialogue_show.gml</script>
+      <scripts name="End Action">
+        <scripts name="Fairy">
+          <script>scripts\endaction_fairy_build.gml</script>
+          <script>scripts\endaction_fairy_follow.gml</script>
+          <script>scripts\endaction_fairy_unfollow.gml</script>
+        </scripts>
+        <scripts name="Player">
+          <script>scripts\endaction_player_movein.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="JSON">
+        <script>scripts\dialogue_json_apply.gml</script>
+        <script>scripts\dialogue_json_load.gml</script>
+        <script>scripts\dialogue_json_query.gml</script>
+        <script>scripts\dialogue_json_sort.gml</script>
+      </scripts>
+      <scripts name="Requirement">
+        <scripts name="Fairy">
+          <script>scripts\requirement_fairy_is_following.gml</script>
+          <script>scripts\requirement_fairy_is_tired.gml</script>
+        </scripts>
+        <scripts name="Player">
+          <script>scripts\requirement_player_has_follower.gml</script>
+        </scripts>
+      </scripts>
     </scripts>
     <scripts name="Input">
       <script>scripts\input_check.gml</script>
@@ -616,6 +673,9 @@
     <scripts name="Miscellaneous">
       <script>scripts\create_path.gml</script>
       <script>scripts\iff.gml</script>
+      <script>scripts\load_file.gml</script>
+      <script>scripts\load_file_json.gml</script>
+      <script>scripts\parse_string.gml</script>
       <script>scripts\random_out_of_bounds_x.gml</script>
       <script>scripts\random_out_of_bounds_y.gml</script>
       <script>scripts\random_weighted.gml</script>
@@ -842,7 +902,7 @@
       <room>rooms\rm_acre00</room>
     </rooms>
   </rooms>
-  <constants number="18">
+  <constants number="27">
     <constant name="analogue_deadzone">0.15</constant>
     <constant name="analogue_trigger">0.5</constant>
     <constant name="chance_leave">2</constant>
@@ -856,6 +916,15 @@
     <constant name="follow_dist">(tile_size * 2)</constant>
     <constant name="grid_size">4</constant>
     <constant name="interact_dist">(tile_size * 1.5)</constant>
+    <constant name="json_endaction">"endaction"</constant>
+    <constant name="json_goto">"goto"</constant>
+    <constant name="json_greeting">"greeting"</constant>
+    <constant name="json_priority">"priority"</constant>
+    <constant name="json_reply">"reply"</constant>
+    <constant name="json_requirement">"requirement"</constant>
+    <constant name="json_response">"response"</constant>
+    <constant name="json_tag">"tag"</constant>
+    <constant name="json_text">"text"</constant>
     <constant name="max_present">8</constant>
     <constant name="max_travel">7</constant>
     <constant name="move_speed">1</constant>
