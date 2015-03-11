@@ -39,7 +39,8 @@ for (var i = 0; i &lt; occupancy_max; i++)
     occupant_leaving[i] = false;
 }
 
-entrance = struct_create_entrance(x - tile_size, bbox_bottom, tile_size, tile_size);
+// Temporarily disabled as sprite_collision_mask caused crashes
+//entrance = struct_create_entrance(x - tile_size, bbox_bottom, tile_size, tile_size);
 </string>
           </argument>
         </arguments>
@@ -68,7 +69,7 @@ entrance = struct_create_entrance(x - tile_size, bbox_bottom, tile_size, tile_si
     npc_set_home(owner, -1);
 }
 
-with (entrance) instance_destroy();
+//with (entrance) instance_destroy();
 </string>
           </argument>
         </arguments>
