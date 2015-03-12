@@ -7,7 +7,8 @@ if (is_undefined(file_text))
 var root = json_decode(file_text);
 if (root == -1)
 {
-    show_debug_message("Failed to decode JSON from " + argument0);
+    if (global.debug)
+        show_error("Failed to decode JSON from " + argument0, true);
     return undefined;
 }
     

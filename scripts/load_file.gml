@@ -5,7 +5,8 @@ var file = file_text_open_read(file_path);
 
 if (file == -1)
 {
-    show_debug_message("Failed to open file " + argument0);
+    if (global.debug)
+        show_error("Failed to open file " + argument0, true);
     return undefined;
 }
 
