@@ -35,7 +35,7 @@ for (var i = 0; i < ds_list_size(root); i++)
 var query = undefined;
 
 var num_valid = ds_list_size(valid_maps);
-show_debug_message("Found " + string(num_valid) + " valid dialogues");
+show_debug_message("Found " + string(num_valid) + " valid dialogue(s)");
 
 if (num_valid > 0)
 {

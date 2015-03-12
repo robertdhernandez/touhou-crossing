@@ -604,6 +604,7 @@
       <sprite>sprites\spr_struct_gate</sprite>
       <sprite>sprites\spr_struct_house</sprite>
       <sprite>sprites\spr_struct_market</sprite>
+      <sprite>sprites\spr_struct_shrine</sprite>
     </sprites>
     <sprites name="UI">
       <sprites name="Bells">
@@ -616,12 +617,22 @@
         <sprite>sprites\spr_clock_font_date</sprite>
         <sprite>sprites\spr_clock_font_time</sprite>
       </sprites>
+      <sprites name="Cursor">
+        <sprite>sprites\spr_ui_cursor</sprite>
+        <sprite>sprites\spr_ui_cursor_grabbed</sprite>
+      </sprites>
       <sprites name="Dialogue">
         <sprite>sprites\spr_ui_dialogue</sprite>
         <sprite>sprites\spr_ui_dialogue_continue</sprite>
         <sprite>sprites\spr_ui_dialogue_font</sprite>
         <sprite>sprites\spr_ui_dialogue_response</sprite>
-        <sprite>sprites\spr_ui_dialogue_response_selection</sprite>
+      </sprites>
+      <sprites name="Inventory">
+        <sprite>sprites\spr_ui_inventory</sprite>
+        <sprite>sprites\spr_ui_inventory_bell_font</sprite>
+        <sprite>sprites\spr_ui_inventory_letter</sprite>
+        <sprite>sprites\spr_ui_inventory_mask</sprite>
+        <sprite>sprites\spr_ui_inventory_slot</sprite>
       </sprites>
       <sprites name="Ticker">
         <sprite>sprites\spr_ui_ticker_font</sprite>
@@ -637,6 +648,7 @@
     <background>background\bg_grass</background>
     <background>background\bg_snow</background>
     <background>background\tile_interior</background>
+    <background>background\bg_default_pattern</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -890,6 +902,16 @@
           <object>objects\obj_ui_dialogue_speaker</object>
           <object>objects\obj_ui_dialogue_text</object>
         </objects>
+        <objects name="Inventory">
+          <object>objects\obj_ui_inventory_character</object>
+          <object>objects\obj_ui_inventory_component</object>
+          <object>objects\obj_ui_inventory_item</object>
+          <object>objects\obj_ui_inventory_name</object>
+          <object>objects\obj_ui_inventory_town</object>
+          <object>objects\obj_ui_inventory_letter</object>
+          <object>objects\obj_ui_inventory_money</object>
+        </objects>
+        <object>objects\obj_ui_component</object>
         <objects name="Ticker">
           <object>objects\obj_ui_ticker_text</object>
         </objects>
@@ -897,6 +919,7 @@
       <object>objects\obj_ui_base</object>
       <object>objects\obj_ui_clock</object>
       <object>objects\obj_ui_dialogue</object>
+      <object>objects\obj_ui_inventory</object>
       <object>objects\obj_ui_money</object>
       <object>objects\obj_ui_ticker</object>
     </objects>

@@ -118,6 +118,8 @@ alarm[0] = round(room_speed / 1.25);
     show = false;
 }
 
+// BUG clock doesn't show anymore
+
 if (not dialogue_is_shown and current_time - last_input &gt; 3000)
 {
     show = true;
