@@ -39,6 +39,9 @@ fade_rate = 1 / (room_speed * 0.25);
 
 font_date = font_add_sprite_ext(spr_clock_font_date, "0123456789/", true, 2);
 font_time = font_add_sprite_ext(spr_clock_font_time, "0123456789:", false, 0);
+
+show_colon = true;
+alarm[0] = round(room_speed / 1.25);
 </string>
           </argument>
         </arguments>
@@ -68,6 +71,30 @@ font_delete(font_time);
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>show_colon = not show_colon;
+alarm[0] = round(room_speed / 1.25);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -91,14 +118,10 @@ font_delete(font_time);
     show = false;
 }
 
-if (current_time - last_input &gt; 3000)
+if (not dialogue_is_shown and current_time - last_input &gt; 3000)
 {
     show = true;
 }
-
-// WORKAROUND SOLUTION 
-// DO NOT SHOW WHILE DIALOGUE VISIBLE AS IT CAUSES string(val) during Draw GUI TO CRASH THE GAME
-show = show and not instance_exists(obj_ui_dialogue);
 
 var vis = fade_rate;
 if (not show) vis = -vis;
@@ -128,7 +151,10 @@ visible = (image_alpha != 0);
             <kind>1</kind>
             <string>event_inherited();
 
-var time = string(current_hour mod 12) + ":" + string_zeroes(current_minute, 2);
+var colon = iff(show_colon, ":", " ");
+var hour = iff(current_hour != 0 and current_hour != 12, current_hour mod 12, 12);
+
+var time = string(hour) + colon + string_zeroes(current_minute, 2);
 var date = string(current_month) + "/" + string(current_day);
 
 draw_set_alpha(image_alpha);
