@@ -2,7 +2,6 @@
 
 var root = load_file_json(argument0);
 
-
 var size = ds_list_size(root);
 for (var i = 0; i < size; i++)
 {

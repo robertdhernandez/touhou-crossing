@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="3" name="datafiles">
-    <datafiles number="3" name="Dialogue">
+  <datafiles number="4" name="datafiles">
+    <datafiles number="4" name="Dialogue">
       <datafile>
         <name>dialogue_fairy.json</name>
         <exists>-1</exists>
@@ -21,6 +21,23 @@
           </Config>
         </ConfigOptions>
         <filename>dialogue_fairy.json</filename>
+      </datafile>
+      <datafile>
+        <name>dialogue_placeholder.json</name>
+        <exists>-1</exists>
+        <size>225</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>dialogue_placeholder.json</filename>
       </datafile>
     </datafiles>
     <datafile>
@@ -683,6 +700,7 @@
       <script>scripts\string_thousands.gml</script>
       <script>scripts\string_zeroes.gml</script>
       <script>scripts\transition_to.gml</script>
+      <script>scripts\validate_json_function.gml</script>
     </scripts>
     <scripts name="NPC">
       <scripts name="Director">
@@ -713,12 +731,14 @@
       <script>scripts\npc_move_to.gml</script>
       <script>scripts\npc_show_expression.gml</script>
       <script>scripts\npc_show_expression_ext.gml</script>
+      <script>scripts\npc_speak.gml</script>
       <script>scripts\npc_wander.gml</script>
       <script>scripts\npcs_count.gml</script>
       <script>scripts\npcs_random.gml</script>
       <scripts name="Properties (ID)">
         <script>scripts\npc_get_animate_idle.gml</script>
         <script>scripts\npc_get_building.gml</script>
+        <script>scripts\npc_get_dialogue.gml</script>
         <script>scripts\npc_get_home.gml</script>
         <script>scripts\npc_get_icon.gml</script>
         <script>scripts\npc_get_instance.gml</script>
@@ -742,11 +762,6 @@
       <scripts name="Properties (Instance)">
         <script>scripts\npc_is_following.gml</script>
         <script>scripts\npc_is_following_player.gml</script>
-      </scripts>
-      <scripts name="Speak">
-        <script>scripts\npc_speak.gml</script>
-        <script>scripts\npc_speak_fairy.gml</script>
-        <script>scripts\npc_speak_default.gml</script>
       </scripts>
       <scripts name="Think">
         <script>scripts\npc_think.gml</script>
