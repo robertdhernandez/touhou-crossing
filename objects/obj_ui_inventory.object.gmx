@@ -27,8 +27,14 @@
             <kind>1</kind>
             <string>event_inherited();
 
+show_y = 240 / 2;
+hide_y = show_y + 240;
+show_speed = (hide_y - show_y) / (room_speed * 0.30);
+
 x = 320 / 2;
-y = 240 / 2;
+y = hide_y;
+
+show = false;
 
 // TODO load a 32x32 pattern to use as background
 bg = bg_default_pattern;
@@ -66,6 +72,32 @@ for (var i = 0; i &lt; 10; i++)
     with (instance_create(xx, yy, obj_ui_inventory_letter))
         slot = i;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (input_check_pressed(input.start))
+    show = not show;
+
+y = clamp(y - show_speed * iff(show, 1, -1), show_y, hide_y);
 </string>
           </argument>
         </arguments>

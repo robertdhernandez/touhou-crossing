@@ -699,6 +699,11 @@
       <script>scripts\input_get_direction.gml</script>
       <script>scripts\input_get_distance.gml</script>
     </scripts>
+    <scripts name="Inventory">
+      <script>scripts\inventory_display.gml</script>
+      <script>scripts\inventory_is_displayed.gml</script>
+      <script>scripts\inventory_is_shown.gml</script>
+    </scripts>
     <scripts name="Miscellaneous">
       <script>scripts\create_path.gml</script>
       <script>scripts\iff.gml</script>
