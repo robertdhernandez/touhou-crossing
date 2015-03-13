@@ -33,7 +33,7 @@
 
 direction = 270;
 follower = noone;
-type = player_type.maribel;
+type = player_type.renko;
 home = -1;
 </string>
           </argument>
