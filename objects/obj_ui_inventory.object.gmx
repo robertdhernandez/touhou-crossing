@@ -130,22 +130,21 @@ surface_set_target(surface);
     bg_x = (bg_x + bg_speed) mod 32;
     bg_y = bg_x;
 
-    draw_clear(c_white);
-    draw_enable_alphablend(false);
-    draw_sprite(mask_index, 0, sprite_get_xoffset(mask_index), sprite_get_yoffset(mask_index)); 
-    
-    draw_enable_alphablend(true);
-    draw_set_blend_mode_ext(bm_dest_color, bm_zero);
+    draw_clear(c_green);
+        
     draw_background_tiled(bg, -bg_x, -bg_y);
+    
+    draw_set_blend_mode_ext(bm_dest_color, bm_src_alpha);
+    draw_sprite(mask_index, 0, sprite_get_xoffset(mask_index), sprite_get_yoffset(mask_index));
     draw_set_blend_mode(bm_normal);
 }
 surface_reset_target();
 
-draw_surface_part(surface, 0, 0, sprite_get_width(sprite_index), sprite_get_height(sprite_index), x - sprite_get_xoffset(sprite_index), y - sprite_get_yoffset(sprite_index));
 
-draw_set_blend_mode_ext(bm_src_color, bm_dest_alpha);
-draw_self();
+draw_surface_part(surface, 0, 0, sprite_get_width(sprite_index), sprite_get_height(sprite_index), x - sprite_get_xoffset(sprite_index), y - sprite_get_yoffset(sprite_index));
 draw_set_blend_mode(bm_normal);
+
+draw_self();
 </string>
           </argument>
         </arguments>

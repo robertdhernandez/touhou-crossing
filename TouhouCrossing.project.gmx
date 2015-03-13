@@ -645,10 +645,10 @@
     </sprites>
   </sprites>
   <backgrounds name="background">
+    <background>background\bg_default_pattern</background>
     <background>background\bg_grass</background>
     <background>background\bg_snow</background>
     <background>background\tile_interior</background>
-    <background>background\bg_default_pattern</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
