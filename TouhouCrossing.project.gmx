@@ -695,14 +695,14 @@
       <script>scripts\input_check.gml</script>
       <script>scripts\input_check_any.gml</script>
       <script>scripts\input_check_no_opposites.gml</script>
+      <scripts name="Inventory">
+        <script>scripts\inventory_display.gml</script>
+        <script>scripts\inventory_is_displayed.gml</script>
+        <script>scripts\inventory_is_shown.gml</script>
+      </scripts>
       <script>scripts\input_check_pressed.gml</script>
       <script>scripts\input_get_direction.gml</script>
       <script>scripts\input_get_distance.gml</script>
-    </scripts>
-    <scripts name="Inventory">
-      <script>scripts\inventory_display.gml</script>
-      <script>scripts\inventory_is_displayed.gml</script>
-      <script>scripts\inventory_is_shown.gml</script>
     </scripts>
     <scripts name="Miscellaneous">
       <script>scripts\create_path.gml</script>

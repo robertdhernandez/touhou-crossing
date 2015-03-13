@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>image_xscale = 2;
 image_yscale = 2;
-image_speed = 0;//5 / room_speed;
+image_speed = 5 / room_speed;
 
 x += sprite_get_xoffset(image_index) * 1.5;
 y += sprite_get_yoffset(image_index) * 1.6;

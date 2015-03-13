@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
+show = false;
 show_y = 240 / 2;
 hide_y = show_y + 240;
 show_speed = (hide_y - show_y) / (room_speed * 0.30);
@@ -34,7 +35,7 @@ show_speed = (hide_y - show_y) / (room_speed * 0.30);
 x = 320 / 2;
 y = hide_y;
 
-show = false;
+font_money = font_add_sprite_ext(spr_ui_inventory_bell_font, "0123456789,", true, 1);
 
 // TODO load a 32x32 pattern to use as background
 bg = bg_default_pattern;
@@ -44,9 +45,9 @@ bg_speed = 32 * 0.40 / room_speed;
 
 surface = undefined;
 
-instance_create(48, 34, obj_ui_inventory_name);
-instance_create(35, 18, obj_ui_inventory_town);
-instance_create(94, 65, obj_ui_inventory_money);
+//instance_create(48, 34, obj_ui_inventory_name);
+//instance_create(35, 18, obj_ui_inventory_town);
+//instance_create(94, 65, obj_ui_inventory_money);
 instance_create(133, 22, obj_ui_inventory_character);
 
 for (var i = 0; i &lt; 15; i++)
@@ -72,6 +73,29 @@ for (var i = 0; i &lt; 10; i++)
     with (instance_create(xx, yy, obj_ui_inventory_letter))
         slot = i;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>font_delete(font_money);
 </string>
           </argument>
         </arguments>
@@ -145,6 +169,27 @@ draw_surface_part(surface, 0, 0, sprite_get_width(sprite_index), sprite_get_heig
 draw_set_blend_mode(bm_normal);
 
 draw_self();
+
+var xoffset = sprite_get_xoffset(sprite_index);
+var yoffset = sprite_get_yoffset(sprite_index);
+
+// Town name
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_font(global.font_dialogue);
+draw_text(x + 35 - xoffset, y + 18 - yoffset, "Gensokyo");
+
+// Player name
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_font(global.font_dialogue);
+draw_text(x + 48 - xoffset, y + 34 - yoffset, player_get_name());
+
+// Money
+draw_set_halign(fa_right);
+draw_set_valign(fa_top);
+draw_set_font(font_money);
+draw_text(x + 94 - xoffset, y + 65 - yoffset, string_thousands(min(global.money, 99999)));
 </string>
           </argument>
         </arguments>
