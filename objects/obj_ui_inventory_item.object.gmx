@@ -52,7 +52,41 @@ item = -1;
             <kind>1</kind>
             <string>event_inherited();
 
-visible = item != -1;
+visible = item != -1 or slot == 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+
+if (visible and mouse_check_button_pressed(mb_left))
+{
+    var xx = mouse_get_gui_x();
+    var yy = mouse_get_gui_y();
+    
+    if (position_meeting(xx, yy, id))//point_in_rectangle(xx, yy, bbox_left, bbox_top, bbox_right, bbox_bottom))
+    {
+        show_debug_message("Item " + string(slot) + " selected");
+    }
+}
 </string>
           </argument>
         </arguments>

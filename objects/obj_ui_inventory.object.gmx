@@ -45,9 +45,6 @@ bg_speed = 32 * 0.40 / room_speed;
 
 surface = undefined;
 
-//instance_create(48, 34, obj_ui_inventory_name);
-//instance_create(35, 18, obj_ui_inventory_town);
-//instance_create(94, 65, obj_ui_inventory_money);
 instance_create(133, 22, obj_ui_inventory_character);
 
 for (var i = 0; i &lt; 15; i++)

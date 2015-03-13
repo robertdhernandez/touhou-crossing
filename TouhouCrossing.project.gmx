@@ -709,6 +709,8 @@
       <script>scripts\iff.gml</script>
       <script>scripts\load_file.gml</script>
       <script>scripts\load_file_json.gml</script>
+      <script>scripts\mouse_get_gui_x.gml</script>
+      <script>scripts\mouse_get_gui_y.gml</script>
       <script>scripts\parse_string.gml</script>
       <script>scripts\random_out_of_bounds_x.gml</script>
       <script>scripts\random_out_of_bounds_y.gml</script>
@@ -893,6 +895,7 @@
       <object>objects\obj_struct_gate</object>
       <object>objects\obj_struct_house</object>
       <object>objects\obj_struct_project</object>
+      <object>objects\obj_struct_shrine</object>
     </objects>
     <objects name="Title">
       <object>objects\obj_title</object>
@@ -911,10 +914,7 @@
           <object>objects\obj_ui_inventory_character</object>
           <object>objects\obj_ui_inventory_component</object>
           <object>objects\obj_ui_inventory_item</object>
-          <object>objects\obj_ui_inventory_name</object>
-          <object>objects\obj_ui_inventory_town</object>
           <object>objects\obj_ui_inventory_letter</object>
-          <object>objects\obj_ui_inventory_money</object>
         </objects>
         <object>objects\obj_ui_component</object>
         <objects name="Ticker">
@@ -936,6 +936,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_demo</room>
+    <room>rooms\rm_demo_intro</room>
     <room>rooms\rm_newgame</room>
     <room>rooms\rm_title</room>
     <rooms name="Interior">
