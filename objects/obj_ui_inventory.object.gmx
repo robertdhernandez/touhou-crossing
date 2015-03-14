@@ -45,31 +45,18 @@ bg_speed = 32 * 0.40 / room_speed;
 
 surface = undefined;
 
+cursor = instance_create(0, 0, obj_ui_cursor);
+cursor.image_xscale = -1;
+cursor_speed = 15;
+
+inv_index = 0;
+for (var i = 0; i &lt; inventory_size; i++)
+    inventory[i] = noone;
+    
+current = noone;
+moving = noone;
+
 instance_create(133, 22, obj_ui_inventory_character);
-
-for (var i = 0; i &lt; 15; i++)
-{
-    var col = i mod 5;
-    var row = floor(i / 5);
-
-    var xx = 7 + 32 * col + 16 * row;
-    var yy = 94 + 24 * row;
-
-    with (instance_create(xx, yy, obj_ui_inventory_item))
-        slot = i;
-}
-
-for (var i = 0; i &lt; 10; i++)
-{
-    var col = i mod 2;
-    var row = floor(i / 2);
-    
-    var xx = 200 + 24 * col;
-    var yy = 39 + 24 * row;
-    
-    with (instance_create(xx, yy, obj_ui_inventory_letter))
-        slot = i;
-}
 </string>
           </argument>
         </arguments>
@@ -98,6 +85,44 @@ for (var i = 0; i &lt; 10; i++)
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Update positions
+
+if (moving != noone)
+{
+    moving.x = cursor.x - 26;
+    moving.y = cursor.y;
+}
+
+for (var i = 0; i &lt; inventory_size; i++)
+{
+    if (inventory[i] != noone)
+    {
+        inventory[i].x = inventory_get_item_slot_x(i);
+        inventory[i].y = inventory_get_item_slot_y(i);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
@@ -115,10 +140,190 @@ for (var i = 0; i &lt; 10; i++)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (input_check_pressed(input.start))
-    show = not show;
+            <string>y = clamp(y - show_speed * iff(show, 1, -1), show_y, hide_y);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>cursor.visible = visible;
 
-y = clamp(y - show_speed * iff(show, 1, -1), show_y, hide_y);
+var item_col = inv_index mod 5;
+var item_row = floor(inv_index / 5);
+
+var is_item = (0 &lt;= inv_index and inv_index &lt;= 14);
+var is_letter = (15 &lt;= inv_index);
+
+/// Move the cursor
+
+if (not inventory_is_displayed())
+{
+    with (cursor)
+    {
+        x = inventory_get_cursor_x(other.inv_index);
+        y = inventory_get_cursor_y(other.inv_index);
+    }
+}
+
+else
+{
+    with (cursor)
+    {
+        var xx = inventory_get_cursor_x(other.inv_index);
+        var yy = inventory_get_cursor_y(other.inv_index);
+        
+        speed = min(point_distance(x, y, xx, yy), other.cursor_speed);
+        direction = point_direction(x, y, xx, yy);
+    }
+}
+
+/// User Input
+
+var update = false;
+
+if (input_check_pressed(input.start) and not dialogue_is_shown() and moving == noone)
+{
+    update = true;
+    show = not show;
+}
+
+if (inventory_is_displayed())
+{
+    if (input_check_pressed(input.a))
+    {
+        update = true;
+    
+        if (current != noone)
+        {
+            moving = current;
+            inventory[inv_index] = noone;
+            cursor.grab = true;
+        }
+        else if (is_item and inventory[inv_index] == noone)
+        {
+            inventory[inv_index] = moving;
+            moving = noone;
+            cursor.grab = false;
+        }
+    }
+
+    else if (input_check_pressed(input.left))
+    {
+        update = true;
+    
+        if (is_item and item_col != 0)
+            inv_index--;
+        else if (is_letter)
+        {
+            if (inv_index mod 2 == 0)
+                inv_index--;
+            else
+            {
+                switch (inv_index)
+                {
+                    case 15:
+                    case 17:
+                    case 19:
+                        inv_index = 4; 
+                    break;
+                    
+                    case 21: 
+                        inv_index = 9; 
+                    break;
+                    
+                    case 23: 
+                        inv_index = 14; 
+                    break;
+                }
+            }
+        }
+    }
+    
+    else if (input_check_pressed(input.right))
+    {
+        update = true;
+    
+        if (is_item)
+        {
+            if (item_col &lt; 4)
+                inv_index++;
+            else if (item_col == 4)
+            {
+                switch (item_row)
+                {
+                    case 0: inv_index = 19; break;
+                    case 1: inv_index = 21; break;
+                    case 2: inv_index = 23; break;
+                }
+            }
+        }
+        else if (is_letter and inv_index mod 2 == 1)
+            inv_index++;
+    }
+    
+    else if (input_check_pressed(input.up))
+    {
+        update = true;
+    
+        if (is_item)
+        {
+            if (item_row != 0)
+                inv_index -= 5;
+        }
+        if (is_letter and 16 &lt; inv_index)
+            inv_index -= 2;
+    }
+    
+    else if (input_check_pressed(input.down))
+    {
+        update = true;
+    
+        if (is_item)
+        {
+            if (item_row != 2)
+                inv_index += 5;
+        }
+        else if (is_letter and inv_index &lt; 23)
+            inv_index += 2;
+    }
+}
+
+/// Update current
+
+if (update)
+{
+    is_item = (0 &lt;= inv_index and inv_index &lt;= 14);
+    is_letter = (15 &lt;= inv_index);
+
+    if (current != noone)
+    {
+        current.active = false;
+        current = noone;
+    }
+    
+    if (is_item and inventory[inv_index] != noone)
+    {
+        current = inventory[inv_index];
+        current.active = true;
+    }
+}
 </string>
           </argument>
         </arguments>

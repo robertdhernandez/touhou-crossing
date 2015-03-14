@@ -3,7 +3,7 @@
   <spriteName>spr_ui_inventory_slot</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-500</depth>
   <persistent>0</persistent>
   <parentName>obj_ui_inventory_component</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,32 +27,10 @@
             <kind>1</kind>
             <string>event_inherited();
 
-item = -1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>event_inherited();
+active = false;
+icon = spr_ui_items;
 
-visible = item != -1 or slot == 0;
+image_speed = 0;
 </string>
           </argument>
         </arguments>
@@ -77,16 +55,7 @@ visible = item != -1 or slot == 0;
             <kind>1</kind>
             <string>event_inherited();
 
-if (visible and mouse_check_button_pressed(mb_left))
-{
-    var xx = mouse_get_gui_x();
-    var yy = mouse_get_gui_y();
-    
-    if (position_meeting(xx, yy, id))//point_in_rectangle(xx, yy, bbox_left, bbox_top, bbox_right, bbox_bottom))
-    {
-        show_debug_message("Item " + string(slot) + " selected");
-    }
-}
+image_index = iff(active, 1, 0);
 </string>
           </argument>
         </arguments>
@@ -111,6 +80,8 @@ if (visible and mouse_check_button_pressed(mb_left))
             <kind>1</kind>
             <string>event_inherited();
 draw_self();
+
+draw_sprite(icon, 0, x + 4 - image_index * 2, y + 4 - image_index * 2);
 </string>
           </argument>
         </arguments>

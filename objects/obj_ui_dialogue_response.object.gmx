@@ -30,7 +30,7 @@
 response_index = 0;
 show = false;
 
-selection = instance_create(0, 0, obj_ui_dialogue_response_selection);
+selection = instance_create(0, 0, obj_ui_cursor);
 </string>
           </argument>
         </arguments>
@@ -178,8 +178,8 @@ for (var i = num_responses - 1; i &gt;= 0; i--)
 
     if (i == response_index)
     {
-        selection.x = x - 7;
-        selection.y = yy;
+        selection.x = x - 7 - 14;
+        selection.y = yy - 18;
     }
     
     draw_set_color(c_white);

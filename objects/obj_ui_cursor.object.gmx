@@ -3,7 +3,7 @@
   <spriteName>spr_ui_cursor</spriteName>
   <solid>0</solid>
   <visible>0</visible>
-  <depth>0</depth>
+  <depth>-1000</depth>
   <persistent>-1</persistent>
   <parentName>obj_ui_base</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 2 / room_speed;
+            <string>grab = false;
+image_speed = 2 / room_speed;
 </string>
           </argument>
         </arguments>
@@ -48,7 +49,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>if (grab)
+{
+    image_index = 0;
+    sprite_index = spr_ui_cursor_grabbed;
+}
+else
+{
+    sprite_index = spr_ui_cursor;
+}
+
+event_inherited();
 draw_self();
 </string>
           </argument>
