@@ -31,6 +31,7 @@ response_index = 0;
 show = false;
 
 selection = instance_create(0, 0, obj_ui_cursor);
+ninepatch = sprite_get_9patch(spr_ui_dialogue_response);
 </string>
           </argument>
         </arguments>
@@ -55,6 +56,7 @@ selection = instance_create(0, 0, obj_ui_cursor);
             <kind>1</kind>
             <string>event_inherited();
 with (selection) { instance_destroy(); }
+ds_list_destroy(ninepatch);
 </string>
           </argument>
         </arguments>
@@ -158,19 +160,19 @@ var num_responses = global.dialogue_num_responses;
 
 draw_set_font(obj_ui_dialogue.font);
 
-// draw background -- TODO use 9patch sprite
+// draw background
 
 var max_width = 0;
 for (var i = 0; i &lt; num_responses; i++)
     max_width = max(max_width, string_width(response[i]));
-    
-draw_set_color(make_color_rgb(228, 224, 172));
-draw_roundrect(x - 5, y - 5, x + max_width + 5, y + (num_responses * -15) - 10, false);
+  
+var height = (num_responses * 15);
+sprite_draw_9patch(ninepatch, spr_ui_dialogue_response, 0, x - 6, y - 7 - height, max_width + 9, height + 7, c_white, 1);
     
 // draw responses
 
 draw_set_halign(fa_left);
-draw_set_valign(fa_middle);
+draw_set_valign(fa_top);
 
 for (var i = num_responses - 1; i &gt;= 0; i--)
 {

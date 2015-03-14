@@ -630,8 +630,10 @@
       <sprites name="Inventory">
         <sprite>sprites\spr_ui_inventory</sprite>
         <sprite>sprites\spr_ui_inventory_bell_font</sprite>
+        <sprite>sprites\spr_ui_inventory_info</sprite>
         <sprite>sprites\spr_ui_inventory_letter</sprite>
         <sprite>sprites\spr_ui_inventory_mask</sprite>
+        <sprite>sprites\spr_ui_inventory_selection</sprite>
         <sprite>sprites\spr_ui_inventory_slot</sprite>
       </sprites>
       <sprite>sprites\spr_ui_items</sprite>
@@ -731,6 +733,8 @@
       <script>scripts\random_out_of_bounds_y.gml</script>
       <script>scripts\random_weighted.gml</script>
       <script>scripts\round_direction.gml</script>
+      <script>scripts\sprite_draw_9patch.gml</script>
+      <script>scripts\sprite_get_9patch.gml</script>
       <script>scripts\string_thousands.gml</script>
       <script>scripts\string_zeroes.gml</script>
       <script>scripts\transition_to.gml</script>
