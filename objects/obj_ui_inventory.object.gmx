@@ -3,7 +3,7 @@
   <spriteName>spr_ui_inventory</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1000</depth>
   <persistent>0</persistent>
   <parentName>obj_ui_base</parentName>
   <maskName>spr_ui_inventory_mask</maskName>
@@ -36,6 +36,7 @@ x = 320 / 2;
 y = hide_y;
 
 font_money = font_add_sprite_ext(spr_ui_inventory_bell_font, "0123456789,", true, 1);
+np_name = sprite_get_9patch(spr_ui_inventory_info);
 
 // TODO load a 32x32 pattern to use as background
 bg = bg_default_pattern;
@@ -46,6 +47,7 @@ bg_speed = 32 * 0.40 / room_speed;
 surface = undefined;
 
 cursor = instance_create(0, 0, obj_ui_cursor);
+cursor.depth = depth - 1000;
 cursor.image_xscale = -1;
 cursor_speed = 15;
 
@@ -80,6 +82,7 @@ instance_create(133, 22, obj_ui_inventory_character);
           <argument>
             <kind>1</kind>
             <string>font_delete(font_money);
+ds_list_destroy(np_name);
 </string>
           </argument>
         </arguments>
@@ -108,6 +111,7 @@ if (moving != noone)
 {
     moving.x = cursor.x - 26;
     moving.y = cursor.y;
+    moving.active = true;
 }
 
 for (var i = 0; i &lt; inventory_size; i++)
@@ -315,13 +319,15 @@ if (update)
     if (current != noone)
     {
         current.active = false;
+        current.show_name = false;
         current = noone;
     }
     
-    if (is_item and inventory[inv_index] != noone)
+    if (moving == noone and is_item and inventory[inv_index] != noone)
     {
         current = inventory[inv_index];
         current.active = true;
+        current.show_name = true;
     }
 }
 </string>
