@@ -36,9 +36,9 @@ x = 320 / 2;
 y = hide_y;
 
 font_money = font_add_sprite_ext(spr_ui_inventory_bell_font, "0123456789,", true, 1);
-np_name = sprite_get_9patch(spr_ui_inventory_info);
 
 // TODO load a 32x32 pattern to use as background
+
 bg = bg_default_pattern;
 bg_x = 0;
 bg_y = 0;
@@ -82,7 +82,6 @@ instance_create(133, 22, obj_ui_inventory_character);
           <argument>
             <kind>1</kind>
             <string>font_delete(font_money);
-ds_list_destroy(np_name);
 </string>
           </argument>
         </arguments>
@@ -316,6 +315,8 @@ if (update)
     is_item = (0 &lt;= inv_index and inv_index &lt;= 14);
     is_letter = (15 &lt;= inv_index);
 
+    // TODO have slight delay when showing name
+    
     if (current != noone)
     {
         current.active = false;

@@ -85,24 +85,7 @@ draw_self();
 draw_sprite(icon, 0, x + 4 - image_index * 2, y + 4 - image_index * 2);
 
 if (show_name)
-{
-    draw_set_font(global.font_dialogue);
-    
-    var name = item[? "name"];
-    var width = string_width(name);
-    var height = 16;
-
-    var np = obj_ui_inventory.np_name;
-    var spr = spr_ui_inventory_info;
-    var xx = x - width / 3;
-    var yy = y - 26;
-    
-    sprite_draw_9patch(np, spr, 0, xx, yy, width + 17, height, c_white, 1);
-    
-    draw_set_halign(fa_left);
-    draw_set_valign(fa_top);
-    draw_text(xx + 10, yy + 4, name);
-}
+    ui_show_info(x, y - 26, item[? "name"]);
 </string>
           </argument>
         </arguments>

@@ -36,7 +36,9 @@ struct_init();
 ui_init();
 
 instance_create(0, 0, obj_debug);
+//instance_create(0, 0, obj_util_console); // TODO WIP
 instance_create(0, 0, obj_util_tint);
+instance_create(0, 0, obj_util_steadydeltatime);
 
 global.axislh_previous = 0;
 global.axislv_previous = 0;
