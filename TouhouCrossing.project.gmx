@@ -839,6 +839,12 @@
         <script>scripts\player_set_follower.gml</script>
       </scripts>
     </scripts>
+    <scripts name="ScheduleGMS">
+      <scripts name="Extension_Support">
+        <script>scripts\ScheduleGMS_Final.gml</script>
+        <script>scripts\ScheduleGMS_Init.gml</script>
+      </scripts>
+    </scripts>
     <scripts name="Structure">
       <scripts name="House">
         <scripts name="Properties">
