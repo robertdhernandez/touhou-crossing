@@ -192,8 +192,10 @@ else
         var xx = inventory_get_cursor_x(other.inv_index);
         var yy = inventory_get_cursor_y(other.inv_index);
         
-        speed = min(point_distance(x, y, xx, yy), other.cursor_speed);
-        direction = point_direction(x, y, xx, yy);
+        move_towards(xx, yy, other.cursor_speed);
+        
+        //speed = min(point_distance(x, y, xx, yy), other.cursor_speed);
+        //direction = point_direction(x, y, xx, yy);
     }
 }
 

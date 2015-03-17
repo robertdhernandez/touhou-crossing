@@ -3,9 +3,9 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>0</visible>
-  <depth>0</depth>
+  <depth>9000</depth>
   <persistent>-1</persistent>
-  <parentName>obj_ui_dialogue_component</parentName>
+  <parentName>obj_ui_base</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -79,9 +79,7 @@ ds_list_destroy(ninepatch);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// User input
-
-if (visible)
+            <string>if (visible)
 {
     if (input_check_pressed(input.down))
     {
@@ -98,36 +96,14 @@ if (visible)
     if (input_check_pressed(input.a))
     {
         obj_ui_dialogue.message_index = response_index + 1;
-        with (obj_ui_dialogue) { event_user(0); }
+        obj_ui_dialogue.next_page = true;
         
         response_index = 0;
         show = false;
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Set visibility
 
-event_inherited();
-visible = visible and show;
+visible = obj_ui_dialogue.visible and show;
 
 selection.depth = depth - 1;
 selection.visible = visible;

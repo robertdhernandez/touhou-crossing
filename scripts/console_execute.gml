@@ -23,7 +23,7 @@ if cmd = "game_restart" then game_restart();
 
 if cmd = "room_speed" && n = 1 then room_speed = real(a[1]);
 
-if cmd = "background_color" && n = 3 then 
+if cmd = "background_color" && n = 3 then
 background_colour = make_color_rgb(real(a[1]),real(a[2]),real(a[3]));
 
 if cmd = "circle_color" && n = 3 then with obj_Circle

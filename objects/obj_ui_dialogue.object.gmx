@@ -3,7 +3,7 @@
   <spriteName>spr_ui_dialogue</spriteName>
   <solid>0</solid>
   <visible>0</visible>
-  <depth>0</depth>
+  <depth>10000</depth>
   <persistent>-1</persistent>
   <parentName>obj_ui_base</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,26 +25,35 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>min_y = 240;
-max_y = 240 + sprite_get_height(sprite_index);
+            <string>show_y = 240;
+hide_y = 240 + sprite_get_height(sprite_index);
 
 image_speed = 0;
 x = 160;
-y = max_y;
+y = hide_y;
 
 display = false;
-display_rate = room_speed * 0.5;
+display_rate = 0.30;
 
 font = global.font_dialogue;
 
 message = "";
 message_index = 0;
 message_queue = ds_queue_create();
+message_rate = 0.025;
 
-instance_create(90, -14, obj_ui_dialogue_continue);
-instance_create(20, -50, obj_ui_dialogue_response);
-instance_create(-55, -71, obj_ui_dialogue_speaker);
-instance_create(-86, -53, obj_ui_dialogue_text);
+next_page = false;
+
+obj_continue = instance_create(90, -14, obj_ui_dialogue_continue);
+obj_response = instance_create(20, -50, obj_ui_dialogue_response);
+
+linker = linker_tree_create();
+linker_leaf_add(linker, 90, -14, obj_continue);
+linker_leaf_add(linker, 20, -50, obj_response);
+
+updater = ScheduleAlarm(id, true, message_rate, 0);
+ScheduleSetRepeat(updater, -1);
+SchedulePause(updater);
 </string>
           </argument>
         </arguments>
@@ -67,18 +76,21 @@ instance_create(-86, -53, obj_ui_dialogue_text);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with (obj_ui_dialogue_component) { instance_destroy(); }
+            <string>linker_tree_destroy(linker);
+
+with (obj_continue) instance_destroy();
+with (obj_response) instance_destroy();
 
 ds_queue_destroy(message_queue);
 
-if (global.dialogue_npc != -1)
-    global.dialogue_npc.can_think = true;
+//if (global.dialogue_npc != -1)
+//    global.dialogue_npc.can_think = true;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="1">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -95,24 +107,17 @@ if (global.dialogue_npc != -1)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y = clamp(y - display_rate * iff(display, 1, -1), min_y, max_y);
-
-if (y == min_y)
-{
-    if (not ds_queue_empty(message_queue))
-        message += ds_queue_dequeue(message_queue);
-}
-
-visible = (y != max_y);
-
-//if (not visible)
-//    instance_destroy();
+            <string>if (not ds_queue_empty(message_queue))
+    message += ds_queue_dequeue(message_queue);
+    
+if (ds_queue_empty(message_queue))
+    SchedulePause(updater);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="11">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -129,35 +134,16 @@ visible = (y != max_y);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Perform endaction
+            <string>linker_leaves_snap(linker);
 
-if (not is_undefined(global.dialogue_endaction[message_index]))
-    script_execute(global.dialogue_endaction[message_index]);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Progress
+if (not next_page) exit;
+
+next_page = false;
 
 var buffer = global.dialogue_buffer[message_index];
+    
+var endaction = global.dialogue_endaction[message_index];
+var has_endaction = not is_undefined(endaction);
 
 // get next in queue
 if (not ds_queue_empty(buffer))
@@ -183,16 +169,60 @@ else if (not responded and global.dialogue_num_responses &gt; 0 and not obj_ui_d
 // no more, no responses
 else if (not is_undefined(global.dialogue_result[message_index]))
 {
-    event_user(1);
+    if (has_endaction)
+        script_execute(endaction);
     npc_speak(global.dialogue_npc, global.dialogue_result[message_index]);
 }
 
 // close
 else
 {
-    event_user(1);
+    if (has_endaction)
+        script_execute(endaction);
     display = false;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var xx = x;
+var yy = iff(display, show_y, hide_y);
+var spd = abs(hide_y - show_y) / display_rate * global.dt_steady;
+
+move_towards(xx, yy, spd);
+
+if (y == show_y and not ds_queue_empty(message_queue) and ScheduleIsPaused(updater))
+{
+    ScheduleResume(updater);
+}
+
+if (ScheduleIsPlaying(updater))
+{
+    ScheduleSetTimeScale(updater, iff(input_check(input.a), 2, 1));
+}
+
+visible = (y != hide_y);
+
+//if (not visible)
+//    instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -216,7 +246,29 @@ else
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+
 draw_self();
+
+// speaker
+if (image_index == 0)
+{
+    draw_set_color(c_white);
+    draw_set_font(font);
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    
+    draw_text(x - 55, y - 71, global.dialogue_speaker);
+}
+
+// message
+{
+    draw_set_color(c_white);
+    draw_set_font(font);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    
+    draw_text_ext(x - 86, y - 53, message, 15, 173);
+}
 </string>
           </argument>
         </arguments>
