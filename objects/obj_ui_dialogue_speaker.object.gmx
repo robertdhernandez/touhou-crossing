@@ -4,11 +4,11 @@
   <solid>0</solid>
   <visible>0</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <persistent>-1</persistent>
+  <parentName>obj_ui_dialogue_component</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>persistent = true;
+            <string>event_inherited();
+visible = (obj_ui_dialogue.visible and obj_ui_dialogue.image_index == 0);
 </string>
           </argument>
         </arguments>
@@ -48,30 +49,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>display_set_gui_size(320, 240);
+            <string>event_inherited();
+
+draw_set_color(c_white);
+draw_set_font(obj_ui_dialogue.font);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+draw_text(x, y, global.dialogue_speaker);
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Do not draw</string>
           </argument>
         </arguments>
       </action>

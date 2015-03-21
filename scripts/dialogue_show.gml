@@ -6,5 +6,5 @@ with (obj_ui_dialogue)
     display = true;
     message_index = 0;
     responded = false;
-    next_page = true;
+    event_user(0);
 }
