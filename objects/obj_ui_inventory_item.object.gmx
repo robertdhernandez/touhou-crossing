@@ -29,9 +29,7 @@
 
 active = false;
 show_name = false;
-icon = spr_ui_items;
-
-image_speed = 0;
+icon = spr_item_furniture;
 </string>
           </argument>
         </arguments>

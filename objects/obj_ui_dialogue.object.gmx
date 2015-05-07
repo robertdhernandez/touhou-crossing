@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>min_y = 240;
-max_y = 240 + sprite_get_height(sprite_index);
+            <string>min_y = global.game_height;
+max_y = global.game_height + sprite_get_height(sprite_index);
 
 image_speed = 0;
 x = 160;
@@ -100,7 +100,10 @@ if (global.dialogue_npc != -1)
 if (y == min_y)
 {
     if (not ds_queue_empty(message_queue))
+    {
         message += ds_queue_dequeue(message_queue);
+        //audio_play_sound(snd_dialogue, 0, false);
+    }
 }
 
 visible = (y != max_y);

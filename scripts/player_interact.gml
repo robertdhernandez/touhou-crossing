@@ -1,9 +1,9 @@
-/// player_interact()
+/// player_interact(x, y)
 
 with (obj_player)
 {
-    var xx = x + lengthdir_x(interact_dist, direction);
-    var yy = y + lengthdir_y(interact_dist, direction);
+    var xx = argument0;//x + lengthdir_x(interact_dist, direction);
+    var yy = argument1;//y + lengthdir_y(interact_dist, direction);
     
     with (collision_line(x, y, xx, yy, obj_entity, false, true))
     {

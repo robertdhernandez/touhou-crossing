@@ -32,6 +32,8 @@ show = false;
 
 selection = instance_create(0, 0, obj_ui_cursor);
 ninepatch = sprite_get_9patch(spr_ui_dialogue_response);
+
+selection.visible = os_type != os_android;
 </string>
           </argument>
         </arguments>

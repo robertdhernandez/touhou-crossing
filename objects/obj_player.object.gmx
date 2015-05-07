@@ -166,23 +166,50 @@ event_inherited();
 
 if (dialogue_is_shown() or inventory_is_shown() or instance_exists(obj_util_transition)) 
 {
-    speed = 0; 
-    exit; 
+    speed = 0;
 }
 
-if (input_check_no_opposites())
+else if (os_type != os_android)
 {
-    speed = move_speed * input_get_distance() * 1.5;
+    if (input_check_no_opposites())
+    {
+        speed = move_speed * input_get_distance() * 1.5;
+        
+        if (speed != 0)
+            direction = input_get_direction();
+    }
     
-    if (speed != 0)
-        direction = input_get_direction();
+    if (input_check_pressed(input.a))
+        player_interact(x + lengthdir_x(interact_dist, direction), y + lengthdir_y(interact_dist, direction));
+    
+    if (input_check(input.b))
+        speed *= 1.5;
 }
+else if (os_type == os_android)
+{
+    var is_moving = speed &gt; 0;
+    var single_touch = mouse_check_button(mb_left);
+    var double_touch = mouse_check_button(mb_right);
 
-if (input_check_pressed(input.a))
-    player_interact();
+    if (single_touch)
+    {
+        direction = point_direction(x, y, mouse_x, mouse_y);
+        
+        var entity = instance_position(mouse_x, mouse_y, obj_entity);
+        if (entity != noone)
+        {
+            if (point_distance(x, y, entity.x, entity.y) &lt;= interact_dist)
+                player_interact(entity.x, entity.y);
+        }
+    }
 
-if (input_check(input.b))
-    speed *= 1.5;
+    if (double_touch or (is_moving and single_touch))
+    {
+        speed = min(point_distance(x, y, mouse_x, mouse_y), move_speed * 1.5);   
+    }
+    else
+        speed = 0;
+}
 </string>
           </argument>
         </arguments>

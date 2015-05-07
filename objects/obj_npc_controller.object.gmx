@@ -72,7 +72,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (selected_npc != noone)
+            <string>if (os_type == os_android) exit;
+
+if (selected_npc != noone)
 {
     if (not npc_move_to(selected_npc, mouse_x, mouse_y))
     {

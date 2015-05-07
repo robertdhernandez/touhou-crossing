@@ -75,10 +75,7 @@
       <filename>structures.json</filename>
     </datafile>
   </datafiles>
-  <NewExtensions>
-    <extension index="0">extensions\String Thousands</extension>
-    <extension index="1">extensions\String Zeroes</extension>
-  </NewExtensions>
+  <NewExtensions/>
   <sounds name="sound">
     <sound>sound\snd_dialogue</sound>
   </sounds>
@@ -596,8 +593,18 @@
       <sprite>sprites\spr_interior_exit</sprite>
       <sprite>sprites\spr_interior_table</sprite>
     </sprites>
+    <sprites name="Items">
+      <sprite>sprites\spr_item_furniture</sprite>
+      <sprite>sprites\spr_item_gyroid</sprite>
+      <sprite>sprites\spr_item_wallpaper</sprite>
+      <sprite>sprites\spr_item_carpet</sprite>
+      <sprite>sprites\spr_item_shirt</sprite>
+      <sprite>sprites\spr_item_umbrella</sprite>
+      <sprite>sprites\spr_item_hat</sprite>
+      <sprite>sprites\spr_item_accessory</sprite>
+      <sprite>sprites\spr_item_helmet</sprite>
+    </sprites>
     <sprite>sprites\spr_collision</sprite>
-    <sprite>sprites\spr_tool_seed</sprite>
     <sprites name="Structure">
       <sprite>sprites\mask_entrance</sprite>
       <sprite>sprites\spr_struct_fountain</sprite>
@@ -636,7 +643,6 @@
         <sprite>sprites\spr_ui_inventory_selection</sprite>
         <sprite>sprites\spr_ui_inventory_slot</sprite>
       </sprites>
-      <sprite>sprites\spr_ui_items</sprite>
       <sprites name="Ticker">
         <sprite>sprites\spr_ui_ticker_font</sprite>
       </sprites>
@@ -827,12 +833,6 @@
         <script>scripts\player_set_follower.gml</script>
       </scripts>
     </scripts>
-    <scripts name="ScheduleGMS">
-      <scripts name="Extension_Support">
-        <script>scripts\ScheduleGMS_Final.gml</script>
-        <script>scripts\ScheduleGMS_Init.gml</script>
-      </scripts>
-    </scripts>
     <scripts name="Structure">
       <scripts name="House">
         <scripts name="Properties">
@@ -874,7 +874,6 @@
       <script>scripts\ui_ticker_post.gml</script>
     </scripts>
   </scripts>
-  <fonts name="fonts"/>
   <objects name="objects">
     <objects name="Camera">
       <object>objects\obj_camera</object>
@@ -985,7 +984,7 @@
     <constant name="energy_regen">room_speed</constant>
     <constant name="follow_dist">(tile_size * 2)</constant>
     <constant name="grid_size">4</constant>
-    <constant name="interact_dist">(tile_size * 1.5)</constant>
+    <constant name="interact_dist">(tile_size * 2.25)</constant>
     <constant name="inventory_size">15</constant>
     <constant name="json_endaction">"endaction"</constant>
     <constant name="json_goto">"goto"</constant>

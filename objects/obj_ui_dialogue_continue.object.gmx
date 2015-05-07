@@ -51,7 +51,7 @@ image_speed = 2 / room_speed;
             <kind>1</kind>
             <string>/// Move to next page (if visible)
 
-if (visible and input_check_pressed(input.a))
+if (visible and (input_check_pressed(input.a) or mouse_check_button_pressed(mb_left)))
     with (obj_ui_dialogue) event_user(0);
 </string>
           </argument>

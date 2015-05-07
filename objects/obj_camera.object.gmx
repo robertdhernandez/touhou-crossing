@@ -28,6 +28,20 @@
             <string>keep_in_bounds = true;
 viewport = 0;
 zoom = 1;
+
+width = 320;
+height = 240;
+
+if (os_type == os_android)
+{
+    height = width * (display_get_height() / display_get_width());
+
+    view_wport[0] = display_get_width();
+    view_hport[0] = display_get_height();
+}
+
+global.game_width = width;
+global.game_height = height;
 </string>
           </argument>
         </arguments>
@@ -54,8 +68,8 @@ zoom = 1;
 
 // Calculate the zoom
 zoom = clamp(zoom, 1, 2);
-view_wview[viewport] = 320 * zoom;
-view_hview[viewport] = 240 * zoom;
+view_wview[viewport] = width * zoom;
+view_hview[viewport] = height * zoom;
 
 // Keep view within game bounds
 var xx = x - view_wview[viewport] / 2;
