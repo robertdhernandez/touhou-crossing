@@ -960,16 +960,17 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\__rm_init</room>
+    <rooms name="Acre">
+      <room>rooms\rm_acre00</room>
+    </rooms>
+    <rooms name="Interior">
+      <room>rooms\rm_house</room>
+    </rooms>
     <room>rooms\rm_demo</room>
     <room>rooms\rm_demo_intro</room>
     <room>rooms\rm_newgame</room>
     <room>rooms\rm_title</room>
-    <rooms name="Interior">
-      <room>rooms\rm_house</room>
-    </rooms>
-    <rooms name="Acre">
-      <room>rooms\rm_acre00</room>
-    </rooms>
   </rooms>
   <constants number="28">
     <constant name="analogue_deadzone">0.15</constant>
