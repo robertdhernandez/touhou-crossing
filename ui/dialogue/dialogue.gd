@@ -1,13 +1,17 @@
 extends Control
 
-#var debug = {
-#	"speaker" : "Debug",
-#	"messages" : 
-#	[
-#		{ "message" : "The quick brown fox jumped over the lazy dog"},
-#		{ "message" : "The dsfdsfsdf"}
-#	],
-#}
+var DIALOGUE_SAMPLE = {
+	"speaker" : "Debug",
+	"lines" : [
+		"The quick brown fox jumped over the lazy dog",
+		"The dsfdsfsdf"
+	],
+	"choices" : [
+		"Choice 1",
+		"Choice 2",
+		"Choice 3"
+	]
+}
 
 const SIGNAL_DISPLAY = "display"
 const SIGNAL_ON_HIDDEN = "on_hidden"
@@ -19,7 +23,7 @@ const SIGNAL_PROGRESS = "progress"
 
 export(float) var display_rate = 1.0
 
-var dialogue = null setget _dialogue_set, _dialogue_get
+var dialogue = {} setget _dialogue_set, _dialogue_get
 var visible = false setget _visible_set, _visible_get
 
 
@@ -28,7 +32,7 @@ func _init():
 	add_user_signal(SIGNAL_ON_HIDDEN)
 	add_user_signal(SIGNAL_ON_DISPLAYED)
 	add_user_signal(SIGNAL_ON_MESSAGE_DONE)
-	add_user_signal(SIGNAL_POST_MESSAGE, [{ "message" : TYPE_STRING }])
+	add_user_signal(SIGNAL_POST_MESSAGE, [{ "message" : TYPE_STRING, "speaker" : TYPE_STRING }])
 	add_user_signal(SIGNAL_PROGRESS)
 	
 	connect(SIGNAL_DISPLAY, self, "_display")
@@ -36,6 +40,13 @@ func _init():
 	connect(SIGNAL_PROGRESS, self, "_progress")
 	
 	set_margin(MARGIN_TOP, 0.0)
+	
+	set_process_input(true) # Debug
+
+
+func _input(event):
+	if event.type == InputEvent.KEY and event.scancode == KEY_F1 and event.is_pressed() and not event.is_echo():
+		self.dialogue = DIALOGUE_SAMPLE
 
 
 func _display(visible):
@@ -44,22 +55,21 @@ func _display(visible):
 
 
 func _on_displayed():
-	set_process_input(true)
-	emit_signal(SIGNAL_POST_MESSAGE, dialogue);
+	_progress()
 
 
 func _progress():
-	# TODO 
-	self.visible = false
+	if dialogue["lines"].size():
+		emit_signal(SIGNAL_POST_MESSAGE, dialogue["lines"][0], dialogue["speaker"]);
+		dialogue["lines"].remove(0)
+	else:
+		self.visible = false
 
 
 func _dialogue_set(value):
 	if not visible:
 		dialogue = value
 		self.visible = true
-	elif dialogue == null:
-		dialogue = value
-		emit_signal(SIGNAL_POST_MESSAGE, value)
 	else:
 		print("Dialogue already displayed, ignoring")
 

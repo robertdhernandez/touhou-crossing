@@ -1,6 +1,6 @@
-extends KinematicBody2D
+extends Sprite
 
-export(float) var move_speed = 32.0
+export(bool) var animate_idle = false
 
 var dir = Vector2(0, -1) setget _dir_set, _dir_get
 var is_moving = false setget _is_moving_set, _is_moving_get
@@ -17,19 +17,13 @@ static func enum_dir(vec):
 
 func _init():
 	add_user_signal(SIGNAL_ANIMATE, [{ "dir" : TYPE_VECTOR2}, { "is_moving" : TYPE_BOOL}])
-	set_fixed_process(true)
-
-
-func _fixed_process(delta):
-	if is_moving:
-		move(dir * move_speed * delta)
 
 
 func _dir_set(value):
 	value = value.normalized()
 	if value != Vector2(0, 0):
 		if enum_dir(dir) != enum_dir(value):
-			emit_signal(SIGNAL_ANIMATE, value, is_moving)
+			emit_signal(SIGNAL_ANIMATE, value, is_moving or animate_idle)
 		dir = value
 
 
@@ -40,8 +34,7 @@ func _dir_get():
 func _is_moving_set(value):
 	if is_moving != value:
 		is_moving = value
-		emit_signal(SIGNAL_ANIMATE, dir, is_moving)
-	pass
+		emit_signal(SIGNAL_ANIMATE, dir, is_moving or animate_idle)
 
 
 func _is_moving_get():
