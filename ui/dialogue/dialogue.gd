@@ -40,8 +40,10 @@ func _init():
 	connect(SIGNAL_PROGRESS, self, "_progress")
 	
 	set_margin(MARGIN_TOP, 0.0)
-	
-	set_process_input(true) # Debug
+
+
+func _ready():
+	get_tree().get_root().connect("show_dialogue", self, "_dialogue_set")
 
 
 func _input(event):

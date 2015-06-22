@@ -1,28 +1,24 @@
 extends KinematicBody2D
 
 export(bool) var enable_input = true
-export(int, "Renko", "Maribel") var model = 0
 export(float) var move_speed = 32
+export(int, "Renko", "Maribel") var sprite = 0 setget _set_sprite
 
 const SPRITE_RENKO = "res://character/sprites/renko.png"
 const SPRITE_MARIBEL = "res://character/sprites/maribel.png"
 
-var _interact_length
+var _length
 
 
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
 
-	var texture
-	if model == 1:
-		texture = load(SPRITE_MARIBEL)
-	elif model == 0:
-		texture = load(SPRITE_RENKO)
+	_set_sprite(sprite)
 
-	get_node("character").set_texture(texture)
-	
-	_interact_length = get_node("interact").get_cast_to().length()
+	_length = get_node("interact").get_cast_to().length()
+
+#	get_tree().connect("show_dialogue", self, "_on_show_dialogue")
 
 
 func _fixed_process(delta):
@@ -54,10 +50,12 @@ func _fixed_process(delta):
 	if char.is_moving:
 		move(char.dir * move_speed * delta)
 
-	get_node("interact").set_cast_to(char.dir * _interact_length)
+	get_node("interact").set_cast_to(char.dir * _length)
 
 
 func _input(event):
+	# TODO move input into this function
+
 	if event.is_action("move_up"):
 		pass
 
@@ -78,4 +76,19 @@ func _input(event):
 func _interact():
 	var raycast = get_node("interact")
 	if raycast.is_colliding():
-		print(raycast.get_collider())
+		var obj = raycast.get_collider()
+		if obj.has_method("interact"):
+			obj.interact()
+		print(obj.get_name())
+
+
+func _set_sprite(value):
+	var texture
+	if sprite == 1:
+		texture = load(SPRITE_MARIBEL)
+	elif sprite == 0:
+		texture = load(SPRITE_RENKO)
+	get_node("character").set_texture(texture)
+
+#func _on_show_dialogue(dialogue):
+#	enable_input = false
