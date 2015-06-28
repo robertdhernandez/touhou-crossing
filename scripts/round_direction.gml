@@ -1,3 +1,5 @@
 /// round_direction(angle)
 
-return floor(argument0 / 45) * 45;
+var dir = round(argument0 / 45);
+if (dir == 8) dir = 0;
+return dir;
