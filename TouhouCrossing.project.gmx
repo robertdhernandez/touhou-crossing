@@ -998,7 +998,7 @@
     <constant name="json_text">"text"</constant>
     <constant name="max_present">8</constant>
     <constant name="max_travel">7</constant>
-    <constant name="move_speed">1</constant>
+    <constant name="move_speed">(30/room_speed)</constant>
     <constant name="refund_percent">1</constant>
     <constant name="tile_size">16</constant>
   </constants>
