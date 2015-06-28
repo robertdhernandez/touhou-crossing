@@ -29,8 +29,8 @@
 viewport = 0;
 zoom = 1;
 
-width = 320;
-height = 240;
+width = view_wview[0];
+height = view_hview[0];
 
 if (os_type == os_android)
 {
