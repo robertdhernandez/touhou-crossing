@@ -26,14 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>min_y = global.game_height;
-max_y = global.game_height + sprite_get_height(sprite_index);
+max_y = global.game_height + sprite_height;
 
 image_speed = 0;
 x = 160;
 y = max_y;
 
 display = false;
-display_rate = room_speed * 0.5;
+display_rate = sprite_height / (room_speed * 0.25);
 
 font = global.font_dialogue;
 

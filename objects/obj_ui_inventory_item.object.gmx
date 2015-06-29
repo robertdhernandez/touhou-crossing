@@ -95,7 +95,7 @@ if (show_name)
     var xx = x - width / 3;
     var yy = y - 26;
     
-    sprite_draw_9patch(np, spr, 0, xx, yy, width + 17, height, c_white, 1);
+    ninepatch_draw(np, spr, 0, xx, yy, width + 17, height, c_white, 1);
     
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);

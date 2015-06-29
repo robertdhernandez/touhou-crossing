@@ -36,7 +36,7 @@ x = 320 / 2;
 y = hide_y;
 
 font_money = font_add_sprite_ext(spr_ui_inventory_bell_font, "0123456789,", true, 1);
-np_name = sprite_get_9patch(spr_ui_inventory_info);
+np_name = ninepatch_create(14, 13, 1, 1, 14, 13, 14, 13);//sprite_get_9patch(spr_ui_inventory_info);
 
 // TODO load a 32x32 pattern to use as background
 bg = bg_default_pattern;

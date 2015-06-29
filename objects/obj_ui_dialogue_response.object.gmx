@@ -31,7 +31,7 @@ response_index = 0;
 show = false;
 
 selection = instance_create(0, 0, obj_ui_cursor);
-ninepatch = sprite_get_9patch(spr_ui_dialogue_response);
+ninepatch = ninepatch_create(10, 10, 9, 9, 10, 10, 9, 9);//sprite_get_9patch(spr_ui_dialogue_response);
 
 selection.visible = os_type != os_android;
 </string>
@@ -169,7 +169,7 @@ for (var i = 0; i &lt; num_responses; i++)
     max_width = max(max_width, string_width(response[i]));
   
 var height = (num_responses * 15);
-sprite_draw_9patch(ninepatch, spr_ui_dialogue_response, 0, x - 6, y - 7 - height, max_width + 9, height + 7, c_white, 1);
+ninepatch_draw(ninepatch, spr_ui_dialogue_response, 0, x - 6, y - 7 - height, max_width + 9, height + 7, c_white, 1);
     
 // draw responses
 

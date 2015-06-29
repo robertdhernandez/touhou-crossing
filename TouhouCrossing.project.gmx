@@ -734,6 +734,8 @@
       <script>scripts\load_file_json.gml</script>
       <script>scripts\mouse_get_gui_x.gml</script>
       <script>scripts\mouse_get_gui_y.gml</script>
+      <script>scripts\ninepatch_create.gml</script>
+      <script>scripts\ninepatch_draw.gml</script>
       <script>scripts\parse_string.gml</script>
       <script>scripts\random_out_of_bounds_x.gml</script>
       <script>scripts\random_out_of_bounds_y.gml</script>
