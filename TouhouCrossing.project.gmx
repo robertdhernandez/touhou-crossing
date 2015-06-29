@@ -987,7 +987,7 @@
     <constant name="energy_regen">room_speed</constant>
     <constant name="follow_dist">(tile_size * 2)</constant>
     <constant name="grid_size">4</constant>
-    <constant name="interact_dist">(tile_size * 2.25)</constant>
+    <constant name="interact_dist">(tile_size * 1)</constant>
     <constant name="inventory_size">15</constant>
     <constant name="json_endaction">"endaction"</constant>
     <constant name="json_goto">"goto"</constant>
