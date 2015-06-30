@@ -195,6 +195,9 @@ else
         
         speed = min(point_distance(x, y, xx, yy), other.cursor_speed);
         direction = point_direction(x, y, xx, yy);
+        
+        x += lengthdir_x(speed, direction);
+        y += lengthdir_y(speed, direction);
     }
 }
 
