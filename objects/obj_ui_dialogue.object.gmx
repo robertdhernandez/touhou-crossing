@@ -37,10 +37,6 @@ display_rate = sprite_height / (room_speed * 0.25);
 
 font = global.font_dialogue;
 
-message = "";
-message_index = 0;
-message_queue = ds_queue_create();
-
 instance_create(90, -14, obj_ui_dialogue_continue);
 instance_create(20, -50, obj_ui_dialogue_response);
 instance_create(-55, -71, obj_ui_dialogue_speaker);
@@ -67,9 +63,10 @@ instance_create(-86, -53, obj_ui_dialogue_text);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with (obj_ui_dialogue_component) { instance_destroy(); }
-
-ds_queue_destroy(message_queue);
+            <string>with (obj_ui_dialogue_continue) instance_destroy();
+with (obj_ui_dialogue_response) instance_destroy();
+with (obj_ui_dialogue_speaker) instance_destroy();
+with (obj_ui_dialogue_text) instance_destroy();
 
 if (global.dialogue_npc != -1)
     global.dialogue_npc.can_think = true;
@@ -97,19 +94,8 @@ if (global.dialogue_npc != -1)
             <kind>1</kind>
             <string>y = clamp(y - display_rate * iff(display, 1, -1), min_y, max_y);
 
-if (y == min_y)
-{
-    if (not ds_queue_empty(message_queue))
-    {
-        message += ds_queue_dequeue(message_queue);
-        //audio_play_sound(snd_dialogue, 0, false);
-    }
-}
-
+obj_ui_dialogue_text.active = y == min_y;
 visible = (y != max_y);
-
-//if (not visible)
-//    instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -165,15 +151,11 @@ var buffer = global.dialogue_buffer[message_index];
 // get next in queue
 if (not ds_queue_empty(buffer))
 {
-    message = "";
-
-    var str = ds_queue_dequeue(buffer);
-    var len = string_length(str);
-    
-    ds_queue_clear(message_queue);
-    
-    for (var i = 1; i &lt;= len; i++)
-        ds_queue_enqueue(message_queue, string_char_at(str, i));
+    with (obj_ui_dialogue_text)
+    {
+        text = ds_queue_dequeue(buffer);
+        event_user(0);
+    }
 }
 
 // show responses

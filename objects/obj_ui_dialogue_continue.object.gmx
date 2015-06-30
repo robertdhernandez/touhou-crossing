@@ -78,7 +78,7 @@ if (visible and (input_check_pressed(input.a) or mouse_check_button_pressed(mb_l
 event_inherited();
 
 visible = visible 
-    and ds_queue_empty(obj_ui_dialogue.message_queue) 
+    and obj_ui_dialogue_text.display == 1
     and not obj_ui_dialogue_response.show;
 </string>
           </argument>

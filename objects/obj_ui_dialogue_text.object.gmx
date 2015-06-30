@@ -8,6 +8,38 @@
   <parentName>obj_ui_dialogue_component</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+
+active = true;          // Flag to disable update
+
+text = "";              // Text to display
+text_sep = 15;          // Pixels between each line
+text_width = 173;       // Width of the text box
+
+display = 1;            // Percentage of the text displayed
+display_rate = 0.05;    // Rate (in seconds) to display a new character
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,9 +57,36 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// TODO make text update happen here rather than in obj_ui_dialogue
+            <string>event_inherited();
 
-event_inherited();
+if (active)
+    display = clamp(display + display_rate_, 0, 1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// New Text
+
+display = 0;
+display_rate_ = display_rate / (string_length(text) * display_rate);
 </string>
           </argument>
         </arguments>
@@ -57,7 +116,10 @@ draw_set_font(obj_ui_dialogue.font);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
-draw_text_ext(x, y, obj_ui_dialogue.message, 15, 173);
+var amt = floor(string_length(text) * display)
+var str = string_copy(text, 0, amt);
+
+draw_text_ext(x, y, str, 15, 173);
 </string>
           </argument>
         </arguments>
