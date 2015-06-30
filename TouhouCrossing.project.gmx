@@ -816,12 +816,6 @@
       </scripts>
     </scripts>
     <scripts name="Player">
-      <scripts name="Interact">
-        <script>scripts\player_interact_exit.gml</script>
-        <script>scripts\player_interact_house.gml</script>
-        <script>scripts\player_interact_npc.gml</script>
-        <script>scripts\player_interact_project.gml</script>
-      </scripts>
       <script>scripts\player_interact.gml</script>
       <scripts name="Properties">
         <script>scripts\player_get_follower.gml</script>
