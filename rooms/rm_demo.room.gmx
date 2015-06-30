@@ -113,15 +113,14 @@
     <instance objName="obj_player" x="272" y="224" name="inst_6DCFB38E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_npc_fairy" x="272" y="272" name="inst_D517CDA8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_weather" x="80" y="0" name="inst_852725A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_struct_house" x="176" y="160" name="inst_1D7FA597" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
-  <PhysicsWorld>-1</PhysicsWorld>
+  <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
   <PhysicsWorldLeft>0</PhysicsWorldLeft>
   <PhysicsWorldRight>640</PhysicsWorldRight>
   <PhysicsWorldBottom>480</PhysicsWorldBottom>
   <PhysicsWorldGravityX>0</PhysicsWorldGravityX>
-  <PhysicsWorldGravityY>0</PhysicsWorldGravityY>
-  <PhysicsWorldPixToMeters>0.031300000846386</PhysicsWorldPixToMeters>
+  <PhysicsWorldGravityY>10</PhysicsWorldGravityY>
+  <PhysicsWorldPixToMeters>0.100000001490116</PhysicsWorldPixToMeters>
 </room>

@@ -35,8 +35,6 @@ direction = 270;
 follower = noone;
 type = player_type.renko;
 home = -1;
-
-phy_fixed_rotation = true;
 </string>
           </argument>
         </arguments>
@@ -212,9 +210,6 @@ else if (os_type == os_android)
     else
         speed = 0;
 }
-
-phy_speed_x = lengthdir_x(speed, direction);
-phy_speed_y = lengthdir_y(speed, direction);
 </string>
           </argument>
         </arguments>
@@ -237,29 +232,27 @@ phy_speed_y = lengthdir_y(speed, direction);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//x = xprevious;
-//y = yprevious;
+            <string>x = xprevious;
+y = yprevious;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
   </events>
-  <PhysicsObject>-1</PhysicsObject>
+  <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
-  <PhysicsObjectShape>1</PhysicsObjectShape>
+  <PhysicsObjectShape>0</PhysicsObjectShape>
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
-  <PhysicsObjectRestitution>0</PhysicsObjectRestitution>
+  <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
-  <PhysicsObjectLinearDamping>0</PhysicsObjectLinearDamping>
-  <PhysicsObjectAngularDamping>0</PhysicsObjectAngularDamping>
-  <PhysicsObjectFriction>0</PhysicsObjectFriction>
+  <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
+  <PhysicsObjectAngularDamping>0.100000001490116</PhysicsObjectAngularDamping>
+  <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
-  <PhysicsObjectKinematic>-1</PhysicsObjectKinematic>
+  <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>7,14</point>
-    <point>17,14</point>
-    <point>17,29</point>
-    <point>7,29</point>
+    <point>12,12</point>
+    <point>16,16</point>
   </PhysicsShapePoints>
 </object>
