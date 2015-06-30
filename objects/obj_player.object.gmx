@@ -36,6 +36,9 @@ follower = noone;
 type = player_type.renko;
 home = -1;
 
+// Allows the player to move the character
+allow_input = true;
+
 // Prevents the player from exiting the room
 bound_to_room = true;
 </string>
@@ -113,7 +116,8 @@ if (changed_room)
 
 event_inherited();
 
-if (dialogue_is_shown() or inventory_is_shown() or instance_exists(obj_util_transition)) 
+//if (dialogue_is_shown() or inventory_is_shown() or instance_exists(obj_util_transition)) 
+if (not allow_input)
 {
     speed = 0;
 }

@@ -37,10 +37,10 @@ display_rate = sprite_height / (room_speed * 0.25);
 
 font = global.font_dialogue;
 
-instance_create(90, -14, obj_ui_dialogue_continue);
-instance_create(20, -50, obj_ui_dialogue_response);
-instance_create(-55, -71, obj_ui_dialogue_speaker);
-instance_create(-86, -53, obj_ui_dialogue_text);
+inst_continue   = instance_create(90, -14, obj_ui_dialogue_continue);
+inst_response   = instance_create(20, -50, obj_ui_dialogue_response);
+inst_speaker    = instance_create(-55, -71, obj_ui_dialogue_speaker);
+inst_text       = instance_create(-86, -53, obj_ui_dialogue_text);
 </string>
           </argument>
         </arguments>
@@ -67,9 +67,6 @@ instance_create(-86, -53, obj_ui_dialogue_text);
 with (obj_ui_dialogue_response) instance_destroy();
 with (obj_ui_dialogue_speaker) instance_destroy();
 with (obj_ui_dialogue_text) instance_destroy();
-
-if (global.dialogue_npc != -1)
-    global.dialogue_npc.can_think = true;
 </string>
           </argument>
         </arguments>
@@ -96,6 +93,25 @@ if (global.dialogue_npc != -1)
 
 obj_ui_dialogue_text.active = y == min_y;
 visible = (y != max_y);
+
+if (not visible and not display)
+{
+    // Deactivate dialogue and its subcomponents
+    globalvar dialogue;
+    instance_deactivate_object(dialogue);
+    instance_deactivate_object(dialogue.inst_continue);
+    instance_deactivate_object(dialogue.inst_response);
+    instance_deactivate_object(dialogue.inst_response.selection);
+    instance_deactivate_object(dialogue.inst_speaker);
+    instance_deactivate_object(dialogue.inst_text);
+    
+    // Re-enable player input
+    obj_player.allow_input = true;
+    
+    // Release the NPC
+    if (global.dialogue_npc != -1)
+        global.dialogue_npc.can_think = true;
+}
 </string>
           </argument>
         </arguments>
