@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>self</parentName>
+  <parentName>obj_entity</parentName>
   <maskName>mask_player</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -35,6 +35,9 @@ direction = 270;
 follower = noone;
 type = player_type.renko;
 home = -1;
+
+// Prevents the player from exiting the room
+bound_to_room = true;
 </string>
           </argument>
         </arguments>
@@ -57,38 +60,13 @@ home = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var animate = speed != 0;
-
-if (not animate) image_index = 0;
-image_speed = (5 * speed / room_speed); // incorrect code, but looks nicer
-sprite_index = player_get_sprite(type, direction);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>/// Stay within room bounds
 
-if (rectangle_in_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, 0, 0, room_width, room_height) != 1)
-{
-    x = xprevious;
-    y = yprevious;
-}
+//if (rectangle_in_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, 0, 0, room_width, room_height) != 1)
+//{
+//    x = xprevious;
+//    y = yprevious;
+//}
 </string>
           </argument>
         </arguments>
@@ -211,17 +189,39 @@ else if (os_type == os_android)
         speed = 0;
 }
 
+var spd = speed;
+var dir = direction;
+var moving = speed != 0;
+
 /// Collision check
 
-if (place_meeting(x+hspeed, y, obj_collision))
+if (place_meeting(x+hspeed, y, obj_collision) or 
+    bound_to_room and
+        (bbox_left + hspeed &lt; 0 or 
+        room_width &lt; bbox_right + hspeed))
 {
     hspeed = 0;
 }
 
-if (place_meeting(x, y+vspeed, obj_collision))
+if (place_meeting(x, y+vspeed, obj_collision) or 
+    bound_to_room and
+        (bbox_top + vspeed &lt; 0 or
+        room_height &lt; bbox_bottom + vspeed))
 {
     vspeed = 0;
 }
+    
+x += hspeed;
+y += vspeed;
+
+speed = 0;
+direction = dir;
+
+/// Animation
+
+if (not moving) image_index = 0;
+image_speed = (5 * spd / room_speed); // incorrect code, but looks nicer
+sprite_index = player_get_sprite(type, direction);
 </string>
           </argument>
         </arguments>
