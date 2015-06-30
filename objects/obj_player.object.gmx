@@ -137,6 +137,9 @@ else if (os_type != os_android)
     
     if (input_check(input.b))
         speed *= 1.5;
+    
+    if (input_check_pressed(input.start))
+        inventory_show();
 }
 else if (os_type == os_android)
 {

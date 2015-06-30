@@ -96,14 +96,14 @@ visible = (y != max_y);
 
 if (not visible and not display)
 {
-    // Deactivate dialogue and its subcomponents
-    globalvar dialogue;
-    instance_deactivate_object(dialogue);
-    instance_deactivate_object(dialogue.inst_continue);
-    instance_deactivate_object(dialogue.inst_response);
-    instance_deactivate_object(dialogue.inst_response.selection);
-    instance_deactivate_object(dialogue.inst_speaker);
-    instance_deactivate_object(dialogue.inst_text);
+    // Deactivate ui_dialogue and its subcomponents
+    globalvar ui_dialogue;
+    instance_deactivate_object(ui_dialogue);
+    instance_deactivate_object(ui_dialogue.inst_continue);
+    instance_deactivate_object(ui_dialogue.inst_response);
+    instance_deactivate_object(ui_dialogue.inst_response.selection);
+    instance_deactivate_object(ui_dialogue.inst_speaker);
+    instance_deactivate_object(ui_dialogue.inst_text);
     
     // Re-enable player input
     obj_player.allow_input = true;

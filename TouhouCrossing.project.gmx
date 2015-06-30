@@ -679,18 +679,15 @@
     </scripts>
     <scripts name="Inventory">
       <script>scripts\inventory_add_item.gml</script>
-      <script>scripts\inventory_display.gml</script>
       <script>scripts\inventory_get_cursor_x.gml</script>
       <script>scripts\inventory_get_cursor_y.gml</script>
       <script>scripts\inventory_get_item_slot_x.gml</script>
-      <script>scripts\inventory_get_item_slot_x_raw.gml</script>
       <script>scripts\inventory_get_item_slot_y.gml</script>
-      <script>scripts\inventory_get_item_slot_y_raw.gml</script>
       <script>scripts\inventory_get_letter_slot_x.gml</script>
       <script>scripts\inventory_get_letter_slot_y.gml</script>
-      <script>scripts\inventory_is_displayed.gml</script>
       <script>scripts\inventory_is_full.gml</script>
       <script>scripts\inventory_is_shown.gml</script>
+      <script>scripts\inventory_show.gml</script>
       <scripts name="Items">
         <script>scripts\items_get.gml</script>
         <script>scripts\items_init.gml</script>

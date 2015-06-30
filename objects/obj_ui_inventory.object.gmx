@@ -58,7 +58,7 @@ for (var i = 0; i &lt; inventory_size; i++)
 current = noone;
 moving = noone;
 
-instance_create(133, 22, obj_ui_inventory_character);
+character = instance_create(133, 22, obj_ui_inventory_character);
 </string>
           </argument>
         </arguments>
@@ -145,6 +145,20 @@ for (var i = 0; i &lt; inventory_size; i++)
           <argument>
             <kind>1</kind>
             <string>y = clamp(y - show_speed * iff(show, 1, -1), show_y, hide_y);
+
+if (not show and y == hide_y)
+{
+    // Deactivate objects
+    globalvar ui_inventory;
+    
+    instance_deactivate_object(ui_inventory);
+    instance_deactivate_object(ui_inventory.cursor);
+    instance_deactivate_object(ui_inventory.character);
+    
+    for (var i = 0; i &lt; inventory_size; i++)
+        if (ui_inventory.inventory[i] != noone)
+            instance_deactivate_object(ui_inventory.inventory[i]);
+}
 </string>
           </argument>
         </arguments>
@@ -170,14 +184,16 @@ for (var i = 0; i &lt; inventory_size; i++)
             <string>cursor.visible = visible;
 
 var item_col = inv_index mod 5;
-var item_row = floor(inv_index / 5);
+var item_row = inv_index div 5;
 
 var is_item = (0 &lt;= inv_index and inv_index &lt;= 14);
 var is_letter = (15 &lt;= inv_index);
 
 /// Move the cursor
 
-if (not inventory_is_displayed())
+var displayed = (show and y == show_y);
+
+if (not displayed)
 {
     with (cursor)
     {
@@ -202,14 +218,16 @@ else
 
 var update = false;
 
-if (input_check_pressed(input.start) and not dialogue_is_shown() and moving == noone)
+if (displayed)
 {
-    update = true;
-    show = not show;
-}
+    if (input_check_pressed(input.start) and moving == noone)
+    {
+        update = true;
+        show = false;
+        
+        obj_player.allow_input = true;
+    }
 
-if (inventory_is_displayed())
-{
     if (input_check_pressed(input.a))
     {
         update = true;
