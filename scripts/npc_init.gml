@@ -46,7 +46,6 @@ global.npc_count = 32;
 
 global.npc_name[npc.alice] = "Alice";
 global.npc_icon[npc.alice] = spr_alice_icon;
-global.npc_mask[npc.alice] = mask_alice;
 global.npc_animate_idle[npc.alice] = false;
 global.npc_dialogue[npc.alice] = placeholder_dialogue;
 global.npc_walk_000[npc.alice] = spr_alice_000;
@@ -60,7 +59,6 @@ global.npc_walk_315[npc.alice] = spr_alice_315;
 
 global.npc_name[npc.aya] = "Aya";
 global.npc_icon[npc.aya] = spr_aya_icon;
-global.npc_mask[npc.aya] = mask_alice;
 global.npc_dialogue[npc.aya] = placeholder_dialogue;
 global.npc_animate_idle[npc.aya] = false;
 global.npc_walk_000[npc.aya] = spr_aya_000;
@@ -74,7 +72,6 @@ global.npc_walk_315[npc.aya] = spr_aya_315;
 
 global.npc_name[npc.chen] = "Chen";
 global.npc_icon[npc.chen] = spr_chen_icon;
-global.npc_mask[npc.chen] = mask_chen;
 global.npc_dialogue[npc.chen] = placeholder_dialogue;
 global.npc_animate_idle[npc.chen] = false;
 global.npc_walk_000[npc.chen] = spr_chen_000;
@@ -88,7 +85,6 @@ global.npc_walk_315[npc.chen] = spr_chen_315;
 
 global.npc_name[npc.cirno] = "Cirno";
 global.npc_icon[npc.cirno] = spr_cirno_icon;
-global.npc_mask[npc.cirno] = mask_cirno;
 global.npc_dialogue[npc.cirno] = placeholder_dialogue;
 global.npc_animate_idle[npc.cirno] = true;
 global.npc_walk_000[npc.cirno] = spr_cirno_000;
@@ -102,7 +98,6 @@ global.npc_walk_315[npc.cirno] = spr_cirno_315;
 
 global.npc_name[npc.eirin] = "Eirin";
 global.npc_icon[npc.eirin] = spr_eirin_icon;
-global.npc_mask[npc.eirin] = mask_eirin;
 global.npc_dialogue[npc.eirin] = placeholder_dialogue;
 global.npc_animate_idle[npc.eirin] = false;
 global.npc_walk_000[npc.eirin] = spr_eirin_000;
@@ -116,7 +111,6 @@ global.npc_walk_315[npc.eirin] = spr_eirin_315;
 
 global.npc_name[npc.flandre] = "Flandre";
 global.npc_icon[npc.flandre] = spr_flandre_icon;
-global.npc_mask[npc.flandre] = mask_flandre;
 global.npc_dialogue[npc.flandre] = placeholder_dialogue;
 global.npc_animate_idle[npc.flandre] = false;
 global.npc_walk_000[npc.flandre] = spr_flandre_000;
@@ -130,7 +124,6 @@ global.npc_walk_315[npc.flandre] = spr_flandre_315;
 
 global.npc_name[npc.hatate] = "Hatate";
 global.npc_icon[npc.hatate] = spr_hatate_icon;
-global.npc_mask[npc.hatate] = mask_hatate;
 global.npc_dialogue[npc.hatate] = placeholder_dialogue;
 global.npc_animate_idle[npc.hatate] = false;
 global.npc_walk_000[npc.hatate] = spr_hatate_000;
@@ -144,7 +137,6 @@ global.npc_walk_315[npc.hatate] = spr_hatate_315;
 
 global.npc_name[npc.iku] = "Iku";
 global.npc_icon[npc.iku] = spr_iku_icon;
-global.npc_mask[npc.iku] = mask_iku;
 global.npc_dialogue[npc.iku] = placeholder_dialogue;
 global.npc_animate_idle[npc.iku] = true;
 global.npc_walk_000[npc.iku] = spr_iku_000;
@@ -158,7 +150,6 @@ global.npc_walk_315[npc.iku] = spr_iku_315;
 
 global.npc_name[npc.kanako] = "Kanako";
 global.npc_icon[npc.kanako] = spr_kanako_icon;
-global.npc_mask[npc.kanako] = mask_kanako;
 global.npc_dialogue[npc.kanako] = placeholder_dialogue;
 global.npc_animate_idle[npc.kanako] = false;
 global.npc_walk_000[npc.kanako] = spr_kanako_000;
@@ -172,7 +163,6 @@ global.npc_walk_315[npc.kanako] = spr_kanako_315;
 
 global.npc_name[npc.marisa] = "Marisa";
 global.npc_icon[npc.marisa] = spr_marisa_icon;
-global.npc_mask[npc.marisa] = mask_marisa;
 global.npc_dialogue[npc.marisa] = placeholder_dialogue;
 global.npc_animate_idle[npc.marisa] = false;
 global.npc_walk_000[npc.marisa] = spr_marisa_000;
@@ -186,7 +176,6 @@ global.npc_walk_315[npc.marisa] = spr_marisa_315;
 
 global.npc_name[npc.meiling] = "Meiling";
 global.npc_icon[npc.meiling] = spr_meiling_icon;
-global.npc_mask[npc.meiling] = mask_meiling;
 global.npc_dialogue[npc.meiling] = placeholder_dialogue;
 global.npc_animate_idle[npc.meiling] = false;
 global.npc_walk_000[npc.meiling] = spr_meiling_000;
@@ -200,7 +189,6 @@ global.npc_walk_315[npc.meiling] = spr_meiling_315;
 
 global.npc_name[npc.momiji] = "Momiji";
 global.npc_icon[npc.momiji] = spr_momiji_icon;
-global.npc_mask[npc.momiji] = mask_momiji;
 global.npc_dialogue[npc.momiji] = placeholder_dialogue;
 global.npc_animate_idle[npc.momiji] = false;
 global.npc_walk_000[npc.momiji] = spr_momiji_000;
@@ -214,7 +202,6 @@ global.npc_walk_315[npc.momiji] = spr_momiji_315;
 
 global.npc_name[npc.nazrin] = "Nazrin";
 global.npc_icon[npc.nazrin] = spr_nazrin_icon;
-global.npc_mask[npc.nazrin] = mask_nazrin;
 global.npc_dialogue[npc.nazrin] = placeholder_dialogue;
 global.npc_animate_idle[npc.nazrin] = false;
 global.npc_walk_000[npc.nazrin] = spr_nazrin_000;
@@ -228,7 +215,6 @@ global.npc_walk_315[npc.nazrin] = spr_nazrin_315;
 
 global.npc_name[npc.okuu] = "Okuu";
 global.npc_icon[npc.okuu] = spr_okuu_icon;
-global.npc_mask[npc.okuu] = mask_okuu;
 global.npc_dialogue[npc.okuu] = placeholder_dialogue;
 global.npc_animate_idle[npc.okuu] = false;
 global.npc_walk_000[npc.okuu] = spr_okuu_000;
@@ -242,7 +228,6 @@ global.npc_walk_315[npc.okuu] = spr_okuu_315;
 
 global.npc_name[npc.patchy] = "Patchy";
 global.npc_icon[npc.patchy] = spr_patchy_icon;
-global.npc_mask[npc.patchy] = mask_patchy;
 global.npc_dialogue[npc.patchy] = placeholder_dialogue;
 global.npc_animate_idle[npc.patchy] = true;
 global.npc_walk_000[npc.patchy] = spr_patchy_000;
@@ -256,7 +241,6 @@ global.npc_walk_315[npc.patchy] = spr_patchy_315;
 
 global.npc_name[npc.ran] = "Ran";
 global.npc_icon[npc.ran] = spr_ran_icon;
-global.npc_mask[npc.ran] = mask_ran;
 global.npc_dialogue[npc.ran] = placeholder_dialogue;
 global.npc_animate_idle[npc.ran] = false;
 global.npc_walk_000[npc.ran] = spr_ran_000;
@@ -270,7 +254,6 @@ global.npc_walk_315[npc.ran] = spr_ran_315;
 
 global.npc_name[npc.reimu] = "Reimu";
 global.npc_icon[npc.reimu] = spr_reimu_icon;
-global.npc_mask[npc.reimu] = mask_reimu;
 global.npc_dialogue[npc.reimu] = placeholder_dialogue;
 global.npc_animate_idle[npc.reimu] = false;
 global.npc_walk_000[npc.reimu] = spr_reimu_000;
@@ -284,7 +267,6 @@ global.npc_walk_315[npc.reimu] = spr_reimu_315;
 
 global.npc_name[npc.reisen] = "Reisen";
 global.npc_icon[npc.reisen] = spr_reisen_icon;
-global.npc_mask[npc.reisen] = mask_reisen;
 global.npc_dialogue[npc.reisen] = placeholder_dialogue;
 global.npc_animate_idle[npc.reisen] = false;
 global.npc_walk_000[npc.reisen] = spr_reisen_000;
@@ -298,7 +280,6 @@ global.npc_walk_315[npc.reisen] = spr_reisen_315;
 
 global.npc_name[npc.remi] = "Remilia";
 global.npc_icon[npc.remi] = spr_remi_icon;
-global.npc_mask[npc.remi] = mask_remi;
 global.npc_dialogue[npc.remi] = placeholder_dialogue;
 global.npc_animate_idle[npc.remi] = false;
 global.npc_walk_000[npc.remi] = spr_remi_000;
@@ -312,7 +293,6 @@ global.npc_walk_315[npc.remi] = spr_remi_315;
 
 global.npc_name[npc.rumia] = "Rumia";
 global.npc_icon[npc.rumia] = spr_rumia_icon;
-global.npc_mask[npc.rumia] = mask_rumia;
 global.npc_dialogue[npc.rumia] = placeholder_dialogue;
 global.npc_animate_idle[npc.rumia] = true;
 global.npc_walk_000[npc.rumia] = spr_rumia_000;
@@ -326,7 +306,6 @@ global.npc_walk_315[npc.rumia] = spr_rumia_315;
 
 global.npc_name[npc.sakuya] = "Sakuya";
 global.npc_icon[npc.sakuya] = spr_sakuya_icon;
-global.npc_mask[npc.sakuya] = mask_sakuya;
 global.npc_dialogue[npc.sakuya] = placeholder_dialogue;
 global.npc_animate_idle[npc.sakuya] = false;
 global.npc_walk_000[npc.sakuya] = spr_sakuya_000;
@@ -340,7 +319,6 @@ global.npc_walk_315[npc.sakuya] = spr_sakuya_315;
 
 global.npc_name[npc.sanae] = "Sanae";
 global.npc_icon[npc.sanae] = spr_sanae_icon;
-global.npc_mask[npc.sanae] = mask_sanae;
 global.npc_dialogue[npc.sanae] = placeholder_dialogue;
 global.npc_animate_idle[npc.sanae] = false;
 global.npc_walk_000[npc.sanae] = spr_sanae_000;
@@ -354,7 +332,6 @@ global.npc_walk_315[npc.sanae] = spr_sanae_315;
 
 global.npc_name[npc.suika] = "Suika";
 global.npc_icon[npc.suika] = spr_suika_icon;
-global.npc_mask[npc.suika] = mask_suika;
 global.npc_dialogue[npc.suika] = placeholder_dialogue;
 global.npc_animate_idle[npc.suika] = false;
 global.npc_walk_000[npc.suika] = spr_suika_000;
@@ -368,7 +345,6 @@ global.npc_walk_315[npc.suika] = spr_suika_315;
 
 global.npc_name[npc.suwako] = "Suwako";
 global.npc_icon[npc.suwako] = spr_suwako_icon;
-global.npc_mask[npc.suwako] = mask_suwako;
 global.npc_dialogue[npc.suwako] = placeholder_dialogue;
 global.npc_animate_idle[npc.suwako] = false;
 global.npc_walk_000[npc.suwako] = spr_suwako_000;
@@ -382,7 +358,6 @@ global.npc_walk_315[npc.suwako] = spr_suwako_315;
 
 global.npc_name[npc.tewi] = "Tewi";
 global.npc_icon[npc.tewi] = spr_tewi_icon;
-global.npc_mask[npc.tewi] = mask_tewi;
 global.npc_dialogue[npc.tewi] = placeholder_dialogue;
 global.npc_animate_idle[npc.tewi] = false;
 global.npc_walk_000[npc.tewi] = spr_tewi_000;
@@ -396,7 +371,6 @@ global.npc_walk_315[npc.tewi] = spr_tewi_315;
 
 global.npc_name[npc.wriggle] = "Wriggle";
 global.npc_icon[npc.wriggle] = spr_wriggle_icon;
-global.npc_mask[npc.wriggle] = mask_wriggle;
 global.npc_dialogue[npc.wriggle] = placeholder_dialogue;
 global.npc_animate_idle[npc.wriggle] = false;
 global.npc_walk_000[npc.wriggle] = spr_wriggle_000;
@@ -410,7 +384,6 @@ global.npc_walk_315[npc.wriggle] = spr_wriggle_315;
 
 global.npc_name[npc.yamame] = "Yamame";
 global.npc_icon[npc.yamame] = spr_yamame_icon;
-global.npc_mask[npc.yamame] = mask_yamame;
 global.npc_dialogue[npc.yamame] = placeholder_dialogue;
 global.npc_animate_idle[npc.yamame] = false;
 global.npc_walk_000[npc.yamame] = spr_yamame_000;
@@ -424,7 +397,6 @@ global.npc_walk_315[npc.yamame] = spr_yamame_315;
 
 global.npc_name[npc.youmu] = "Youmu";
 global.npc_icon[npc.youmu] = spr_youmu_icon;
-global.npc_mask[npc.youmu] = mask_youmu;
 global.npc_dialogue[npc.youmu] = placeholder_dialogue;
 global.npc_animate_idle[npc.youmu] = false;
 global.npc_walk_000[npc.youmu] = spr_youmu_000;
@@ -438,7 +410,6 @@ global.npc_walk_315[npc.youmu] = spr_youmu_315;
 
 global.npc_name[npc.yukari] = "Yukari";
 global.npc_icon[npc.yukari] = spr_yukari_icon;
-global.npc_mask[npc.yukari] = mask_yukari;
 global.npc_dialogue[npc.yukari] = placeholder_dialogue;
 global.npc_animate_idle[npc.yukari] = false;
 global.npc_walk_000[npc.yukari] = spr_yukari_000;
@@ -452,7 +423,6 @@ global.npc_walk_315[npc.yukari] = spr_yukari_315;
 
 global.npc_name[npc.yuugi] = "Yuugi";
 global.npc_icon[npc.yuugi] = spr_yuugi_icon;
-global.npc_mask[npc.yuugi] = mask_yuugi;
 global.npc_dialogue[npc.yuugi] = placeholder_dialogue;
 global.npc_animate_idle[npc.yuugi] = false;
 global.npc_walk_000[npc.yuugi] = spr_yuugi_000;
@@ -466,7 +436,6 @@ global.npc_walk_315[npc.yuugi] = spr_yuugi_315;
 
 global.npc_name[npc.yuuka] = "Yuuka";
 global.npc_icon[npc.yuuka] = spr_yuuka_icon;
-global.npc_mask[npc.yuuka] = mask_yuugi;
 global.npc_dialogue[npc.yuuka] = placeholder_dialogue;
 global.npc_animate_idle[npc.yuuka] = false;
 global.npc_walk_000[npc.yuuka] = spr_yuuka_000;
@@ -480,7 +449,6 @@ global.npc_walk_315[npc.yuuka] = spr_yuuka_315;
 
 global.npc_name[npc.yuyuko] = "Yuyuko";
 global.npc_icon[npc.yuyuko] = spr_yuyuko_icon;
-global.npc_mask[npc.yuyuko] = mask_yuyuko;
 global.npc_dialogue[npc.yuyuko] = placeholder_dialogue;
 global.npc_animate_idle[npc.yuyuko] = true;
 global.npc_walk_000[npc.yuyuko] = spr_yuyuko_000;

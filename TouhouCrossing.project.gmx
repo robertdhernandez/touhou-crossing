@@ -144,6 +144,8 @@
         </sprites>
         <sprite>sprites\mask_fairy</sprite>
       </sprites>
+      <sprite>sprites\mask_npc</sprite>
+      <sprite>sprites\mask_player</sprite>
       <sprites name="Player">
         <sprites name="Maribel">
           <sprite>sprites\spr_maribel_000</sprite>
@@ -155,7 +157,6 @@
           <sprite>sprites\spr_maribel_270</sprite>
           <sprite>sprites\spr_maribel_315</sprite>
         </sprites>
-        <sprite>sprites\mask_player</sprite>
         <sprites name="Renko">
           <sprite>sprites\spr_renko_000</sprite>
           <sprite>sprites\spr_renko_045</sprite>
@@ -180,7 +181,6 @@
       </sprites>
       <sprites name="Villagers">
         <sprites name="Alice">
-          <sprite>sprites\mask_alice</sprite>
           <sprite>sprites\spr_alice_000</sprite>
           <sprite>sprites\spr_alice_045</sprite>
           <sprite>sprites\spr_alice_090</sprite>
@@ -192,7 +192,6 @@
           <sprite>sprites\spr_alice_icon</sprite>
         </sprites>
         <sprites name="Aya">
-          <sprite>sprites\mask_aya</sprite>
           <sprite>sprites\spr_aya_000</sprite>
           <sprite>sprites\spr_aya_045</sprite>
           <sprite>sprites\spr_aya_090</sprite>
@@ -204,7 +203,6 @@
           <sprite>sprites\spr_aya_icon</sprite>
         </sprites>
         <sprites name="Chen">
-          <sprite>sprites\mask_chen</sprite>
           <sprite>sprites\spr_chen_000</sprite>
           <sprite>sprites\spr_chen_045</sprite>
           <sprite>sprites\spr_chen_090</sprite>
@@ -216,7 +214,6 @@
           <sprite>sprites\spr_chen_icon</sprite>
         </sprites>
         <sprites name="Cirno">
-          <sprite>sprites\mask_cirno</sprite>
           <sprite>sprites\spr_cirno_000</sprite>
           <sprite>sprites\spr_cirno_045</sprite>
           <sprite>sprites\spr_cirno_090</sprite>
@@ -228,7 +225,6 @@
           <sprite>sprites\spr_cirno_icon</sprite>
         </sprites>
         <sprites name="Eirin">
-          <sprite>sprites\mask_eirin</sprite>
           <sprite>sprites\spr_eirin_000</sprite>
           <sprite>sprites\spr_eirin_045</sprite>
           <sprite>sprites\spr_eirin_090</sprite>
@@ -240,7 +236,6 @@
           <sprite>sprites\spr_eirin_icon</sprite>
         </sprites>
         <sprites name="Flandre">
-          <sprite>sprites\mask_flandre</sprite>
           <sprite>sprites\spr_flandre_000</sprite>
           <sprite>sprites\spr_flandre_045</sprite>
           <sprite>sprites\spr_flandre_090</sprite>
@@ -252,7 +247,6 @@
           <sprite>sprites\spr_flandre_icon</sprite>
         </sprites>
         <sprites name="Hatate">
-          <sprite>sprites\mask_hatate</sprite>
           <sprite>sprites\spr_hatate_000</sprite>
           <sprite>sprites\spr_hatate_045</sprite>
           <sprite>sprites\spr_hatate_090</sprite>
@@ -264,7 +258,6 @@
           <sprite>sprites\spr_hatate_icon</sprite>
         </sprites>
         <sprites name="Iku">
-          <sprite>sprites\mask_iku</sprite>
           <sprite>sprites\spr_iku_000</sprite>
           <sprite>sprites\spr_iku_045</sprite>
           <sprite>sprites\spr_iku_090</sprite>
@@ -276,7 +269,6 @@
           <sprite>sprites\spr_iku_icon</sprite>
         </sprites>
         <sprites name="Kanako">
-          <sprite>sprites\mask_kanako</sprite>
           <sprite>sprites\spr_kanako_000</sprite>
           <sprite>sprites\spr_kanako_045</sprite>
           <sprite>sprites\spr_kanako_090</sprite>
@@ -288,7 +280,6 @@
           <sprite>sprites\spr_kanako_icon</sprite>
         </sprites>
         <sprites name="Marisa">
-          <sprite>sprites\mask_marisa</sprite>
           <sprite>sprites\spr_marisa_000</sprite>
           <sprite>sprites\spr_marisa_045</sprite>
           <sprite>sprites\spr_marisa_090</sprite>
@@ -300,7 +291,6 @@
           <sprite>sprites\spr_marisa_icon</sprite>
         </sprites>
         <sprites name="Meiling">
-          <sprite>sprites\mask_meiling</sprite>
           <sprite>sprites\spr_meiling_000</sprite>
           <sprite>sprites\spr_meiling_045</sprite>
           <sprite>sprites\spr_meiling_090</sprite>
@@ -312,7 +302,6 @@
           <sprite>sprites\spr_meiling_icon</sprite>
         </sprites>
         <sprites name="Momiji">
-          <sprite>sprites\mask_momiji</sprite>
           <sprite>sprites\spr_momiji_000</sprite>
           <sprite>sprites\spr_momiji_045</sprite>
           <sprite>sprites\spr_momiji_090</sprite>
@@ -324,7 +313,6 @@
           <sprite>sprites\spr_momiji_icon</sprite>
         </sprites>
         <sprites name="Nazrin">
-          <sprite>sprites\mask_nazrin</sprite>
           <sprite>sprites\spr_nazrin_000</sprite>
           <sprite>sprites\spr_nazrin_045</sprite>
           <sprite>sprites\spr_nazrin_090</sprite>
@@ -336,7 +324,6 @@
           <sprite>sprites\spr_nazrin_icon</sprite>
         </sprites>
         <sprites name="Okuu">
-          <sprite>sprites\mask_okuu</sprite>
           <sprite>sprites\spr_okuu_000</sprite>
           <sprite>sprites\spr_okuu_045</sprite>
           <sprite>sprites\spr_okuu_090</sprite>
@@ -348,7 +335,6 @@
           <sprite>sprites\spr_okuu_icon</sprite>
         </sprites>
         <sprites name="Patchy">
-          <sprite>sprites\mask_patchy</sprite>
           <sprite>sprites\spr_patchy_000</sprite>
           <sprite>sprites\spr_patchy_045</sprite>
           <sprite>sprites\spr_patchy_090</sprite>
@@ -360,7 +346,6 @@
           <sprite>sprites\spr_patchy_icon</sprite>
         </sprites>
         <sprites name="Ran">
-          <sprite>sprites\mask_ran</sprite>
           <sprite>sprites\spr_ran_000</sprite>
           <sprite>sprites\spr_ran_045</sprite>
           <sprite>sprites\spr_ran_090</sprite>
@@ -372,7 +357,6 @@
           <sprite>sprites\spr_ran_icon</sprite>
         </sprites>
         <sprites name="Reimu">
-          <sprite>sprites\mask_reimu</sprite>
           <sprite>sprites\spr_reimu_000</sprite>
           <sprite>sprites\spr_reimu_045</sprite>
           <sprite>sprites\spr_reimu_090</sprite>
@@ -384,7 +368,6 @@
           <sprite>sprites\spr_reimu_icon</sprite>
         </sprites>
         <sprites name="Reisen">
-          <sprite>sprites\mask_reisen</sprite>
           <sprite>sprites\spr_reisen_000</sprite>
           <sprite>sprites\spr_reisen_045</sprite>
           <sprite>sprites\spr_reisen_090</sprite>
@@ -396,7 +379,6 @@
           <sprite>sprites\spr_reisen_icon</sprite>
         </sprites>
         <sprites name="Remi">
-          <sprite>sprites\mask_remi</sprite>
           <sprite>sprites\spr_remi_000</sprite>
           <sprite>sprites\spr_remi_045</sprite>
           <sprite>sprites\spr_remi_090</sprite>
@@ -408,7 +390,6 @@
           <sprite>sprites\spr_remi_icon</sprite>
         </sprites>
         <sprites name="Rumia">
-          <sprite>sprites\mask_rumia</sprite>
           <sprite>sprites\spr_rumia_000</sprite>
           <sprite>sprites\spr_rumia_045</sprite>
           <sprite>sprites\spr_rumia_090</sprite>
@@ -420,7 +401,6 @@
           <sprite>sprites\spr_rumia_icon</sprite>
         </sprites>
         <sprites name="Sakuya">
-          <sprite>sprites\mask_sakuya</sprite>
           <sprite>sprites\spr_sakuya_000</sprite>
           <sprite>sprites\spr_sakuya_045</sprite>
           <sprite>sprites\spr_sakuya_090</sprite>
@@ -432,7 +412,6 @@
           <sprite>sprites\spr_sakuya_icon</sprite>
         </sprites>
         <sprites name="Sanae">
-          <sprite>sprites\mask_sanae</sprite>
           <sprite>sprites\spr_sanae_000</sprite>
           <sprite>sprites\spr_sanae_045</sprite>
           <sprite>sprites\spr_sanae_090</sprite>
@@ -444,7 +423,6 @@
           <sprite>sprites\spr_sanae_icon</sprite>
         </sprites>
         <sprites name="Suika">
-          <sprite>sprites\mask_suika</sprite>
           <sprite>sprites\spr_suika_000</sprite>
           <sprite>sprites\spr_suika_045</sprite>
           <sprite>sprites\spr_suika_090</sprite>
@@ -456,7 +434,6 @@
           <sprite>sprites\spr_suika_icon</sprite>
         </sprites>
         <sprites name="Suwako">
-          <sprite>sprites\mask_suwako</sprite>
           <sprite>sprites\spr_suwako_000</sprite>
           <sprite>sprites\spr_suwako_045</sprite>
           <sprite>sprites\spr_suwako_090</sprite>
@@ -468,7 +445,6 @@
           <sprite>sprites\spr_suwako_icon</sprite>
         </sprites>
         <sprites name="Tewi">
-          <sprite>sprites\mask_tewi</sprite>
           <sprite>sprites\spr_tewi_000</sprite>
           <sprite>sprites\spr_tewi_045</sprite>
           <sprite>sprites\spr_tewi_090</sprite>
@@ -480,7 +456,6 @@
           <sprite>sprites\spr_tewi_icon</sprite>
         </sprites>
         <sprites name="Wriggle">
-          <sprite>sprites\mask_wriggle</sprite>
           <sprite>sprites\spr_wriggle_000</sprite>
           <sprite>sprites\spr_wriggle_045</sprite>
           <sprite>sprites\spr_wriggle_090</sprite>
@@ -492,7 +467,6 @@
           <sprite>sprites\spr_wriggle_icon</sprite>
         </sprites>
         <sprites name="Yamame">
-          <sprite>sprites\mask_yamame</sprite>
           <sprite>sprites\spr_yamame_000</sprite>
           <sprite>sprites\spr_yamame_045</sprite>
           <sprite>sprites\spr_yamame_090</sprite>
@@ -504,7 +478,6 @@
           <sprite>sprites\spr_yamame_icon</sprite>
         </sprites>
         <sprites name="Youmu">
-          <sprite>sprites\mask_youmu</sprite>
           <sprite>sprites\spr_youmu_000</sprite>
           <sprite>sprites\spr_youmu_045</sprite>
           <sprite>sprites\spr_youmu_090</sprite>
@@ -516,7 +489,6 @@
           <sprite>sprites\spr_youmu_icon</sprite>
         </sprites>
         <sprites name="Yukari">
-          <sprite>sprites\mask_yukari</sprite>
           <sprite>sprites\spr_yukari_000</sprite>
           <sprite>sprites\spr_yukari_045</sprite>
           <sprite>sprites\spr_yukari_090</sprite>
@@ -528,7 +500,6 @@
           <sprite>sprites\spr_yukari_icon</sprite>
         </sprites>
         <sprites name="Yuugi">
-          <sprite>sprites\mask_yuugi</sprite>
           <sprite>sprites\spr_yuugi_000</sprite>
           <sprite>sprites\spr_yuugi_045</sprite>
           <sprite>sprites\spr_yuugi_090</sprite>
@@ -540,7 +511,6 @@
           <sprite>sprites\spr_yuugi_icon</sprite>
         </sprites>
         <sprites name="Yuuka">
-          <sprite>sprites\mask_yuuka</sprite>
           <sprite>sprites\spr_yuuka_000</sprite>
           <sprite>sprites\spr_yuuka_045</sprite>
           <sprite>sprites\spr_yuuka_090</sprite>
@@ -552,7 +522,6 @@
           <sprite>sprites\spr_yuuka_icon</sprite>
         </sprites>
         <sprites name="Yuyuko">
-          <sprite>sprites\mask_yuyuko</sprite>
           <sprite>sprites\spr_yuyuko_000</sprite>
           <sprite>sprites\spr_yuyuko_045</sprite>
           <sprite>sprites\spr_yuyuko_090</sprite>
@@ -788,7 +757,6 @@
         <script>scripts\npc_get_home.gml</script>
         <script>scripts\npc_get_icon.gml</script>
         <script>scripts\npc_get_instance.gml</script>
-        <script>scripts\npc_get_mask.gml</script>
         <script>scripts\npc_get_name.gml</script>
         <script>scripts\npc_get_sprite.gml</script>
         <script>scripts\npc_get_sprite_fairy.gml</script>
