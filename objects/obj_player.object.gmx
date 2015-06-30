@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>obj_collision</parentName>
+  <parentName>self</parentName>
   <maskName>mask_player</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -210,6 +210,18 @@ else if (os_type == os_android)
     else
         speed = 0;
 }
+
+/// Collision check
+
+if (place_meeting(x+hspeed, y, obj_collision))
+{
+    hspeed = 0;
+}
+
+if (place_meeting(x, y+vspeed, obj_collision))
+{
+    vspeed = 0;
+}
 </string>
           </argument>
         </arguments>
@@ -232,8 +244,8 @@ else if (os_type == os_android)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = xprevious;
-y = yprevious;
+            <string>//x = xprevious;
+//y = yprevious;
 </string>
           </argument>
         </arguments>
