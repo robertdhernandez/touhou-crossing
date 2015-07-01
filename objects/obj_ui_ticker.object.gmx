@@ -30,8 +30,8 @@ height = 0;
 max_height = 14;
 
 buffer = 50;
-show_rate = 64 * (1 / room_speed);
-scroll_speed = (320 / 5) * (1 / room_speed);
+show_rate = 64 / room_speed;
+scroll_speed = (320 / 5) / room_speed;
 
 font = font_add_sprite_ext(spr_ui_ticker_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?~_/" + '"' + "@',.:;+-&amp;[]()&lt;&gt;*^=", true, 1);
 font_size = 1;
