@@ -65,7 +65,8 @@ bound_to_room = true;
             <kind>1</kind>
             <string>obj_camera_player.keep_in_bounds = player_is_outside();
 
-var changed_room = (global.room_index != room);
+// WARNING currently broken to make it work
+var changed_room = false;//(global.room_index != room);
 if (changed_room)
 {
     if (player_is_outside())

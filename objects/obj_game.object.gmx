@@ -8,46 +8,6 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>global.debug = true;
-
-if (not global.debug) randomize();
-
-dialogue_init();
-items_init();
-npc_init();
-struct_init();
-ui_init();
-
-instance_create(0, 0, obj_debug);
-instance_create(0, 0, obj_util_tint);
-
-global.axislh_previous = 0;
-global.axislv_previous = 0;
-gamepad_set_axis_deadzone(0, analogue_deadzone);
-
-global.room_index = room;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
@@ -90,7 +50,8 @@ global.room_index = room;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>mp_grid_destroy(global.mp_grid);
+            <string>if (global.mp_grid != -1)
+    mp_grid_destroy(global.mp_grid);
 </string>
           </argument>
         </arguments>
@@ -114,6 +75,54 @@ global.room_index = room;
           <argument>
             <kind>1</kind>
             <string>global.mp_grid = mp_grid_create(0, 0, room_width / grid_size, room_height / grid_size, grid_size, grid_size);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.debug = true;
+
+if (not global.debug) 
+    randomize();
+
+globalvar game_width, game_height;
+game_width = view_wview[0];
+game_height = view_hview[0];
+
+display_set_gui_size(game_width, game_height);
+
+dialogue_init();
+items_init();
+npc_init();
+struct_init();
+ui_init();
+
+instance_create(0, 0, obj_debug);
+instance_create(0, 0, obj_util_tint);
+
+global.axislh_previous = 0;
+global.axislv_previous = 0;
+gamepad_set_axis_deadzone(0, analogue_deadzone);
+
+global.room_index = room;
+global.mp_grid = -1;
 </string>
           </argument>
         </arguments>

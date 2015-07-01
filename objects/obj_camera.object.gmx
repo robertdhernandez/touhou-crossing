@@ -39,13 +39,6 @@ if (os_type == os_android)
     view_wport[0] = display_get_width();
     view_hport[0] = display_get_height();
 }
-
-globalvar game_width, game_height;
-
-game_width = width;
-game_height = height;
-
-display_set_gui_size(game_width, game_height);
 </string>
           </argument>
         </arguments>

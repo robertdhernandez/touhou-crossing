@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="4" name="datafiles">
-    <datafiles number="4" name="Dialogue">
+  <datafiles number="88" name="datafiles">
+    <datafiles number="88" name="Dialogue">
       <datafile>
         <name>dialogue_fairy.json</name>
         <exists>-1</exists>
@@ -922,6 +922,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\_rm_init</room>
+    <room>rooms\rm_title</room>
     <rooms name="Acre">
       <room>rooms\rm_acre00</room>
     </rooms>
@@ -931,7 +932,6 @@
     <room>rooms\rm_demo</room>
     <room>rooms\rm_demo_intro</room>
     <room>rooms\rm_newgame</room>
-    <room>rooms\rm_title</room>
   </rooms>
   <constants number="28">
     <constant name="analogue_deadzone">0.15</constant>
