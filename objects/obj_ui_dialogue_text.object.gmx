@@ -34,7 +34,7 @@ text_sep = 15;          // Pixels between each line
 text_width = 173;       // Width of the text box
 
 display = 1;            // Percentage of the text displayed
-display_rate = 0.05;    // Rate (in seconds) to display a new character
+display_rate = 1/40;    // Rate (in seconds) to display a new character
 </string>
           </argument>
         </arguments>
@@ -86,7 +86,7 @@ if (active)
             <string>/// New Text
 
 display = 0;
-display_rate_ = display_rate / (string_length(text) * display_rate);
+display_rate_ = 1 / (display_rate * string_length(text)) / room_speed;
 </string>
           </argument>
         </arguments>
