@@ -106,7 +106,8 @@ if (not visible and not display)
     instance_deactivate_object(ui_dialogue.inst_text);
     
     // Re-enable player input
-    obj_player.allow_input = true;
+    if (instance_exists(obj_player))
+        obj_player.allow_input = true;
     
     // Release the NPC
     if (global.dialogue_npc != -1)

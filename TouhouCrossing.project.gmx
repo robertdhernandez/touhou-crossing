@@ -78,6 +78,7 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\snd_dialogue</sound>
+    <sound>sound\mus_title</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Characters">
@@ -617,8 +618,6 @@
       </sprites>
       <sprites name="Title">
         <sprite>sprites\spr_ui_title</sprite>
-        <sprite>sprites\spr_ui_title_hand_big</sprite>
-        <sprite>sprites\spr_ui_title_hand_little</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -885,6 +884,7 @@
     </objects>
     <objects name="Title">
       <object>objects\obj_title</object>
+      <object>objects\obj_title_character</object>
     </objects>
     <objects name="UI">
       <objects name="Component">
@@ -915,11 +915,11 @@
       <object>objects\obj_ui_ticker</object>
     </objects>
     <objects name="Utility">
-      <object>objects\obj_util_dummy</object>
       <object>objects\obj_util_tint</object>
       <object>objects\obj_util_transition</object>
     </objects>
   </objects>
+  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\_rm_init</room>
     <room>rooms\rm_title</room>
