@@ -225,7 +225,7 @@ if (displayed)
         update = true;
         show = false;
         
-        obj_player.allow_input = true;
+        global.allow_input = true;
     }
 
     if (input_check_pressed(input.a))

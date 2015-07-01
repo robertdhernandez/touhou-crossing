@@ -75,6 +75,8 @@ global.room_index = room;
           <argument>
             <kind>1</kind>
             <string>global.mp_grid = mp_grid_create(0, 0, room_width / grid_size, room_height / grid_size, grid_size, grid_size);
+
+room_speed = 60;
 </string>
           </argument>
         </arguments>
@@ -120,6 +122,9 @@ instance_create(0, 0, obj_util_tint);
 global.axislh_previous = 0;
 global.axislv_previous = 0;
 gamepad_set_axis_deadzone(0, analogue_deadzone);
+
+// Allows the player to move the character
+global.allow_input = true;
 
 global.room_index = room;
 global.mp_grid = -1;
