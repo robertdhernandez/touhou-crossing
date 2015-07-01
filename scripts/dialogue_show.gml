@@ -11,7 +11,7 @@ instance_activate_object(ui_dialogue.inst_speaker);
 instance_activate_object(ui_dialogue.inst_text);
 
 // Disable player input
-global.allow_input = false;
+global.player_input = false;
 
 with (ui_dialogue)
 {    

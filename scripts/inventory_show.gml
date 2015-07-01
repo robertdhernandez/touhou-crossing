@@ -13,4 +13,4 @@ for (var i = 0; i < inventory_size; i++)
         instance_activate_object(ui_inventory.inventory[i]);
 
 // Disable player input
-global.allow_input = false;
+global.player_input = false;

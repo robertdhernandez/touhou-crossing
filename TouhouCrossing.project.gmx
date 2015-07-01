@@ -780,11 +780,11 @@
       </scripts>
     </scripts>
     <scripts name="Player">
+      <script>scripts\player_init.gml</script>
       <script>scripts\player_interact.gml</script>
       <scripts name="Properties">
         <script>scripts\player_get_follower.gml</script>
         <script>scripts\player_get_home.gml</script>
-        <script>scripts\player_get_name.gml</script>
         <script>scripts\player_get_sprite.gml</script>
         <script>scripts\player_has_follower.gml</script>
         <script>scripts\player_is_homeless.gml</script>

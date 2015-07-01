@@ -225,7 +225,7 @@ if (displayed)
         update = true;
         show = false;
         
-        global.allow_input = true;
+        global.player_input = true;
     }
 
     if (input_check_pressed(input.a))
@@ -409,7 +409,7 @@ draw_text(x + 35 - xoffset, y + 18 - yoffset, "Gensokyo");
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(global.font_dialogue);
-draw_text(x + 48 - xoffset, y + 34 - yoffset, player_get_name());
+draw_text(x + 48 - xoffset, y + 34 - yoffset, global.player_name);
 
 // Money
 draw_set_halign(fa_right);

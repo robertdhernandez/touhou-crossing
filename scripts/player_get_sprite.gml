@@ -1,6 +1,6 @@
 /// player_get_sprite(type, direction)
 
-var is_renko = argument0 == player_type.renko;
+var is_renko = argument0 == player_sprite.renko;
 
 switch (round_direction(argument1))
 {

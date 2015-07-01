@@ -208,7 +208,7 @@ var str = "Empty House";
 if (owner != -1)
 {
     if (owner == npc.player)
-        str = player_get_name();
+        str = global.player_name;
     else
         str = npc_get_name(owner);
         

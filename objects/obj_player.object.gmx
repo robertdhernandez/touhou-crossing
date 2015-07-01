@@ -25,15 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>enum player_type
-{
-    renko,
-    maribel
-}
-
-direction = 270;
+            <string>direction = 270;
 follower = noone;
-type = player_type.renko;
 home = -1;
 
 // Prevents the player from exiting the room
@@ -115,7 +108,7 @@ if (changed_room)
 event_inherited();
 
 //if (dialogue_is_shown() or inventory_is_shown() or instance_exists(obj_util_transition)) 
-if (not global.allow_input)
+if (not global.player_input)
 {
     speed = 0;
 }
@@ -204,7 +197,7 @@ direction = dir;
 
 if (not moving) image_index = 0;
 image_speed = (5 * spd / room_speed); // incorrect code, but looks nicer
-sprite_index = player_get_sprite(type, direction);
+sprite_index = player_get_sprite(global.player_sprite, direction);
 </string>
           </argument>
         </arguments>

@@ -3,7 +3,7 @@
 var str = argument0;
 
 /// Replace all instances of %PLAYER with the player name
-str = string_replace_all(str, "%PLAYER", player_get_name());
+str = string_replace_all(str, "%PLAYER", global.player_name);
 
 /// Break up string into lines
 
