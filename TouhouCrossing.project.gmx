@@ -835,6 +835,7 @@
     </scripts>
   </scripts>
   <objects name="objects">
+    <object>objects\_obj_game</object>
     <objects name="Camera">
       <object>objects\obj_camera</object>
       <object>objects\obj_camera_control</object>
@@ -869,7 +870,6 @@
     <object>objects\obj_collision</object>
     <object>objects\obj_debug</object>
     <object>objects\obj_entity</object>
-    <object>objects\obj_game</object>
     <object>objects\obj_newgame</object>
     <object>objects\obj_player</object>
     <object>objects\obj_weather</object>
