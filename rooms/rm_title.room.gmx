@@ -6,7 +6,7 @@
   <vsnap>16</vsnap>
   <hsnap>16</hsnap>
   <isometric>0</isometric>
-  <speed>30</speed>
+  <speed>60</speed>
   <persistent>0</persistent>
   <colour>0</colour>
   <showcolour>0</showcolour>
@@ -87,11 +87,11 @@
     <instance objName="obj_flower" x="16" y="64" name="inst_0BF468D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flower" x="304" y="128" name="inst_681DB6ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tree" x="80" y="272" name="inst_8544392B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_util_dummy" x="176" y="176" name="inst_28F10776" locked="0" code="sprite_index = spr_okuu_270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_util_dummy" x="176" y="184" name="inst_28F10776" locked="0" code="sprite_index = spr_maribel_270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_util_tint" x="0" y="0" name="inst_96A71623" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_util_dummy" x="128" y="176" name="inst_58E2E90F" locked="0" code="sprite_index = spr_cirno_270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_util_dummy" x="128" y="184" name="inst_58E2E90F" locked="0" code="sprite_index = spr_renko_270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flower" x="128" y="416" name="inst_22CEEB7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_title" x="160" y="80" name="inst_DE5535C4" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_title" x="160" y="72" name="inst_DE5535C4" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_flower" x="192" y="384" name="inst_87C4B5A2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tree" x="48" y="448" name="inst_A045ED51" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tree" x="224" y="384" name="inst_6D068292" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
