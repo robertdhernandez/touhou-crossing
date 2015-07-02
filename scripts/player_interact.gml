@@ -42,7 +42,7 @@ with (obj_player)
 with (argument0)
 {
     if (position_meeting(obj_player.x, obj_player.y, id) 
-        and round_direction(obj_player.direction) == 6)
+        and round_direction(obj_player.direction) == 270)
     {
         transition_to(rm_demo);
     }
