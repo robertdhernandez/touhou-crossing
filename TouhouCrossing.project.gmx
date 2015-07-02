@@ -168,6 +168,16 @@
           <sprite>sprites\spr_renko_270</sprite>
           <sprite>sprites\spr_renko_315</sprite>
         </sprites>
+        <sprites name="Sumireko">
+          <sprite>sprites\spr_sumireko_000</sprite>
+          <sprite>sprites\spr_sumireko_045</sprite>
+          <sprite>sprites\spr_sumireko_090</sprite>
+          <sprite>sprites\spr_sumireko_135</sprite>
+          <sprite>sprites\spr_sumireko_180</sprite>
+          <sprite>sprites\spr_sumireko_225</sprite>
+          <sprite>sprites\spr_sumireko_270</sprite>
+          <sprite>sprites\spr_sumireko_315</sprite>
+        </sprites>
       </sprites>
       <sprites name="Shanghai">
         <sprite>sprites\mask_shanghai</sprite>

@@ -3,11 +3,12 @@
 enum player_sprite
 {
     renko,
-    maribel
+    maribel,
+    sumireko
 }
 
-global.player_name = "Renko";
-global.player_sprite = player_sprite.renko;
+global.player_name = "Sumireko";
+global.player_sprite = player_sprite.sumireko;
 global.player_input = true;     // Allows the player to move the character
 
 //global.player_follower = noone;
