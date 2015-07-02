@@ -28,12 +28,15 @@
             <string>with (all)
 {
     if (object_index == obj_title or
-        object_index == obj_title_character)
+        object_index == obj_title_character or
+        object_is_ancestor(object_index, obj_ui_base))
         continue;
     
     move_wrap(false, true, 120);
     vspeed = background_vspeed[0];
 }
+
+global.ui_clock.can_show = false;
 
 if (global.player_input)
 {

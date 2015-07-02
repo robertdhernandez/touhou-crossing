@@ -28,6 +28,8 @@
             <string>x = 224;
 y = 16;
 
+can_show = true;
+
 // Set hidden by default
 show = false;
 image_alpha = 0;
@@ -118,9 +120,7 @@ alarm[0] = round(room_speed / 1.25);
     show = false;
 }
 
-// BUG clock doesn't show anymore
-
-if (not dialogue_is_shown and current_time - last_input &gt; 3000)
+if (can_show and current_time - last_input &gt; 3000)
 {
     show = true;
 }

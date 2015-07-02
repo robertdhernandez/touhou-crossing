@@ -12,5 +12,5 @@ for (var i = 0; i < inventory_size; i++)
     if (ui_inventory.inventory[i] != noone)
         instance_activate_object(ui_inventory.inventory[i]);
 
-// Disable player input
 global.player_input = false;
+global.ui_clock.can_show = false;

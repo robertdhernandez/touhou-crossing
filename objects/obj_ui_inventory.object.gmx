@@ -226,6 +226,7 @@ if (displayed)
         show = false;
         
         global.player_input = true;
+        global.ui_clock.can_show = true;
     }
 
     if (input_check_pressed(input.a))

@@ -10,8 +10,8 @@ instance_activate_object(ui_dialogue.inst_response.selection);
 instance_activate_object(ui_dialogue.inst_speaker);
 instance_activate_object(ui_dialogue.inst_text);
 
-// Disable player input
 global.player_input = false;
+global.ui_clock.can_show = false;
 
 with (ui_dialogue)
 {    
