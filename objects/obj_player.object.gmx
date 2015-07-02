@@ -31,6 +31,8 @@ home = -1;
 
 // Prevents the player from exiting the room
 bound_to_room = true;
+
+moving = false;
 </string>
           </argument>
         </arguments>
@@ -117,6 +119,9 @@ else if (os_type != os_android)
 {
     if (input_check_no_opposites())
     {
+        if (not moving)
+            image_index = 1;
+    
         speed = move_speed * input_get_distance() * 1.5;
         
         if (speed != 0)
@@ -160,7 +165,7 @@ else if (os_type == os_android)
 
 var spd = speed;
 var dir = direction;
-var moving = speed != 0;
+moving = speed != 0;
 
 /// Collision check
 
