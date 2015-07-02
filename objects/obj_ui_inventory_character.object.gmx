@@ -57,7 +57,7 @@ event_inherited();
             <kind>1</kind>
             <string>event_inherited();
 depth = parent.depth - 50;
-sprite_index = player_get_sprite(obj_player.type, 270);
+sprite_index = player_get_sprite(global.player_sprite, 270);
 </string>
           </argument>
         </arguments>
