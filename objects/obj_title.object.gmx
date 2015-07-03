@@ -8,6 +8,32 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Fade-out
+
+fade_rate = -1 / room_speed;
+scroll_rate = scroll_dist / (room_speed * 10);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -44,10 +70,14 @@ if (global.player_input)
         input_check_pressed(input.a) or
         (os_type == os_android and mouse_check_button_pressed(mb_left)))
     {
-        image_alpha = 1;
-        
         with (obj_title_character) 
             path_position = 1;
+        
+        fade_rate = 0;
+        scroll_rate = 0;
+        
+        image_alpha = 0;
+        view_yview[0] = scroll_dist;
         
         dialogue_reset();
         dialogue_set_message(0, "Welcome to Touhou Crossing.", "What would you like to do?")
@@ -57,6 +87,34 @@ if (global.player_input)
 }
 
 image_alpha = clamp(image_alpha + fade_rate, 0, 1);
+view_yview[0] = clamp(view_yview[0] + scroll_rate, 0, scroll_dist);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// obj_title_character End of Path
+
+alarm[0] = room_speed * 6;
+background_vspeed[0] = -move_speed;
+obj_title.fade_rate = 1 / room_speed;
 </string>
           </argument>
         </arguments>
@@ -107,6 +165,9 @@ background_vspeed[0] = 0;
 
 image_alpha = 0;
 fade_rate = 0;
+
+scroll_dist = 40;
+scroll_rate = 0;
 </string>
           </argument>
         </arguments>
