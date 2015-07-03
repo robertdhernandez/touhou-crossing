@@ -929,7 +929,6 @@
       <object>objects\obj_util_transition</object>
     </objects>
   </objects>
-  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\_rm_init</room>
     <room>rooms\rm_title</room>
