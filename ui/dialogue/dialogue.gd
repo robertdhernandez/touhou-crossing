@@ -26,9 +26,11 @@ export(float) var display_rate = 1.0
 var dialogue = {} setget _dialogue_set, _dialogue_get
 var visible = false setget _visible_set, _visible_get
 
+signal display
+
 
 func _init():
-	add_user_signal(SIGNAL_DISPLAY, [{ "visible" : TYPE_BOOL }])
+	#add_user_signal(SIGNAL_DISPLAY, [{ "visible" : TYPE_BOOL }])
 	add_user_signal(SIGNAL_ON_HIDDEN)
 	add_user_signal(SIGNAL_ON_DISPLAYED)
 	add_user_signal(SIGNAL_ON_MESSAGE_DONE)
@@ -91,7 +93,7 @@ func _visible_get():
 
 
 func _on_animator_finished():
-	var signal = SIGNAL_ON_DISPLAYED
+	var sig = SIGNAL_ON_DISPLAYED
 	if not visible:
-		signal = SIGNAL_ON_HIDDEN
-	emit_signal(signal)
+		sig = SIGNAL_ON_HIDDEN
+	emit_signal(sig)
