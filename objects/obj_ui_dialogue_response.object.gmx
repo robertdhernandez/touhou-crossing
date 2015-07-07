@@ -131,7 +131,10 @@ if (visible)
 event_inherited();
 visible = visible and show;
 
+visible_changed = visible != selection.visible;
 
+selection.depth = depth - 1;
+selection.visible = visible;
 </string>
           </argument>
         </arguments>
@@ -187,7 +190,7 @@ for (var i = num_responses - 1; i &gt;= 0; i--)
         selection.x = lerp(selection.x, tarx, 0.2);
         selection.y = lerp(selection.y, tary, 0.2);
         
-        if (visible != selection.visible)
+        if (visible_changed)
         {
             selection.x = tarx;
             selection.y = tary;
@@ -197,11 +200,6 @@ for (var i = num_responses - 1; i &gt;= 0; i--)
     draw_set_color(c_white);
     draw_text(x, yy, response[i]);
 }
-
-// set cursor
-
-selection.depth = depth - 1;
-selection.visible = visible;
 </string>
           </argument>
         </arguments>
