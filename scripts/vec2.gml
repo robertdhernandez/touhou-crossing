@@ -44,11 +44,41 @@ return vec2(-argument0[0], -argument0[1]);
 
 return argument0[0] == argument1[0] and argument0[1] == argument1[1];
 
+#define vec2_neq
+/// vec2_neq(vec1, vec2)
+/// Checks if two vectors are NOT equal
+
+return not vec2_eq(argument0, argument1);
+
 #define vec2_mag
 /// vec2_mag(vec)
 /// Magnitude of a vector
 
 return sqrt(sqr(argument0[0]) + sqr(argument0[1]));
+
+#define vec2_magsqr
+/// vec2_magsqr(vec)
+/// Magnitude of a vector, squared
+
+return sqr(argument0[0]) + sqr(argument0[1]);
+
+#define vec2_clamp
+/// vec2_clamp(vec, min, max)
+/// Clamps a vector
+
+var mag = vec2_mag(argument0);
+var tar = clamp(mag, argument1, argument2);
+
+if (tar == mag)
+    return argument0;
+
+return vec2_mul(vec2_norm(argument0), tar);
+
+#define vec2_dot
+/// vec2_dot(vec1, vec2)
+/// Dot product of two vectors
+
+return argument0[0] * argument1[0] + argument0[1] * argument1[1];
 
 #define vec2_norm
 /// vec2_norm(vec)
@@ -57,8 +87,7 @@ return sqrt(sqr(argument0[0]) + sqr(argument0[1]));
 var mag = vec2_mag(argument0);
 return vec2(argument0[0] / mag, argument0[1] / mag);
 
-#define vec2_dot
-/// vec2_dot(vec1, vec2)
-/// Dot product of two vectors
+#define vec2_string
+/// vec2_string(vec)
 
-return argument0[0] * argument1[0] + argument0[1] * argument1[1];
+return "(" + string(argument0[0]) + "," + string(argument0[1]) + ")";
