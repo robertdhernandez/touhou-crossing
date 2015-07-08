@@ -197,8 +197,9 @@ if (not displayed)
 {
     with (cursor)
     {
-        x = inventory_get_cursor_x(other.inv_index);
-        y = inventory_get_cursor_y(other.inv_index);
+        var vec = inventory_get_cursor_pos(other.inv_index);
+        x = vec[0];
+        y = vec[1];
     }
 }
 
@@ -206,11 +207,10 @@ else
 {
     with (cursor)
     {
-        var xx = inventory_get_cursor_x(other.inv_index);
-        var yy = inventory_get_cursor_y(other.inv_index);
+        var vec = inventory_get_cursor_pos(other.inv_index);
         
-        speed = min(point_distance(x, y, xx, yy), other.cursor_speed);
-        direction = point_direction(x, y, xx, yy);
+        speed = min(point_distance(x, y, vec[0], vec[1]), other.cursor_speed);
+        direction = point_direction(x, y, vec[0], vec[1]);
     }
 }
 

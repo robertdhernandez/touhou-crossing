@@ -32,7 +32,7 @@ switch (argument0)
     case 22:
     case 23:
     case 24:
-        return vec2_add(inventory_get_letter_pos(argument0), vec2(26, -15));
+        return vec2_add(inventory_get_letter_pos(argument0 - 15), vec2(26, -15));
 }
 
 return undefined;

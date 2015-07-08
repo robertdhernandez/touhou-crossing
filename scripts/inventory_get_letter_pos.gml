@@ -11,4 +11,4 @@ return 200 + 24 * (argument0 mod 2) + obj_ui_inventory.x - sprite_get_xoffset(ob
 #define inventory_get_letter_slot_y
 /// inventory_get_letter_slot_y(index)
 
-return 39 + 24 * floor(argument0 / 2) + obj_ui_inventory.y - sprite_get_yoffset(obj_ui_inventory.sprite_index);
+return 39 + 24 * (argument0 div 2) + obj_ui_inventory.y - sprite_get_yoffset(obj_ui_inventory.sprite_index);
