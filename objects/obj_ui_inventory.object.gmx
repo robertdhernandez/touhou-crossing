@@ -49,7 +49,6 @@ surface = undefined;
 cursor = instance_create(0, 0, obj_ui_cursor);
 cursor.depth = depth - 1000;
 cursor.image_xscale = -1;
-cursor_speed = 15;
 
 inv_index = 0;
 for (var i = 0; i &lt; inventory_size; i++)
@@ -207,14 +206,15 @@ if (not displayed)
     }
 }
 
-else
+else if (not actions.visible)
 {
     with (cursor)
     {
-        var vec = inventory_get_cursor_pos(other.inv_index);
+        var vec = inventory_get_cursor_pos(other.inv_index);       
+        x = lerp(x, vec[0], 0.2);
+        y = lerp(y, vec[1], 0.2);
         
-        speed = min(point_distance(x, y, vec[0], vec[1]), other.cursor_speed);
-        direction = point_direction(x, y, vec[0], vec[1]);
+        image_xscale = -1;
     }
 }
 
@@ -222,7 +222,7 @@ else
 
 var update = false;
 
-if (displayed)
+if (displayed and not actions.visible)
 {
     if (input_check_pressed(input.start) and moving == noone)
     {
@@ -239,12 +239,19 @@ if (displayed)
     
         if (current != noone)
         {
-            actions.x = cursor.x;
-            actions.y = cursor.y;
+            var vec = inventory_get_cursor_pos(other.inv_index);
+            
+            actions.x = vec[0];
+            actions.y = vec[1];
             actions.visible = true;
             actions.depth = depth - 1000;
             
+            actions._index = 0;
+            
             update = true;
+            
+            cursor.x += cursor.sprite_width;
+            cursor.image_xscale = 1;
             
             //moving = current;
             //inventory[inv_index] = noone;

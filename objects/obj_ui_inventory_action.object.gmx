@@ -29,6 +29,11 @@
 
 item_id = -1;
 
+_actions[2] = "Never Mind";
+_actions[1] = "Toss";
+_actions[0] = "Grab";
+
+_index = 0;
 _np = ninepatch_create(14, 13, 17, 19, 14, 13, 17, 19);
 </string>
           </argument>
@@ -52,7 +57,42 @@ _np = ninepatch_create(14, 13, 17, 19, 14, 13, 17, 19);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>if (not visible) 
+    exit;
+
+/// Input
+
+if (input_check_pressed(input.up))
+    _index = min(_index+1, array_length_1d(_actions)-1);    
+
+if (input_check_pressed(input.down))
+    _index = max(_index-1, 0);
+
+if (input_check_pressed(input.a))
+{
+    visible = false;
+}
+
+if (input_check_pressed(input.b))
+{
+    _index = array_length_1d(_actions)-1;
+    visible = false;
+}
+
+/// Update Cursor
+
+with (parent.cursor)
+{
+    x = lerp(x, other.x - sprite_width - 6, 0.1);
+    y = lerp(y, other.y - 3 - 16 * other._index, 0.1);
+    
+    if (not other.visible)
+    {
+        x += sprite_width;
+        image_xscale = -1;
+    }
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -80,17 +120,18 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
 // get actions
-var actions;
-actions[2] = "Never Mind";
-actions[1] = "Toss";
-actions[0] = "Grab";
 
-var len = array_length_1d(actions);
+//var _actions;
+//_actions[2] = "Never Mind";
+//_actions[1] = "Toss";
+//_actions[0] = "Grab";
+
+var len = array_length_1d(_actions);
 
 // calculate width, height
 var width = 0, height = len * 16;
 for (var i = 0; i &lt; len; i++)
-    width = max(width, string_width(actions[i]));
+    width = max(width, string_width(_actions[i]));
 
 // draw background
 var wbuffer = 8, hbuffer = 5;
@@ -98,7 +139,7 @@ ninepatch_draw(_np, sprite_index, 0, x-wbuffer-5, y-hbuffer-height/2, width+wbuf
 
 // draw commands
 for (var i = 0; i &lt; len; i++)
-    draw_text(x-5, y + 3 + 16 * i - height/2, actions[i]);
+    draw_text(x-5, y + 3 + 16 * i - height/2, _actions[i]);
 </string>
           </argument>
         </arguments>
