@@ -220,151 +220,176 @@ else if (not actions.visible)
 
 /// User Input
 
-var update = false;
-
-if (displayed and not actions.visible)
+if (displayed)
 {
-    if (input_check_pressed(input.start) and moving == noone)
+    // inventory input
+    if (not actions.visible)
     {
-        update = true;
-        show = false;
+        if (input_check_pressed(input.start) and moving == noone)
+        {
+            show = false;
+            
+            global.player_input = true;
+            global.ui_clock.can_show = true;
+        }
+    
+        if (input_check_pressed(input.a))
+        {
+            if (current != noone)
+            {
+                var vec = inventory_get_cursor_pos(other.inv_index);
+                
+                actions.x = vec[0];
+                actions.y = vec[1];
+                actions.visible = true;
+                actions.depth = depth - 1000;
+                
+                actions._index = 0;
+                
+                cursor.x += cursor.sprite_width;
+                cursor.image_xscale = 1;
+                
+                //moving = current;
+                //inventory[inv_index] = noone;
+                //cursor.grab = true;
+            }
+            else if (is_item and inventory[inv_index] == noone)
+            {
+                inventory[inv_index] = moving;
+                moving = noone;
+                cursor.grab = false;
+            }
+        }
+    
+        if (input_check_pressed(input.left))
+        {    
+            if (is_item and item_col != 0)
+                inv_index--;
+            else if (is_letter)
+            {
+                if (inv_index mod 2 == 0)
+                    inv_index--;
+                else
+                {
+                    switch (inv_index)
+                    {
+                        case 15:
+                        case 17:
+                        case 19:
+                            inv_index = 4; 
+                        break;
+                        
+                        case 21: 
+                            inv_index = 9; 
+                        break;
+                        
+                        case 23: 
+                            inv_index = 14; 
+                        break;
+                    }
+                }
+            }
+        }
         
-        global.player_input = true;
-        global.ui_clock.can_show = true;
-    }
-
-    if (input_check_pressed(input.a))
-    {
-        update = true;
+        if (input_check_pressed(input.right))
+        {  
+            if (is_item)
+            {
+                if (item_col &lt; 4)
+                    inv_index++;
+                else if (item_col == 4)
+                {
+                    switch (item_row)
+                    {
+                        case 0: inv_index = 19; break;
+                        case 1: inv_index = 21; break;
+                        case 2: inv_index = 23; break;
+                    }
+                }
+            }
+            else if (is_letter and inv_index mod 2 == 1)
+                inv_index++;
+        }
+        
+        if (input_check_pressed(input.up))
+        {    
+            if (is_item)
+            {
+                if (item_row != 0)
+                    inv_index -= 5;
+            }
+            if (is_letter and 16 &lt; inv_index)
+                inv_index -= 2;
+        }
+        
+        if (input_check_pressed(input.down))
+        {   
+            if (is_item)
+            {
+                if (item_row != 2)
+                    inv_index += 5;
+            }
+            else if (is_letter and inv_index &lt; 23)
+                inv_index += 2;
+        }
+        
+        // update current
+    
+        is_item = (0 &lt;= inv_index and inv_index &lt;= 14);
+        is_letter = (15 &lt;= inv_index);
     
         if (current != noone)
         {
-            var vec = inventory_get_cursor_pos(other.inv_index);
-            
-            actions.x = vec[0];
-            actions.y = vec[1];
-            actions.visible = true;
-            actions.depth = depth - 1000;
-            
-            actions._index = 0;
-            
-            update = true;
-            
-            cursor.x += cursor.sprite_width;
-            cursor.image_xscale = 1;
-            
-            //moving = current;
-            //inventory[inv_index] = noone;
-            //cursor.grab = true;
+            current.active = false;
+            current.show_name = false;
+            current = noone;
         }
-        else if (is_item and inventory[inv_index] == noone)
+        
+        if (moving == noone and is_item and inventory[inv_index] != noone)
         {
-            inventory[inv_index] = moving;
-            moving = noone;
-            cursor.grab = false;
+            current = inventory[inv_index];
+            current.active = not actions.visible;
+            current.show_name = not actions.visible;
         }
     }
-
-    else if (input_check_pressed(input.left))
-    {
-        update = true;
     
-        if (is_item and item_col != 0)
-            inv_index--;
-        else if (is_letter)
+    // actions input
+    else with (actions)
+    {
+        if (input_check_pressed(input.up))
+            _index = min(_index+1, array_length_1d(_actions)-1);    
+        
+        if (input_check_pressed(input.down))
+            _index = max(_index-1, 0);
+        
+        if (input_check_pressed(input.a))
         {
-            if (inv_index mod 2 == 0)
-                inv_index--;
+            event_user(0);
+            visible = false;
+        }
+        
+        if (input_check_pressed(input.b))
+        {
+            var last = 0;
+            if (_index == last)
+                visible = false;
             else
+                _index = last;
+        }
+        
+        /// Update Cursor
+        
+        with (parent.cursor)
+        {
+            x = lerp(x, other.x - sprite_width - 6, 0.1);
+            y = lerp(y, other.y - 3 - 16 * other._index, 0.1);
+            
+            if (not other.visible)
             {
-                switch (inv_index)
-                {
-                    case 15:
-                    case 17:
-                    case 19:
-                        inv_index = 4; 
-                    break;
-                    
-                    case 21: 
-                        inv_index = 9; 
-                    break;
-                    
-                    case 23: 
-                        inv_index = 14; 
-                    break;
-                }
+                x += sprite_width;
+                image_xscale = -1;
             }
         }
-    }
-    
-    else if (input_check_pressed(input.right))
-    {
-        update = true;
-    
-        if (is_item)
-        {
-            if (item_col &lt; 4)
-                inv_index++;
-            else if (item_col == 4)
-            {
-                switch (item_row)
-                {
-                    case 0: inv_index = 19; break;
-                    case 1: inv_index = 21; break;
-                    case 2: inv_index = 23; break;
-                }
-            }
-        }
-        else if (is_letter and inv_index mod 2 == 1)
-            inv_index++;
-    }
-    
-    else if (input_check_pressed(input.up))
-    {
-        update = true;
-    
-        if (is_item)
-        {
-            if (item_row != 0)
-                inv_index -= 5;
-        }
-        if (is_letter and 16 &lt; inv_index)
-            inv_index -= 2;
-    }
-    
-    else if (input_check_pressed(input.down))
-    {
-        update = true;
-    
-        if (is_item)
-        {
-            if (item_row != 2)
-                inv_index += 5;
-        }
-        else if (is_letter and inv_index &lt; 23)
-            inv_index += 2;
-    }
-}
-
-/// Update current
-
-if (update)
-{
-    is_item = (0 &lt;= inv_index and inv_index &lt;= 14);
-    is_letter = (15 &lt;= inv_index);
-
-    if (current != noone)
-    {
-        current.active = false;
-        current.show_name = false;
-        current = noone;
-    }
-    
-    if (moving == noone and is_item and inventory[inv_index] != noone)
-    {
-        current = inventory[inv_index];
-        current.active = not actions.visible;
-        current.show_name = not actions.visible;
     }
 }
 </string>
