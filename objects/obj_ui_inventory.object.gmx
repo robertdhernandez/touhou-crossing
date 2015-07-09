@@ -362,22 +362,17 @@ if (displayed)
         if (input_check_pressed(input.down))
             _index = max(_index-1, 0);
         
-        if (input_check_pressed(input.a))
+        if (input_check_pressed(input.a) or
+            (input_check_pressed(input.b) and _index == 0))
         {
-            event_user(0);
+            with (other) event_user(0);
             visible = false;
         }
         
         if (input_check_pressed(input.b))
-        {
-            var last = 0;
-            if (_index == last)
-                visible = false;
-            else
-                _index = last;
-        }
+            _index = 0;
         
-        /// Update Cursor
+        // update cursor
         
         with (parent.cursor)
         {
@@ -391,6 +386,48 @@ if (displayed)
             }
         }
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Item Action
+
+var index = (array_length_1d(actions._actions)-1)-actions._index;
+var action = actions._actions[index];
+
+switch (action)
+{
+    case "Grab":
+        moving = current;
+        inventory[inv_index] = noone;
+        
+        cursor.x = inventory_get_item_slot_x(inv_index);
+        cursor.y = inventory_get_item_slot_y(inv_index);
+        cursor.grab = true;
+    break;
+    
+    case "Toss":
+        // TODO
+    break;
 }
 </string>
           </argument>
