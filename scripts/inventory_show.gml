@@ -5,6 +5,7 @@ globalvar ui_inventory;
 ui_inventory.show = true;
 
 instance_activate_object(ui_inventory);
+instance_activate_object(ui_inventory.actions);
 instance_activate_object(ui_inventory.cursor);
 instance_activate_object(ui_inventory.character);
 

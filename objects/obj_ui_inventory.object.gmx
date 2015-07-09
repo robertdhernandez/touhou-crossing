@@ -58,6 +58,7 @@ for (var i = 0; i &lt; inventory_size; i++)
 current = noone;
 moving = noone;
 
+actions = instance_create(0, 0, obj_ui_inventory_action);
 character = instance_create(133, 22, obj_ui_inventory_character);
 </string>
           </argument>
@@ -151,7 +152,10 @@ if (not show and y == hide_y)
     // Deactivate objects
     globalvar ui_inventory;
     
+    ui_inventory.actions.visible = false;
+    
     instance_deactivate_object(ui_inventory);
+    instance_deactivate_object(ui_inventory.actions);
     instance_deactivate_object(ui_inventory.cursor);
     instance_deactivate_object(ui_inventory.character);
     
@@ -235,9 +239,16 @@ if (displayed)
     
         if (current != noone)
         {
-            moving = current;
-            inventory[inv_index] = noone;
-            cursor.grab = true;
+            actions.x = cursor.x;
+            actions.y = cursor.y;
+            actions.visible = true;
+            actions.depth = depth - 1000;
+            
+            update = true;
+            
+            //moving = current;
+            //inventory[inv_index] = noone;
+            //cursor.grab = true;
         }
         else if (is_item and inventory[inv_index] == noone)
         {
@@ -345,8 +356,8 @@ if (update)
     if (moving == noone and is_item and inventory[inv_index] != noone)
     {
         current = inventory[inv_index];
-        current.active = true;
-        current.show_name = true;
+        current.active = not actions.visible;
+        current.show_name = not actions.visible;
     }
 }
 </string>
