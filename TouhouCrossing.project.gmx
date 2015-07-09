@@ -688,6 +688,7 @@
     </scripts>
     <scripts name="Inventory">
       <script>scripts\inventory_add_item.gml</script>
+      <script>scripts\inventory_drop_item.gml</script>
       <script>scripts\inventory_get_cursor_pos.gml</script>
       <script>scripts\inventory_get_item_pos.gml</script>
       <script>scripts\inventory_get_letter_pos.gml</script>
