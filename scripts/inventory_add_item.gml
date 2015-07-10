@@ -12,6 +12,7 @@ for (var i = 0; i < inventory_size; i++)
         with (instance_create(xx, yy, obj_ui_inventory_item))
         {
             item = argument0;
+            icon = item_get_icon(item);
             
             // TODO get appropriate icon
         
