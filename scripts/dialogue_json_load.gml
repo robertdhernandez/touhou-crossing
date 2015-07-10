@@ -1,6 +1,6 @@
 /// dialogue_json_load(filename)
 
-var root = load_file_json(argument0);
+var root = load_file_json(argument0, ds_type_list);
 
 var size = ds_list_size(root);
 for (var i = 0; i < size; i++)
