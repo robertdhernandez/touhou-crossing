@@ -713,7 +713,9 @@
       <script>scripts\inventory_is_shown.gml</script>
       <script>scripts\inventory_show.gml</script>
       <scripts name="Items">
-        <script>scripts\items_get.gml</script>
+        <script>scripts\item_get.gml</script>
+        <script>scripts\item_get_actions.gml</script>
+        <script>scripts\item_get_icon.gml</script>
         <script>scripts\items_init.gml</script>
       </scripts>
     </scripts>

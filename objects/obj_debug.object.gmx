@@ -153,11 +153,11 @@ if (show_paths)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>inventory_add_item(items_get("test"));
-inventory_add_item(items_get("test1"));
-inventory_add_item(items_get("test2"));
-inventory_add_item(items_get("test3"));
-inventory_add_item(items_get("test4"));
+            <string>inventory_add_item(item_get("test"));
+inventory_add_item(item_get("test1"));
+inventory_add_item(item_get("test2"));
+inventory_add_item(item_get("test3"));
+inventory_add_item(item_get("test4"));
 </string>
           </argument>
         </arguments>
