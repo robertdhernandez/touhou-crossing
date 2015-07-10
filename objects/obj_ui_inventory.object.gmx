@@ -237,14 +237,18 @@ if (displayed)
         {
             if (current != noone)
             {
-                var vec = inventory_get_cursor_pos(other.inv_index);
+                var vec = inventory_get_cursor_pos(inv_index);
                 
-                actions.x = vec[0];
-                actions.y = vec[1];
-                actions.visible = true;
-                actions.depth = depth - 1000;
-                
-                actions._index = 0;
+                with (actions)
+                {
+                    x = vec[0];
+                    y = vec[1];
+                    visible = true;
+                    depth = other.depth - 1000;
+                    
+                    actions = item_get_actions(other.current.item);
+                    index = array_length_1d(actions)-1;
+                }
                 
                 cursor.x += cursor.sprite_width;
                 cursor.image_xscale = 1;
@@ -353,27 +357,27 @@ if (displayed)
     else with (actions)
     {
         if (input_check_pressed(input.up))
-            _index = min(_index+1, array_length_1d(_actions)-1);    
+            index = min(index+1, array_length_1d(actions)-1);    
         
         if (input_check_pressed(input.down))
-            _index = max(_index-1, 0);
+            index = max(index-1, 0);
         
         if (input_check_pressed(input.a) or
-            (input_check_pressed(input.b) and _index == 0))
+            (input_check_pressed(input.b) and index == 0))
         {
             with (other) event_user(0);
             visible = false;
         }
         
         if (input_check_pressed(input.b))
-            _index = 0;
+            index = 0;
         
         // update cursor
         
         with (parent.cursor)
         {
             x = lerp(x, other.x - sprite_width - 6, 0.1);
-            y = lerp(y, other.y - 3 - 16 * other._index, 0.1);
+            y = lerp(y, other.y - 3 - 16 * other.index, 0.1);
             
             if (not other.visible)
             {
@@ -407,8 +411,8 @@ if (displayed)
             <kind>1</kind>
             <string>/// Item Action
 
-var index = (array_length_1d(actions._actions)-1)-actions._index;
-var action = actions._actions[index];
+var index = (array_length_1d(actions.actions)-1)-actions.index;
+var action = actions.actions[index];
 
 switch (action)
 {
@@ -421,7 +425,7 @@ switch (action)
         cursor.grab = true;
     break;
     
-    case "Toss":
+    case "Drop":
         inventory_drop_item(inv_index);
     break;
 }

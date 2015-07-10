@@ -27,13 +27,6 @@
             <kind>1</kind>
             <string>event_inherited();
 
-item_id = -1;
-
-_actions[2] = "Never Mind";
-_actions[1] = "Toss";
-_actions[0] = "Grab";
-
-_index = 0;
 _np = ninepatch_create(14, 13, 17, 19, 14, 13, 17, 19);
 </string>
           </argument>
@@ -84,19 +77,12 @@ draw_set_color(make_color_rgb(64, 104, 144));
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
-// get actions
-
-//var _actions;
-//_actions[2] = "Never Mind";
-//_actions[1] = "Toss";
-//_actions[0] = "Grab";
-
-var len = array_length_1d(_actions);
+var len = array_length_1d(actions);
 
 // calculate width, height
 var width = 0, height = len * 16;
 for (var i = 0; i &lt; len; i++)
-    width = max(width, string_width(_actions[i]));
+    width = max(width, string_width(actions[i]));
 
 // draw background
 var wbuffer = 8, hbuffer = 5;
@@ -104,7 +90,7 @@ ninepatch_draw(_np, sprite_index, 0, x-wbuffer-5, y-hbuffer-height/2, width+wbuf
 
 // draw commands
 for (var i = 0; i &lt; len; i++)
-    draw_text(x-5, y + 3 + 16 * i - height/2, _actions[i]);
+    draw_text(x-5, y + 3 + 16 * i - height/2, actions[i]);
 </string>
           </argument>
         </arguments>
