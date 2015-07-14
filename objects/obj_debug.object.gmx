@@ -29,6 +29,11 @@
 show_collisions = false;
 show_paths = false;
 show_overlay = false;
+
+// richtext unit test
+
+var test = richtext("The [b]quick[/b] brown [i]fox[/i] jumps over the [color=green]lazy[/color] dog.");
+show_debug_message(test);
 </string>
           </argument>
         </arguments>
