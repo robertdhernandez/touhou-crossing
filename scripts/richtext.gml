@@ -3,19 +3,17 @@
 var text = argument0;
 var len = string_length(text);
 
-var list;
+var rt;
 var idx = 0;
 
-var a = 1;
-
 // iterate through each character
-for (var i = 0; i < len; i++)
+for ({var i = 1, a = 1}; i <= len; i++)
 {
     if (string_char_at(text, i) == '[')
     {
         // add text of everything before tag
-        list[idx, 0] = "text";
-        list[idx, 1] = string_copy(text, a, i-a);
+        rt[idx,0] = "text";
+        rt[idx,1] = string_copy(text, a, i-a);
         idx++;
     
         // find end of tag
@@ -23,8 +21,28 @@ for (var i = 0; i < len; i++)
         while (string_char_at(text, b) != ']')
             b++;
             
-        // insert tag
-        list[idx, 0] = string_copy(text, i+1, b-i-1);
+        // parse the tag and argument (if exists)
+        var tag = string_copy(text, i+1, b-i-1);
+        var is_closing = string_char_at(tag, 1) == '/';
+        
+        rt[idx,1] = not is_closing;
+        
+        if (is_closing)
+            rt[idx,0] = string_letters(tag);
+        else
+        {
+            var eqpos = string_pos('=', tag);
+            var has_args = eqpos != 0;
+        
+            if (not has_args)
+                rt[idx,0] = string_letters(tag);
+            else
+            {
+                rt[idx,0] = string_letters(string_copy(tag, 1, eqpos));
+                rt[idx,2] = string_lettersdigits(string_copy(tag, eqpos+1, string_length(tag)-eqpos));
+            }
+        }
+
         idx++;
         
         // move index to character after tag
@@ -34,7 +52,7 @@ for (var i = 0; i < len; i++)
 }
 
 // add remaining text
-list[idx, 0] = "text";
-list[idx, 1] = string_copy(text, a, i - a);
+rt[idx,0] = "text";
+rt[idx,1] = string_copy(text, a, i-a);
 
-return list;
+return rt;
