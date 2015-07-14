@@ -1,7 +1,7 @@
-/// richtext(text)
+/// mutext(str)
 
-var text = argument0;
-var len = string_length(text);
+var str = argument0;
+var len = string_length(str);
 
 var rt;
 var idx = 0;
@@ -9,20 +9,20 @@ var idx = 0;
 // iterate through each character
 for ({var i = 1, a = 1}; i <= len; i++)
 {
-    if (string_char_at(text, i) == '[')
+    if (string_char_at(str, i) == '[')
     {
         // add text of everything before tag
         rt[idx,0] = "text";
-        rt[idx,1] = string_copy(text, a, i-a);
+        rt[idx,1] = string_copy(str, a, i-a);
         idx++;
     
         // find end of tag
         var b = i;
-        while (string_char_at(text, b) != ']')
+        while (string_char_at(str, b) != ']')
             b++;
             
         // parse the tag and argument (if exists)
-        var tag = string_copy(text, i+1, b-i-1);
+        var tag = string_copy(str, i+1, b-i-1);
         var is_closing = string_char_at(tag, 1) == '/';
         
         rt[idx,1] = not is_closing;
@@ -51,8 +51,8 @@ for ({var i = 1, a = 1}; i <= len; i++)
     }
 }
 
-// add remaining text
+// add remaining str
 rt[idx,0] = "text";
-rt[idx,1] = string_copy(text, a, i-a);
+rt[idx,1] = string_copy(str, a, i-a);
 
 return rt;

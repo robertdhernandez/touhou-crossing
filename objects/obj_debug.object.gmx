@@ -30,10 +30,15 @@ show_collisions = false;
 show_paths = false;
 show_overlay = false;
 
-// richtext unit test
+// markup text unit test
 
-var test = richtext("The [b]quick[/b] brown [i]fox[/i] jumps over the [color=green]lazy[/color] dog.");
-show_debug_message(test);
+var teststr = "The [b]quick[/b] brown [i]fox[/i] jumps over the [color=green]lazy[/color] dog.";
+show_debug_message(string(string_length(teststr)));
+
+var rt = mutext(teststr);
+show_debug_message(rt);
+show_debug_message(string(mutext_length(rt)));
+show_debug_message(mutext_string(rt));
 </string>
           </argument>
         </arguments>

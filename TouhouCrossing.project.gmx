@@ -734,7 +734,9 @@
       <script>scripts\random_out_of_bounds_x.gml</script>
       <script>scripts\random_out_of_bounds_y.gml</script>
       <script>scripts\random_weighted.gml</script>
-      <script>scripts\richtext.gml</script>
+      <script>scripts\mutext.gml</script>
+      <script>scripts\mutext_length.gml</script>
+      <script>scripts\mutext_string.gml</script>
       <script>scripts\round_direction.gml</script>
       <script>scripts\sprite_draw_9patch.gml</script>
       <script>scripts\sprite_get_9patch.gml</script>
