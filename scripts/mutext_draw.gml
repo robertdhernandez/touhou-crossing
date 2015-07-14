@@ -15,7 +15,14 @@ for (var i = 0; i < len; i++)
     switch (tag)
     {
         case "text":
-            var str = mu[i,1];         
+            var str = mu[i,1];
+        
+            if (mu[i,2])
+            {
+                xx = argument0;
+                yy += string_height(str);
+            }
+            
             draw_text(xx, yy, str);
             xx += string_width(str);
         break;

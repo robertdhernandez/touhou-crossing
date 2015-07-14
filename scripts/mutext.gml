@@ -5,21 +5,35 @@ var len = string_length(str);
 
 var mu;
 var idx = 0;
+var newline = false;
 
 // iterate through each character
 for ({var i = 1, a = 1}; i <= len; i++)
 {
     // TODO handle new lines
-    
-    if (string_char_at(str, i) == '[')
+    if (string_char_at(str, i) == '#' and
+        string_char_at(str,i-1) != '\')
     {
-        // add text of everything before tag
-        var text = string_copy(str, a, i-a);
-        if (text != "")
+        if (i-a > 0)
         {
             mu[idx,0] = "text";
-            mu[idx,1] = text;
-            mu[idx,2] = false;
+            mu[idx,1] = string_copy(str, a, i-a);
+            mu[idx,2] = newline;
+            idx++;
+        }
+        
+        a = i + 1;
+        newline = true;
+    }
+    
+    else if (string_char_at(str, i) == '[')
+    {
+        // add text of everything before tag
+        if (i-a > 0)
+        {
+            mu[idx,0] = "text";
+            mu[idx,1] = string_copy(str, a, i-a);
+            mu[idx,2] = newline;
             idx++;
         }
     
@@ -55,16 +69,16 @@ for ({var i = 1, a = 1}; i <= len; i++)
         // move index to character after tag
         i = b;
         a = i+1;
+        newline = false;
     }
 }
 
 // add remaining str
-var text = string_copy(str, a, i-a);
-if (text != "")
+if (i-a > 0)
 {
     mu[idx,0] = "text";
-    mu[idx,1] = text;
-    mu[idx,2] = false;
+    mu[idx,1] = string_copy(str, a, i-a);
+    mu[idx,2] = newline;
 }
 
 return mu;

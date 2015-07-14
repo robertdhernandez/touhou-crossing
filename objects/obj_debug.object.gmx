@@ -32,7 +32,7 @@ show_overlay = false;
 
 // markup text unit test
 
-var teststr = "The [color=red][b]quick[/b][/color] brown [i]fox[/i] jumps [color=orange]over[/color] the [color=aqua]lazy[/color] dog.";
+var teststr = "The [color=red][b]quick[/b][/color] brown [i]fox[/i] #jumps [color=orange]over[/color] the [color=aqua]lazy[/color] dog.";
 show_debug_message(string(string_length(teststr)));
 
 mu = mutext(teststr);
@@ -90,14 +90,20 @@ surf = -1;
 {
     surf = surface_create(512, 512);
     surface_set_target(surf);
-    draw_clear_alpha(c_black,0);
+    {
+        draw_clear_alpha(c_black, 0);
         draw_set_color(c_black);
         draw_set_font(global.font_dialogue);
         mutext_draw(0, 0, mu);
+    }
     surface_reset_target();
 }
 
 draw_surface(surf, 0, 0);
+
+//draw_set_color(c_black);
+//draw_set_font(global.font_dialogue);
+//mutext_draw(0, 0, mu);
 </string>
           </argument>
         </arguments>
