@@ -728,6 +728,7 @@
       <script>scripts\load_file_json.gml</script>
       <scripts name="Markup Text">
         <script>scripts\mutext.gml</script>
+        <script>scripts\mutext_draw.gml</script>
         <script>scripts\mutext_length.gml</script>
         <script>scripts\mutext_string.gml</script>
       </scripts>

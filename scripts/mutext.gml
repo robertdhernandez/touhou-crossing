@@ -3,18 +3,25 @@
 var str = argument0;
 var len = string_length(str);
 
-var rt;
+var mu;
 var idx = 0;
 
 // iterate through each character
 for ({var i = 1, a = 1}; i <= len; i++)
 {
+    // TODO handle new lines
+    
     if (string_char_at(str, i) == '[')
     {
         // add text of everything before tag
-        rt[idx,0] = "text";
-        rt[idx,1] = string_copy(str, a, i-a);
-        idx++;
+        var text = string_copy(str, a, i-a);
+        if (text != "")
+        {
+            mu[idx,0] = "text";
+            mu[idx,1] = text;
+            mu[idx,2] = false;
+            idx++;
+        }
     
         // find end of tag
         var b = i;
@@ -25,34 +32,39 @@ for ({var i = 1, a = 1}; i <= len; i++)
         var tag = string_copy(str, i+1, b-i-1);
         var is_closing = string_char_at(tag, 1) == '/';
         
-        rt[idx,1] = not is_closing;
+        mu[idx,1] = not is_closing;
         
         if (is_closing)
-            rt[idx,0] = string_letters(tag);
+            mu[idx,0] = string_letters(tag);
         else
         {
             var eqpos = string_pos('=', tag);
-            var has_args = eqpos != 0;
+            var has_arg = eqpos != 0;
         
-            if (not has_args)
-                rt[idx,0] = string_letters(tag);
+            if (not has_arg)
+                mu[idx,0] = string_letters(tag);
             else
             {
-                rt[idx,0] = string_letters(string_copy(tag, 1, eqpos));
-                rt[idx,2] = string_lettersdigits(string_copy(tag, eqpos+1, string_length(tag)-eqpos));
+                mu[idx,0] = string_letters(string_copy(tag, 1, eqpos));
+                mu[idx,2] = string_lettersdigits(string_copy(tag, eqpos+1, string_length(tag)-eqpos));
             }
         }
 
         idx++;
         
         // move index to character after tag
-        i = b + 1;
-        a = i;
+        i = b;
+        a = i+1;
     }
 }
 
 // add remaining str
-rt[idx,0] = "text";
-rt[idx,1] = string_copy(str, a, i-a);
+var text = string_copy(str, a, i-a);
+if (text != "")
+{
+    mu[idx,0] = "text";
+    mu[idx,1] = text;
+    mu[idx,2] = false;
+}
 
-return rt;
+return mu;

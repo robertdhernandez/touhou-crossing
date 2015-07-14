@@ -32,13 +32,15 @@ show_overlay = false;
 
 // markup text unit test
 
-var teststr = "The [b]quick[/b] brown [i]fox[/i] jumps over the [color=green]lazy[/color] dog.";
+var teststr = "The [color=red][b]quick[/b][/color] brown [i]fox[/i] jumps [color=orange]over[/color] the [color=aqua]lazy[/color] dog.";
 show_debug_message(string(string_length(teststr)));
 
-var rt = mutext(teststr);
-show_debug_message(rt);
-show_debug_message(string(mutext_length(rt)));
-show_debug_message(mutext_string(rt));
+mu = mutext(teststr);
+show_debug_message(mu);
+show_debug_message(string(mutext_length(mu)));
+show_debug_message(mutext_string(mu));
+
+surf = -1;
 </string>
           </argument>
         </arguments>
@@ -62,6 +64,40 @@ show_debug_message(mutext_string(rt));
           <argument>
             <kind>1</kind>
             <string>visible = global.debug;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (not surface_exists(surf))
+{
+    surf = surface_create(512, 512);
+    surface_set_target(surf);
+    draw_clear_alpha(c_black,0);
+        draw_set_color(c_black);
+        draw_set_font(global.font_dialogue);
+        mutext_draw(0, 0, mu);
+    surface_reset_target();
+}
+
+draw_surface(surf, 0, 0);
 </string>
           </argument>
         </arguments>
