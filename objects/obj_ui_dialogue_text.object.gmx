@@ -111,7 +111,7 @@ display_rate_ = 1 / (display_rate * string_length(text)) / room_speed;
             <kind>1</kind>
             <string>event_inherited();
 
-draw_set_color(c_white);
+draw_set_color(c_black);
 draw_set_font(obj_ui_dialogue.font);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);

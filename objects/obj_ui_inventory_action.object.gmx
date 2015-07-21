@@ -73,7 +73,6 @@ _np = ninepatch_create(14, 13, 17, 19, 14, 13, 17, 19);
           <argument>
             <kind>1</kind>
             <string>draw_set_font(global.font_dialogue);
-draw_set_color(make_color_rgb(64, 104, 144));
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
@@ -89,6 +88,7 @@ var wbuffer = 8, hbuffer = 5;
 ninepatch_draw(_np, sprite_index, 0, x-wbuffer-5, y-hbuffer-height/2, width+wbuffer*2, height+hbuffer*2, c_white, 1);
 
 // draw commands
+draw_set_color(make_color_rgb(64, 104, 144));
 for (var i = 0; i &lt; len; i++)
     draw_text(x-5, y + 3 + 16 * i - height/2, actions[i]);
 </string>

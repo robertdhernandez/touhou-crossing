@@ -97,6 +97,7 @@ if (show_name)
     
     ninepatch_draw(np, spr, 0, xx, yy, width + 17, height, c_white, 1);
     
+    draw_set_color(c_black);
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_text(xx + 10, yy + 4, name);

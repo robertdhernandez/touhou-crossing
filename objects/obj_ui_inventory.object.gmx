@@ -481,18 +481,21 @@ var xoffset = sprite_get_xoffset(sprite_index);
 var yoffset = sprite_get_yoffset(sprite_index);
 
 // Town name
+draw_set_color(c_black);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(global.font_dialogue);
 draw_text(x + 35 - xoffset, y + 18 - yoffset, "Gensokyo");
 
 // Player name
+draw_set_color(c_black);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(global.font_dialogue);
 draw_text(x + 48 - xoffset, y + 34 - yoffset, global.player_name);
 
 // Money
+draw_set_color(c_white);
 draw_set_halign(fa_right);
 draw_set_valign(fa_top);
 draw_set_font(font_money);

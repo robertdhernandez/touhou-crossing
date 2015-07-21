@@ -197,7 +197,7 @@ for (var i = num_responses - 1; i &gt;= 0; i--)
         }
     }
     
-    draw_set_color(c_white);
+    draw_set_color(c_black);
     draw_text(x, yy, response[i]);
 }
 </string>

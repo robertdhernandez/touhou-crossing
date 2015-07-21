@@ -51,7 +51,7 @@ visible = (obj_ui_dialogue.visible and obj_ui_dialogue.image_index == 0);
             <kind>1</kind>
             <string>event_inherited();
 
-draw_set_color(c_white);
+draw_set_color(c_black);
 draw_set_font(obj_ui_dialogue.font);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
