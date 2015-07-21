@@ -86,7 +86,7 @@ surf = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (not surface_exists(surf))
+            <string>/*if (not surface_exists(surf))
 {
     surf = surface_create(512, 512);
     surface_set_target(surf);
