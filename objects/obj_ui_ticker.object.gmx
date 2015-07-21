@@ -33,7 +33,7 @@ buffer = 50;
 show_rate = 64 / room_speed;
 scroll_speed = (320 / 5) / room_speed;
 
-font = global.font_dialogue;
+font = global.font;
 font_size = 1;
 
 queue = ds_queue_create();

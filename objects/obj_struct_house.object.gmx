@@ -202,7 +202,7 @@ for (var i = 0; i &lt; occupancy_max; i++)
 var scale = 0.5;
 var buffer = 2;
 
-draw_set_font(global.font_dialogue);
+draw_set_font(global.font);
 
 var str = "Empty House";
 if (owner != -1)

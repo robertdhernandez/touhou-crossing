@@ -93,7 +93,7 @@ surf = -1;
     {
         draw_clear_alpha(c_black, 0);
         draw_set_color(c_black);
-        draw_set_font(global.font_dialogue);
+        draw_set_font(global.font);
         mutext_draw(0, 0, mu);
     }
     surface_reset_target();
@@ -102,7 +102,7 @@ surf = -1;
 draw_surface(surf, 0, 0);
 
 //draw_set_color(c_black);
-//draw_set_font(global.font_dialogue);
+//draw_set_font(global.font);
 //mutext_draw(0, 0, mu);
 </string>
           </argument>

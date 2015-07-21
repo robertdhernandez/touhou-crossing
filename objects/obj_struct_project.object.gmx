@@ -120,7 +120,7 @@ progress = clamp(progress + rate, 0, 1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(global.font_dialogue);
+            <string>draw_set_font(global.font);
 
 var percent = 100 * progress;
 var str = string(round(percent));

@@ -35,7 +35,7 @@ y = max_y;
 display = false;
 display_rate = sprite_height / (room_speed * 0.25);
 
-font = global.font_dialogue;
+font = global.font;
 
 inst_continue   = instance_create(90, -14, obj_ui_dialogue_continue);
 inst_response   = instance_create(20, -50, obj_ui_dialogue_response);

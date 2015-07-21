@@ -84,7 +84,7 @@ draw_sprite(icon, 0, x + 4 - image_index * 2, y + 4 - image_index * 2);
 
 if (show_name)
 {
-    draw_set_font(global.font_dialogue);
+    draw_set_font(global.font);
     
     var name = item[? "name"];
     var width = string_width(name);
