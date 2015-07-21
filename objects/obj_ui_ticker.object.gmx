@@ -33,7 +33,7 @@ buffer = 50;
 show_rate = 64 / room_speed;
 scroll_speed = (320 / 5) / room_speed;
 
-font = font_add_sprite_ext(spr_ui_ticker_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?~_/" + '"' + "@',.:;+-&amp;[]()&lt;&gt;*^=", true, 1);
+font = global.font_dialogue;
 font_size = 1;
 
 queue = ds_queue_create();

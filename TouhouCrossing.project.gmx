@@ -640,9 +640,6 @@
         <sprite>sprites\spr_ui_inventory_selection</sprite>
         <sprite>sprites\spr_ui_inventory_slot</sprite>
       </sprites>
-      <sprites name="Ticker">
-        <sprite>sprites\spr_ui_ticker_font</sprite>
-      </sprites>
       <sprites name="Title">
         <sprite>sprites\spr_ui_title</sprite>
       </sprites>
