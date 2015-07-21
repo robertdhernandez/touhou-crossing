@@ -726,7 +726,9 @@
       <scripts name="Markup Text">
         <script>scripts\mutext.gml</script>
         <script>scripts\mutext_draw.gml</script>
+        <script>scripts\mutext_getline.gml</script>
         <script>scripts\mutext_length.gml</script>
+        <script>scripts\mutext_numlines.gml</script>
         <script>scripts\mutext_string.gml</script>
       </scripts>
       <script>scripts\mouse_get_gui_x.gml</script>
@@ -925,7 +927,6 @@
           <object>objects\obj_ui_dialogue_component</object>
           <object>objects\obj_ui_dialogue_continue</object>
           <object>objects\obj_ui_dialogue_response</object>
-          <object>objects\obj_ui_dialogue_speaker</object>
           <object>objects\obj_ui_dialogue_text</object>
         </objects>
         <objects name="Inventory">

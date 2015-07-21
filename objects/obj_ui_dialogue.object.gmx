@@ -39,7 +39,6 @@ font = global.font;
 
 inst_continue   = instance_create(90, -14, obj_ui_dialogue_continue);
 inst_response   = instance_create(20, -50, obj_ui_dialogue_response);
-inst_speaker    = instance_create(-55, -71, obj_ui_dialogue_speaker);
 inst_text       = instance_create(-86, -53, obj_ui_dialogue_text);
 </string>
           </argument>
@@ -102,7 +101,6 @@ if (not visible and not display)
     instance_deactivate_object(ui_dialogue.inst_continue);
     instance_deactivate_object(ui_dialogue.inst_response);
     instance_deactivate_object(ui_dialogue.inst_response.selection);
-    instance_deactivate_object(ui_dialogue.inst_speaker);
     instance_deactivate_object(ui_dialogue.inst_text);
     
     global.player_input = true;
@@ -218,6 +216,17 @@ else
             <kind>1</kind>
             <string>event_inherited();
 draw_self();
+
+// speaker
+if (image_index == 0)
+{
+    draw_set_color(c_black);
+    draw_set_font(font);
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    
+    draw_text(x-55, y-71, global.dialogue_speaker);
+}
 </string>
           </argument>
         </arguments>

@@ -1,9 +1,7 @@
-/// mutext_string(rt)
+/// mutext_numlines(mu)
 
-var str = "";
-
+var count = 1;
 for (var i = 0; i < array_height_2d(argument0); i++)
     if (argument0[i,0] == "text")
-        str += argument0[i,1];
-
-return str;
+        count += argument[i,2];
+return count;
