@@ -628,7 +628,6 @@
       <sprites name="Dialogue">
         <sprite>sprites\spr_ui_dialogue</sprite>
         <sprite>sprites\spr_ui_dialogue_continue</sprite>
-        <sprite>sprites\spr_ui_dialogue_font</sprite>
         <sprite>sprites\spr_ui_dialogue_response</sprite>
       </sprites>
       <sprites name="Inventory">
@@ -640,6 +639,7 @@
         <sprite>sprites\spr_ui_inventory_selection</sprite>
         <sprite>sprites\spr_ui_inventory_slot</sprite>
       </sprites>
+      <sprite>sprites\spr_ui_font</sprite>
       <sprites name="Title">
         <sprite>sprites\spr_ui_title</sprite>
       </sprites>
