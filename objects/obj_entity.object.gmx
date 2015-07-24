@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = (floor(y / 16) + 1) * -100;
+            <string>depth = (floor(bbox_bottom / 16) + 1) * -100;
 </string>
           </argument>
         </arguments>
