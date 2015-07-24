@@ -29,8 +29,8 @@
 image_yscale = 2;
 image_speed = 5 / room_speed;
 
-x += sprite_get_xoffset(image_index) * 1.5;
-y += sprite_get_yoffset(image_index) * 1.6;
+x += sprite_get_xoffset(sprite_index) * 1.5;
+y += sprite_get_yoffset(sprite_index) * 1.6;
 
 event_inherited();
 </string>
