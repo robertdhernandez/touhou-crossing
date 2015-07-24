@@ -55,13 +55,13 @@ moving = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>obj_camera_player.keep_in_bounds = player_is_outside();
+            <string>obj_camera_player.keep_in_bounds = global.player_outside;
 
 // WARNING currently broken to make it work
 var changed_room = false;//(global.room_index != room);
 if (changed_room)
 {
-    if (player_is_outside())
+    if (global.player_outside)
     {
         with (interior_id)
         {
