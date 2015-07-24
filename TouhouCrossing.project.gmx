@@ -98,6 +98,11 @@
     <sound>sound\mus_title</sound>
   </sounds>
   <sprites name="sprites">
+    <sprites name="Bridge">
+      <sprite>sprites\spr_bridge_d</sprite>
+      <sprite>sprites\spr_bridge_h</sprite>
+      <sprite>sprites\spr_bridge_v</sprite>
+    </sprites>
     <sprites name="Characters">
       <sprites name="Fairies">
         <sprites name="A">
@@ -823,8 +828,6 @@
         <script>scripts\player_get_sprite.gml</script>
         <script>scripts\player_has_follower.gml</script>
         <script>scripts\player_is_homeless.gml</script>
-        <script>scripts\player_is_inside.gml</script>
-        <script>scripts\player_is_outside.gml</script>
         <script>scripts\player_set_follower.gml</script>
       </scripts>
     </scripts>
@@ -871,13 +874,17 @@
   </scripts>
   <objects name="objects">
     <object>objects\_obj_game</object>
+    <objects name="Bridge">
+      <object>objects\obj_bridge_d</object>
+      <object>objects\obj_bridge_h</object>
+      <object>objects\obj_bridge_v</object>
+    </objects>
     <objects name="Camera">
       <object>objects\obj_camera</object>
       <object>objects\obj_camera_control</object>
       <object>objects\obj_camera_player</object>
     </objects>
     <objects name="Dirt">
-      <object>objects\obj_dirt</object>
       <object>objects\obj_dirt_a</object>
       <object>objects\obj_dirt_b</object>
       <object>objects\obj_dirt_c</object>
@@ -959,6 +966,7 @@
     <room>rooms\rm_title</room>
     <rooms name="Acre">
       <room>rooms\rm_acre00</room>
+      <room>rooms\rm_test_water</room>
     </rooms>
     <rooms name="Interior">
       <room>rooms\rm_house</room>
