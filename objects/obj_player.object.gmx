@@ -33,6 +33,9 @@ home = -1;
 bound_to_room = true;
 
 moving = false;
+
+if (not instance_exists(obj_camera))
+    instance_create(0, 0, obj_camera_player);
 </string>
           </argument>
         </arguments>
