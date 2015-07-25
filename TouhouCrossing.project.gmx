@@ -649,6 +649,13 @@
         <sprite>sprites\spr_ui_title</sprite>
       </sprites>
     </sprites>
+    <sprites name="Water">
+      <sprite>sprites\spr_water</sprite>
+      <sprite>sprites\spr_water_dl</sprite>
+      <sprite>sprites\spr_water_dr</sprite>
+      <sprite>sprites\spr_water_ul</sprite>
+      <sprite>sprites\spr_water_ur</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_default_pattern</background>
@@ -960,12 +967,21 @@
       <object>objects\obj_util_tint</object>
       <object>objects\obj_util_transition</object>
     </objects>
+    <objects name="Water">
+      <object>objects\obj_water</object>
+      <object>objects\obj_water_dl</object>
+      <object>objects\obj_water_dr</object>
+      <object>objects\obj_water_ul</object>
+      <object>objects\obj_water_ur</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\_rm_init</room>
     <room>rooms\rm_title</room>
     <rooms name="Acre">
       <room>rooms\rm_acre00</room>
+    </rooms>
+    <rooms name="Debug">
       <room>rooms\rm_test_water</room>
     </rooms>
     <rooms name="Interior">
