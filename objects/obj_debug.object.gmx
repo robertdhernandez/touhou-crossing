@@ -171,6 +171,9 @@ if (show_collisions)
         var xx = x + lengthdir_x(interact_dist, direction);
         var yy = y + lengthdir_y(interact_dist, direction);
         
+        draw_set_color(c_blue);
+        draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
+        
         draw_set_color(c_red);
         draw_line(x, y, xx, yy);
     }
@@ -183,6 +186,9 @@ if (show_paths)
 {
     with (obj_npc) draw_path(path, x, y, true);
 }
+
+if (instance_exists(obj_water))
+    obj_water.visible = show_collisions;
 </string>
           </argument>
         </arguments>
