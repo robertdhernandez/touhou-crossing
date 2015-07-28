@@ -939,7 +939,6 @@
       <objects name="Component">
         <objects name="Dialogue">
           <object>objects\obj_ui_dialogue_component</object>
-          <object>objects\obj_ui_dialogue_continue</object>
           <object>objects\obj_ui_dialogue_response</object>
         </objects>
         <objects name="Inventory">

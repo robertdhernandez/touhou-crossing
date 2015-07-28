@@ -37,8 +37,14 @@ display_rate = sprite_height / (room_speed * 0.25);
 
 font = global.font;
 
-inst_continue   = instance_create(90, -14, obj_ui_dialogue_continue);
 inst_response   = instance_create(20, -50, obj_ui_dialogue_response);
+
+// continue
+
+cont_image_index = 0;
+cont_image_speed = 2 / room_speed;
+cont_sprite_index = spr_ui_dialogue_continue;
+cont_visible = false;
 
 // text
 
@@ -71,8 +77,7 @@ text_width = 173;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with (obj_ui_dialogue_continue) instance_destroy();
-with (obj_ui_dialogue_response) instance_destroy();
+            <string>with (obj_ui_dialogue_response) instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -105,7 +110,6 @@ if (not visible and not display)
     // Deactivate ui_dialogue and its subcomponents
     globalvar ui_dialogue;
     instance_deactivate_object(ui_dialogue);
-    instance_deactivate_object(ui_dialogue.inst_continue);
     instance_deactivate_object(ui_dialogue.inst_response);
     instance_deactivate_object(ui_dialogue.inst_response.selection);
     
@@ -116,6 +120,16 @@ if (not visible and not display)
     if (global.dialogue_npc != -1)
         global.dialogue_npc.can_think = true;
 }
+
+// continue
+
+if (cont_visible)
+{
+    if (input_check_pressed(input.a) or mouse_check_button_pressed(mb_left))
+        event_user(0);
+}
+else
+    cont_visible = text_display == 1 and not inst_response.show;
 
 // text
 
@@ -176,6 +190,7 @@ var buffer = global.dialogue_buffer[message_index];
 // get next in queue
 if (not ds_queue_empty(buffer))
 {
+    cont_visible = false;
     text_str = ds_queue_dequeue(buffer);
     text_display = 0;
     text_display_rate_ = 1 / (text_display_rate * string_length(text_str)) / room_speed;
@@ -247,6 +262,14 @@ var amt = floor(string_length(text_str) * text_display);
 var str = string_copy(text_str, 0, amt);
 
 draw_text_ext(x-86, y-53, str, text_sep, text_width);
+
+// continue
+
+if (cont_visible)
+{
+    cont_image_index = (cont_image_index + cont_image_speed) mod sprite_get_number(cont_sprite_index);
+    draw_sprite(cont_sprite_index, cont_image_index, x+90, y-14);
+}
 </string>
           </argument>
         </arguments>

@@ -4,7 +4,6 @@ globalvar ui_dialogue;
 
 // Activate ui_dialogue and its subcomponents
 instance_activate_object(ui_dialogue);
-instance_activate_object(ui_dialogue.inst_continue);
 instance_activate_object(ui_dialogue.inst_response);
 instance_activate_object(ui_dialogue.inst_response.selection);
 
