@@ -33,7 +33,6 @@ buffer = 50;
 show_rate = 64 / room_speed;
 
 font = global.font;
-font_size = 1;
 
 queue = ds_queue_create();
 
@@ -173,7 +172,7 @@ draw_set_valign(fa_top);
 draw_set_font(font);
 
 for (var i = 0; i &lt; tick_count; i++)
-    draw_text_transformed(tick_x[|i], 3, tick_str[|i], 1, 1, image_angle);
+    draw_text(tick_x[|i], 3, tick_str[|i]);
 </string>
           </argument>
         </arguments>
