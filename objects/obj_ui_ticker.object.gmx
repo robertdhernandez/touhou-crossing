@@ -31,13 +31,16 @@ max_height = 14;
 
 buffer = 50;
 show_rate = 64 / room_speed;
-scroll_speed = (320 / 5) / room_speed;
 
 font = global.font;
 font_size = 1;
 
 queue = ds_queue_create();
-last = noone;
+
+tick_count = 0;
+tick_speed = (320 / 5) / room_speed;
+tick_str = ds_list_create();
+tick_x = ds_list_create();
 </string>
           </argument>
         </arguments>
@@ -60,8 +63,9 @@ last = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ds_queue_destroy(queue);
-font_delete(font);
+            <string>ds_list_destroy(tick_str);
+ds_list_destroy(tick_x);
+ds_queue_destroy(queue);
 </string>
           </argument>
         </arguments>
@@ -84,31 +88,50 @@ font_delete(font);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show = ds_queue_size(queue) &gt; 0 or instance_number(obj_ui_ticker_text) &gt; 0;
+            <string>// update visibility
+
+show = tick_count &gt; 0 or ds_queue_size(queue) &gt; 0;
 
 var vis = show_rate;
-if (not show) { vis = -vis; last = noone; }
+if (not show)
+    vis = -vis;
 
 height = clamp(height + vis, 0, max_height);
 visible = height != 0;
 
+// update ticks
+
+if (tick_count &gt; 0)
+{
+    for (var i = 0; i &lt; tick_count; i++)
+        tick_x[|i] -= tick_speed;
+    
+    if (tick_x[|0] &lt; 0)
+    {
+        ds_list_delete(tick_str, 0);
+        ds_list_delete(tick_x, 0);
+        tick_count--;
+    }
+}
+
+// add ticks
+
 if (height == max_height)
 {
-    if (ds_queue_size(queue) &gt; 0)
+    draw_set_font(font);
+    
+    while (ds_queue_size(queue) &gt; 0)
     {
-        draw_set_font(font);
+        var str = ds_queue_dequeue(queue), xx;
         
-        with (instance_create(320, 3, obj_ui_ticker_text))
-        {
-            str = ds_queue_dequeue(other.queue);
-            
-            if (other.last != noone and other.last.x &gt; 320 - other.buffer)
-                x = other.last.x + other.buffer;
-            
-            x += string_width(str) * other.font_size;
-            
-            other.last = id;
-        }
+        if (tick_count &gt; 0 and tick_x[|tick_count-1] &gt; 320 - buffer)
+            xx = tick_x[|tick_count-1] + buffer + string_width(str);
+        else
+            xx = 320 + string_width(str);
+        
+        ds_list_add(tick_str, str);
+        ds_list_add(tick_x, xx);
+        tick_count++;
     }
 }
 </string>
@@ -133,7 +156,7 @@ if (height == max_height)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>// background
 
 draw_set_color(c_black);
 draw_set_alpha(0.30);
@@ -141,6 +164,16 @@ draw_rectangle(0, 0, 320, height, false);
 
 draw_set_color(c_white);
 draw_set_alpha(1);
+
+// ticks
+
+draw_set_color(c_white);
+draw_set_halign(fa_right);
+draw_set_valign(fa_top);
+draw_set_font(font);
+
+for (var i = 0; i &lt; tick_count; i++)
+    draw_text_transformed(tick_x[|i], 3, tick_str[|i], 1, 1, image_angle);
 </string>
           </argument>
         </arguments>

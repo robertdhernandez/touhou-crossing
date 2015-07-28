@@ -951,9 +951,6 @@
           <object>objects\obj_ui_inventory_letter</object>
         </objects>
         <object>objects\obj_ui_component</object>
-        <objects name="Ticker">
-          <object>objects\obj_ui_ticker_text</object>
-        </objects>
       </objects>
       <object>objects\obj_ui_base</object>
       <object>objects\obj_ui_clock</object>
