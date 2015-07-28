@@ -1,11 +1,6 @@
 /// dialogue_show(type)
 
-globalvar ui_dialogue;
-
-// Activate ui_dialogue and its subcomponents
-instance_activate_object(ui_dialogue);
-instance_activate_object(ui_dialogue.inst_response);
-instance_activate_object(ui_dialogue.inst_response.selection);
+instance_activate_object(global.ui_dialogue);
 
 global.player_input = false;
 global.ui_clock.can_show = false;
