@@ -941,7 +941,6 @@
           <object>objects\obj_ui_dialogue_component</object>
           <object>objects\obj_ui_dialogue_continue</object>
           <object>objects\obj_ui_dialogue_response</object>
-          <object>objects\obj_ui_dialogue_text</object>
         </objects>
         <objects name="Inventory">
           <object>objects\obj_ui_inventory_action</object>

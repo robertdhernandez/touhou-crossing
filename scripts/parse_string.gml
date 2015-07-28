@@ -20,7 +20,7 @@ for (var i = 0; i < len; i++)
     var substr = string_copy(str, a, i - a);
     
     // Only go further if line exceeds width
-    if (string_width(substr) < ui_dialogue.inst_text.text_width)
+    if (string_width(substr) < ui_dialogue.text_width)
         continue;
     
     var j = string_length(substr); // == i - a

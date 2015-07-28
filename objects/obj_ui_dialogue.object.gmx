@@ -39,7 +39,16 @@ font = global.font;
 
 inst_continue   = instance_create(90, -14, obj_ui_dialogue_continue);
 inst_response   = instance_create(20, -50, obj_ui_dialogue_response);
-inst_text       = instance_create(-86, -53, obj_ui_dialogue_text);
+
+// text
+
+text_active = true;
+text_display = 1;
+text_display_rate = 1/40;
+text_sep = 15;
+text_str = "";
+text_surf = -1;
+text_width = 173;
 </string>
           </argument>
         </arguments>
@@ -64,14 +73,12 @@ inst_text       = instance_create(-86, -53, obj_ui_dialogue_text);
             <kind>1</kind>
             <string>with (obj_ui_dialogue_continue) instance_destroy();
 with (obj_ui_dialogue_response) instance_destroy();
-with (obj_ui_dialogue_speaker) instance_destroy();
-with (obj_ui_dialogue_text) instance_destroy();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="1">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -90,7 +97,7 @@ with (obj_ui_dialogue_text) instance_destroy();
             <kind>1</kind>
             <string>y = clamp(y - display_rate * iff(display, 1, -1), min_y, max_y);
 
-obj_ui_dialogue_text.active = y == min_y;
+text_active = y == min_y;
 visible = (y != max_y);
 
 if (not visible and not display)
@@ -101,7 +108,6 @@ if (not visible and not display)
     instance_deactivate_object(ui_dialogue.inst_continue);
     instance_deactivate_object(ui_dialogue.inst_response);
     instance_deactivate_object(ui_dialogue.inst_response.selection);
-    instance_deactivate_object(ui_dialogue.inst_text);
     
     global.player_input = true;
     global.ui_clock.can_show = true;
@@ -110,6 +116,11 @@ if (not visible and not display)
     if (global.dialogue_npc != -1)
         global.dialogue_npc.can_think = true;
 }
+
+// text
+
+if (text_active)
+    text_display = clamp(text_display + text_display_rate_, 0, 1);
 </string>
           </argument>
         </arguments>
@@ -165,11 +176,9 @@ var buffer = global.dialogue_buffer[message_index];
 // get next in queue
 if (not ds_queue_empty(buffer))
 {
-    with (obj_ui_dialogue_text)
-    {
-        text = ds_queue_dequeue(buffer);
-        event_user(0);
-    }
+    text_str = ds_queue_dequeue(buffer);
+    text_display = 0;
+    text_display_rate_ = 1 / (text_display_rate * string_length(text_str)) / room_speed;
 }
 
 // show responses
@@ -214,19 +223,30 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
-draw_self();
+            <string>draw_self();
+
+draw_set_color(c_black);
+draw_set_font(font);
 
 // speaker
+
 if (image_index == 0)
 {
-    draw_set_color(c_black);
-    draw_set_font(font);
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
     
     draw_text(x-55, y-71, global.dialogue_speaker);
 }
+
+// text
+
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
+var amt = floor(string_length(text_str) * text_display);
+var str = string_copy(text_str, 0, amt);
+
+draw_text_ext(x-86, y-53, str, text_sep, text_width);
 </string>
           </argument>
         </arguments>

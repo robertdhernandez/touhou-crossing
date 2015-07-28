@@ -7,7 +7,6 @@ instance_activate_object(ui_dialogue);
 instance_activate_object(ui_dialogue.inst_continue);
 instance_activate_object(ui_dialogue.inst_response);
 instance_activate_object(ui_dialogue.inst_response.selection);
-instance_activate_object(ui_dialogue.inst_text);
 
 global.player_input = false;
 global.ui_clock.can_show = false;
