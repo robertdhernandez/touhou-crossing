@@ -4,9 +4,12 @@ globalvar ui_inventory;
 
 for (var i = 0; i < inventory_size; i++)
 {
-    if (ui_inventory.inventory[i] == noone)
+    if (ui_inventory.inv[i] == -1)
     {
-        var xx = inventory_get_item_slot_x_raw(i);
+        ui_inventory.inv[i] = argument0;
+        return true;
+    
+        /*var xx = inventory_get_item_slot_x_raw(i);
         var yy = inventory_get_item_slot_y_raw(i);
     
         with (instance_create(xx, yy, obj_ui_inventory_item))
@@ -22,7 +25,7 @@ for (var i = 0; i < inventory_size; i++)
                 instance_deactivate_object(id);
             
             return true;
-        }
+        }*/
     }
 }
     
