@@ -6,8 +6,6 @@ ui_inventory.show = true;
 
 instance_activate_object(ui_inventory);
 instance_activate_object(ui_inventory.actions);
-instance_activate_object(ui_inventory.cursor);
-instance_activate_object(ui_inventory.character);
 
 for (var i = 0; i < inventory_size; i++)
     if (ui_inventory.inventory[i] != noone)

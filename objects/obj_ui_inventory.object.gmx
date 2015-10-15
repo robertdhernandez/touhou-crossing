@@ -46,10 +46,6 @@ bg_speed = 32 * 0.40 / room_speed;
 
 surface = undefined;
 
-cursor = instance_create(0, 0, obj_ui_cursor);
-cursor.depth = depth - 1000;
-cursor.image_xscale = -1;
-
 inv_index = 0;
 for (var i = 0; i &lt; inventory_size; i++)
     inventory[i] = noone;
@@ -58,7 +54,21 @@ current = noone;
 moving = noone;
 
 actions = instance_create(0, 0, obj_ui_inventory_action);
-character = instance_create(133, 22, obj_ui_inventory_character);
+
+// Character
+
+char_image_index = 0;
+char_image_speed = 5 / room_speed;
+
+// Cursor
+
+curs_grab = false;
+curs_image_index = 0;
+curs_image_speed = 2 / room_speed;
+curs_image_xscale = -1;
+curs_visible = visible;
+curs_x = 0;
+curs_y = 0;
 </string>
           </argument>
         </arguments>
@@ -109,8 +119,8 @@ ds_list_destroy(np_name);
 
 if (moving != noone)
 {
-    moving.x = cursor.x - 26;
-    moving.y = cursor.y;
+    moving.x = curs_x - 26;
+    moving.y = curs_y;
     moving.active = true;
 }
 
@@ -155,8 +165,6 @@ if (not show and y == hide_y)
     
     instance_deactivate_object(ui_inventory);
     instance_deactivate_object(ui_inventory.actions);
-    instance_deactivate_object(ui_inventory.cursor);
-    instance_deactivate_object(ui_inventory.character);
     
     for (var i = 0; i &lt; inventory_size; i++)
         if (ui_inventory.inventory[i] != noone)
@@ -184,7 +192,7 @@ if (not show and y == hide_y)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>cursor.visible = visible;
+            <string>curs_visible = visible;
 
 var item_col = inv_index mod 5;
 var item_row = inv_index div 5;
@@ -198,24 +206,15 @@ var displayed = (show and y == show_y);
 
 if (not displayed)
 {
-    with (cursor)
-    {
-        var vec = inventory_get_cursor_pos(other.inv_index);
-        x = vec[0];
-        y = vec[1];
-    }
+    curs_x = inventory_get_cursor_x(inv_index);
+    curs_y = inventory_get_cursor_y(inv_index);
 }
 
 else if (not actions.visible)
 {
-    with (cursor)
-    {
-        var vec = inventory_get_cursor_pos(other.inv_index);       
-        x = lerp(x, vec[0], 0.2);
-        y = lerp(y, vec[1], 0.2);
-        
-        image_xscale = -1;
-    }
+    curs_x = lerp(curs_x, inventory_get_cursor_x(inv_index), 0.2);
+    curs_y = lerp(curs_y, inventory_get_cursor_y(inv_index), 0.2);   
+    curs_image_xscale = -1;
 }
 
 /// User Input
@@ -250,14 +249,14 @@ if (displayed)
                     index = array_length_1d(actions)-1;
                 }
                 
-                cursor.x += cursor.sprite_width;
-                cursor.image_xscale = 1;
+                curs_x += sprite_get_width(spr_ui_cursor);
+                curs_image_xscale = 1;
             }
             else if (is_item and inventory[inv_index] == noone)
             {
                 inventory[inv_index] = moving;
                 moving = noone;
-                cursor.grab = false;
+                curs_grab = false;
             }
         }
     
@@ -374,15 +373,15 @@ if (displayed)
         
         // update cursor
         
-        with (parent.cursor)
+        with (parent)
         {
-            x = lerp(x, other.x - sprite_width - 6, 0.1);
-            y = lerp(y, other.y - 3 - 16 * other.index, 0.1);
+            curs_x = lerp(curs_x, other.x - sprite_width - 6, 0.1);
+            curs_y = lerp(curs_y, other.y - 3 - 16 * other.index, 0.1);
             
             if (not other.visible)
             {
-                x += sprite_width;
-                image_xscale = -1;
+                curs_x += sprite_get_width(spr_ui_cursor);
+                curs_image_xscale = -1;
             }
         }
     }
@@ -420,9 +419,9 @@ switch (action)
         moving = current;
         inventory[inv_index] = noone;
         
-        cursor.x = inventory_get_item_slot_x(inv_index);
-        cursor.y = inventory_get_item_slot_y(inv_index);
-        cursor.grab = true;
+        curs_x = inventory_get_item_slot_x(inv_index);
+        curs_y = inventory_get_item_slot_y(inv_index);
+        curs_grab = true;
     break;
     
     case "Drop":
@@ -500,6 +499,29 @@ draw_set_halign(fa_right);
 draw_set_valign(fa_top);
 draw_set_font(font_money);
 draw_text(x + 94 - xoffset, y + 65 - yoffset, string_thousands(min(global.money, 99999)));
+
+// Character
+
+var char_sprite_index = player_get_sprite(global.player_sprite, 270);
+char_image_index = (char_image_index + char_image_speed) mod sprite_get_number(char_sprite_index);
+
+var char_x = x - xoffset + 133 + sprite_get_xoffset(char_sprite_index) * 1.5;
+var char_y = y - yoffset + 22 + sprite_get_yoffset(char_sprite_index) * 1.6;
+
+draw_sprite_ext(char_sprite_index, char_image_index, char_x, char_y, 2, 2, 0, c_white, 1);
+
+// Cursor
+
+if (curs_visible)
+{
+    var curs_sprite_index = spr_ui_cursor;
+    if (curs_grab)
+        curs_sprite_index = spr_ui_cursor_grabbed;
+    
+    curs_image_index = (curs_image_index + curs_image_speed) mod sprite_get_number(curs_sprite_index);    
+    
+    draw_sprite_ext(curs_sprite_index, curs_image_index, curs_x, curs_y, curs_image_xscale, 1, 0, c_white, 1);
+}
 </string>
           </argument>
         </arguments>
