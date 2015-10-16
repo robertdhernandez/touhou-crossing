@@ -52,11 +52,23 @@ actions_y = 0;
 // Background
 
 bg = bg_default_pattern;
+bg_custom = false;
 bg_speed = 32 * 0.40 / room_speed;
 bg_x = 0;
 bg_y = 0;
 
-// TODO load a 32x32 pattern to use as background
+// optional: load a 32x32 pattern to use as background
+var fname = working_directory + "bg.png";
+if (file_exists(fname))
+{
+    var filebg = background_add(fname, false, false);
+    if (background_get_width(filebg)  == 32 and
+        background_get_height(filebg) == 32)
+    {
+        bg = filebg;
+        bg_custom = true;
+    }
+}
 
 // Character
 
@@ -101,7 +113,10 @@ inv_moving = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>font_delete(font_money);
+            <string>if (bg_custom) 
+    background_delete(bg);
+    
+font_delete(font_money);
 </string>
           </argument>
         </arguments>
