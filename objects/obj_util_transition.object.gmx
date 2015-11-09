@@ -80,6 +80,9 @@ progress = 1;
 {
     alarm[0] = 10;
     room_goto(room_index);
+    
+    obj_player.x = target_x;
+    obj_player.y = target_y;
 }
 else if (not fade_in and progress == 0)
 {
@@ -109,21 +112,22 @@ progress = clamp(progress + progress_rate * iff(fade_in, 1, -1), 0, 1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>display_set_gui_size(320, 240);
-
-if (not surface_exists(surface))
+            <string>if (not surface_exists(surface))
     surface = surface_create(512, 512);
-    
+
+var w = display_get_gui_width();
+var h = display_get_gui_height();
+        
 surface_set_target(surface);
 
 draw_set_alpha(1);
 draw_set_color(c_white);
-draw_rectangle(0, 0, 320, 240, false);
+draw_rectangle(0, 0, w, h, false);
 
 draw_set_alpha(1);
 draw_set_color(c_black);
 draw_set_circle_precision(64);
-draw_circle(160, 120, 160 * (1 - progress), false);
+draw_circle(w/2, h/2, w/2 * (1 - progress), false);
 draw_set_circle_precision(24);
 
 surface_reset_target();

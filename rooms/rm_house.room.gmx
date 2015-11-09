@@ -6,7 +6,7 @@
   <vsnap>16</vsnap>
   <hsnap>16</hsnap>
   <isometric>0</isometric>
-  <speed>30</speed>
+  <speed>60</speed>
   <persistent>0</persistent>
   <colour>0</colour>
   <showcolour>-1</showcolour>
@@ -53,7 +53,6 @@
   <instances>
     <instance objName="obj_interior_exit" x="64" y="128" name="inst_A1F4E877" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision" x="0" y="0" name="inst_59593292" locked="-1" code="" scaleX="11" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_camera_player" x="0" y="0" name="inst_1D1ACE42" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tile_interior" x="16" y="48" w="16" h="16" xo="0" yo="0" id="10000003" name="inst_D2A63257" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

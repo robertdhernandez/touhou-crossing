@@ -44,7 +44,11 @@ with (argument0)
     if (position_meeting(obj_player.x, obj_player.y, id) 
         and round_direction(obj_player.direction) == 270)
     {
-        transition_to(rm_demo);
+        var entrance = obj_player.interior_id;
+        var target_x = mean(entrance[0], entrance[0] + entrance[2]);
+        var target_y = mean(entrance[1], entrance[1] + entrance[3]);
+        
+        change_room(rm_demo, target_x, target_y);
     }
 }
 
@@ -53,10 +57,12 @@ with (argument0)
 
 with (argument0)
 {
-    var at_entrance = position_meeting(obj_player.x, obj_player.y, entrance);
+    var at_entrance = point_in_rectangle(obj_player.x, obj_player.y, 
+        entrance[0], entrance[1], entrance[0] + entrance[2], entrance[1] + entrance[3]);
+        
     if (at_entrance)
     {
-        if (struct_house_is_unowned(id) and player_is_homeless())
+        /*if (struct_house_is_unowned(id) and player_is_homeless())
         {
             dialogue_reset();
             dialogue_set_message(0, "Would you like to move in here?");
@@ -64,14 +70,17 @@ with (argument0)
             dialogue_set_message(1, "Welcome to your new home!");
             dialogue_set_endaction(1, endaction_player_movein);
             dialogue_show(2);
-        }
+        }*/
         
         // TODO enter NPC homes
-        else if (struct_house_is_player_owned(id))
-        {
+        // TODO add variables to enterable buildings to designate:
+        //  -- target room
+        //  -- target (x,y)
+        //else if (struct_house_is_player_owned(id))
+        //{
             obj_player.interior_id = id;   
-            transition_to(rm_house);
-        }
+            change_room(rm_house, 64, 112);
+        //}
     }
 }
 

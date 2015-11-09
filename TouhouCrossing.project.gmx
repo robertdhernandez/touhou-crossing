@@ -751,12 +751,13 @@
       <script>scripts\random_out_of_bounds_x.gml</script>
       <script>scripts\random_out_of_bounds_y.gml</script>
       <script>scripts\random_weighted.gml</script>
+      <script>scripts\rect.gml</script>
       <script>scripts\round_direction.gml</script>
       <script>scripts\sprite_draw_9patch.gml</script>
       <script>scripts\sprite_get_9patch.gml</script>
       <script>scripts\string_thousands.gml</script>
       <script>scripts\string_zeroes.gml</script>
-      <script>scripts\transition_to.gml</script>
+      <script>scripts\change_room.gml</script>
       <script>scripts\validate_json_function.gml</script>
       <script>scripts\vec2.gml</script>
     </scripts>

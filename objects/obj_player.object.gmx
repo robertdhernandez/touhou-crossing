@@ -61,7 +61,7 @@ if (not instance_exists(obj_camera))
             <string>obj_camera_player.keep_in_bounds = global.player_outside;
 
 // WARNING currently broken to make it work
-var changed_room = false;//(global.room_index != room);
+/*var changed_room = false;//(global.room_index != room);
 if (changed_room)
 {
     if (global.player_outside)
@@ -85,7 +85,7 @@ if (changed_room)
             obj_player.change_room = false;
         }
     }
-}
+}*/
 </string>
           </argument>
         </arguments>

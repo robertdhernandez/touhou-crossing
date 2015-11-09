@@ -43,7 +43,7 @@ for (var i = 0; i &lt; occupancy_max; i++)
 }
 
 // Temporarily disabled as sprite_collision_mask caused crashes
-//entrance = struct_create_entrance(x - tile_size, bbox_bottom, tile_size, tile_size);
+entrance = rect(x - tile_size, bbox_bottom, tile_size, tile_size);
 </string>
           </argument>
         </arguments>
@@ -233,6 +233,8 @@ for (var i = 0; i &lt; occupancy_max; i++)
     draw_sprite(npc_get_icon(occupant[n].npc_id), 0, x - w / 2 + n * 16 + n * 4 + 8, y - 14);
     n++;
 }
+
+draw_rectangle(entrance[0], entrance[1], entrance[0] + entrance[2], entrance[1] + entrance[3], true);
 </string>
           </argument>
         </arguments>
