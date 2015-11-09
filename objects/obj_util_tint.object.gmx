@@ -90,7 +90,7 @@ if (enable_debug)
             <kind>1</kind>
             <string>var color, alpha, diff;
 
-var cur_time = current_hour * 60 + current_minute;
+var cur_time = date_get_hour(global.time) * 60 + date_get_minute(global.time);
 
 if enable_debug cur_time = debug
 

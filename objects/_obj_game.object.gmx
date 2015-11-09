@@ -33,6 +33,29 @@ global.room_index = room;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.time = date_current_datetime();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="5">
       <action>
         <libid>1</libid>
@@ -119,6 +142,8 @@ player_init();
 
 instance_create(0, 0, obj_debug);
 instance_create(0, 0, obj_util_tint);
+
+global.time = date_current_datetime();
 
 global.axislh_previous = 0;
 global.axislv_previous = 0;

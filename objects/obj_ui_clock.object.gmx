@@ -35,7 +35,7 @@ show = false;
 image_alpha = 0;
 
 // Time of last input -- used to show after inactivity
-last_input = current_time;
+last_input = get_timer();
 
 fade_rate = 1 / (room_speed * 0.25);
 
@@ -116,11 +116,11 @@ alarm[0] = round(room_speed / 1.25);
             <kind>1</kind>
             <string>if (input_check_any())
 {
-    last_input = current_time;
+    last_input = get_timer();
     show = false;
 }
 
-if (can_show and current_time - last_input &gt; 3000)
+if (can_show and get_timer() - last_input &gt; 3000000)
 {
     show = true;
 }
@@ -153,11 +153,17 @@ visible = (image_alpha != 0);
             <kind>1</kind>
             <string>event_inherited();
 
-var colon = iff(show_colon, ":", " ");
-var hour = iff(current_hour != 0 and current_hour != 12, current_hour mod 12, 12);
+var time_hour = date_get_hour(global.time);
+var time_minute = date_get_minute(global.time);
+var time_month = date_get_month(global.time);
+var time_day = date_get_day(global.time);
+var time_weekday = date_get_weekday(global.time);
 
-var time = string(hour) + colon + string_zeroes(current_minute, 2);
-var date = string(current_month) + "/" + string(current_day);
+var colon = iff(show_colon, ":", " ");
+var hour = iff(time_hour != 0 and time_hour != 12, time_hour mod 12, 12);
+
+var time = string(hour) + colon + string_zeroes(time_minute, 2);
+var date = string(time_month) + "/" + string(time_day);
 
 draw_set_alpha(image_alpha);
 draw_set_color(c_white);
@@ -166,7 +172,7 @@ draw_set_color(c_white);
 draw_self();
 
 // Draw the day of the week
-draw_sprite(spr_clock_dow, current_weekday, x + 73, y + 11);
+draw_sprite(spr_clock_dow, time_weekday, x + 73, y + 11);
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
