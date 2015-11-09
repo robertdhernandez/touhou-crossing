@@ -50,7 +50,21 @@ global.room_index = room;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.time = date_current_datetime();
+            <string>/// Update time
+
+if (global.time_realtime)
+    global.time = date_current_datetime();
+else
+{
+    if (not global.time_paused)
+        timer -= global.time_scale * delta_time / 1000000
+        
+    while (timer &lt;= 0)
+    {
+        timer += 1;
+        global.time = date_inc_minute(global.time, 1);
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -144,6 +158,10 @@ instance_create(0, 0, obj_debug);
 instance_create(0, 0, obj_util_tint);
 
 global.time = date_current_datetime();
+global.time_realtime = false;           // time is set based on the real time
+global.time_paused = false;             // pauses time (only if not in realtime mode)
+global.time_scale = 1;                  // in-game minutes per real-time second
+timer = 1;
 
 global.axislh_previous = 0;
 global.axislv_previous = 0;
