@@ -27,13 +27,11 @@
             <kind>1</kind>
             <string>event_inherited();
 
-show = false;
-show_y = 240 / 2;
-hide_y = show_y + 240;
-show_speed = (hide_y - show_y) / (room_speed * 0.30);
+x = display_get_gui_width() / 2;
+y = display_get_gui_height() + sprite_yoffset;
 
-x = 320 / 2;
-y = hide_y;
+show = false;
+show_speed = 0.3;
 
 font_money = font_add_sprite_ext(spr_ui_inventory_bell_font, "0123456789,", true, 1);
 np_name = ninepatch_create(14, 13, 1, 1, 14, 13, 14, 13);
@@ -139,7 +137,12 @@ font_delete(font_money);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y = clamp(y - show_speed * iff(show, 1, -1), show_y, hide_y);
+            <string>var show_y = display_get_gui_height() / 2;
+var hide_y = display_get_gui_height() + sprite_yoffset;
+var showspeed = (hide_y - show_y) / (room_speed * show_speed);
+
+x = display_get_gui_width() / 2;
+y = clamp(y - showspeed * iff(show, 1, -1), show_y, hide_y);
 
 if (not show and y == hide_y)
     instance_deactivate_object(global.ui_inventory);

@@ -25,10 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = 224;
-y = 16;
-
-can_show = true;
+            <string>can_show = true;
 
 // Set hidden by default
 show = false;
@@ -114,7 +111,10 @@ alarm[0] = round(room_speed / 1.25);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (input_check_any())
+            <string>x = display_get_gui_width() - 96;
+y = 16;
+
+if (input_check_any())
 {
     last_input = get_timer();
     show = false;

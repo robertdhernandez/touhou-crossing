@@ -25,12 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>min_y = global.game_height;
-max_y = global.game_height + sprite_height;
-
-image_speed = 0;
-x = 160;
-y = max_y;
+            <string>image_speed = 0;
+x = display_get_gui_width() / 2;
+y = display_get_gui_height() + sprite_height;
 
 display = false;
 display_rate = sprite_height / (room_speed * 0.25);
@@ -111,7 +108,11 @@ text_width = 173;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y = clamp(y - display_rate * iff(display, 1, -1), min_y, max_y);
+            <string>var min_y = display_get_gui_height();
+var max_y = display_get_gui_height() + sprite_height;
+
+x = display_get_gui_width() / 2;
+y = clamp(y - display_rate * iff(display, 1, -1), min_y, max_y);
 
 text_active = y == min_y;
 visible = (y != max_y);

@@ -126,7 +126,7 @@ if (height == max_height)
         if (tick_count &gt; 0 and tick_x[|tick_count-1] &gt; 320 - buffer)
             xx = tick_x[|tick_count-1] + buffer + string_width(str);
         else
-            xx = 320 + string_width(str);
+            xx = display_get_gui_width() + string_width(str);
         
         ds_list_add(tick_str, str);
         ds_list_add(tick_x, xx);
@@ -159,7 +159,7 @@ if (height == max_height)
 
 draw_set_color(c_black);
 draw_set_alpha(0.30);
-draw_rectangle(0, 0, 320, height, false);
+draw_rectangle(0, 0, display_get_gui_width(), height, false);
 
 draw_set_color(c_white);
 draw_set_alpha(1);
