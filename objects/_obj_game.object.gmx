@@ -141,11 +141,10 @@ room_speed = 60;
 if (not global.debug) 
     randomize();
 
-globalvar game_width, game_height;
-game_width = view_wview[0];
-game_height = view_hview[0];
-
-display_set_gui_size(game_width, game_height);
+window_set_size(base_width * 2, base_height * 2);
+window_set_position(display_get_width() / 2 - base_width, display_get_height() / 2 - base_height);
+window_set_min_width(base_width);
+window_set_min_height(base_height);
 
 dialogue_init();
 items_init();

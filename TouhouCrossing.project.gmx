@@ -972,9 +972,11 @@
     <room>rooms\rm_demo_intro</room>
     <room>rooms\rm_newgame</room>
   </rooms>
-  <constants number="28">
+  <constants number="30">
     <constant name="analogue_deadzone">0.15</constant>
     <constant name="analogue_trigger">0.5</constant>
+    <constant name="base_height">240</constant>
+    <constant name="base_width">320</constant>
     <constant name="chance_leave">2</constant>
     <constant name="chance_movein">1</constant>
     <constant name="chance_moveout">0.5</constant>

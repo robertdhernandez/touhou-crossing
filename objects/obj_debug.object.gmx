@@ -126,16 +126,16 @@ draw_surface(surf, 0, 0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check_pressed(vk_f1))
+            <string>if (keyboard_check_pressed(vk_f9))
     show_grid = not show_grid;
     
-if (keyboard_check_pressed(vk_f2))
+if (keyboard_check_pressed(vk_f10))
     show_collisions = not show_collisions;
     
-if (keyboard_check_pressed(vk_f3))
+if (keyboard_check_pressed(vk_f11))
     show_paths = not show_paths
     
-if (keyboard_check_pressed(vk_f4))
+if (keyboard_check_pressed(vk_f12))
     show_overlay = not show_overlay;
     
 show_debug_overlay(show_overlay);

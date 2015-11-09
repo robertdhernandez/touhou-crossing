@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>view_hborder[viewport] = view_wview[viewport];
-view_vborder[viewport] = view_hview[viewport];
+            <string>view_hborder[0] = view_wview[0];
+view_vborder[0] = view_hview[0];
 
 x = obj_player.x;
 y = obj_player.y;
