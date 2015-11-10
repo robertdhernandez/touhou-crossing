@@ -113,9 +113,12 @@ if (keyboard_check_pressed(vk_f3))
     scale = 3;
 if (keyboard_check_pressed(vk_f4))
     scale = 4;
+if (keyboard_check_pressed(vk_f5))
+    window_set_fullscreen(not window_get_fullscreen());
     
-if (scale != 0)
+if (scale &gt; 0)
 {
+    window_set_fullscreen(false);
     window_set_size(base_width * scale, base_height * scale);
     window_set_position(
         display_get_width() / 2 - base_width * scale / 2,
