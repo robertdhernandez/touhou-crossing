@@ -140,11 +140,11 @@ if (keyboard_check_pressed(vk_f12))
     
 show_debug_overlay(show_overlay);
     
-mp_grid_clear_all(global.mp_grid);
-mp_grid_add_instances(global.mp_grid, obj_collision, false);
-    
 if (show_grid)
 {
+    mp_grid_clear_all(global.mp_grid);
+    mp_grid_add_instances(global.mp_grid, obj_collision, false);
+
     draw_set_alpha(0.25);
     mp_grid_draw(global.mp_grid);
     draw_set_alpha(1);
