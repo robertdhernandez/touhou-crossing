@@ -36,9 +36,6 @@ alpha_sunset = 64 / 255;
 
 color_night = make_color_rgb(32, 16, 64)
 alpha_night = 102 / 255;
-
-debug = 0;
-enable_debug = false;
 </string>
           </argument>
         </arguments>
@@ -61,11 +58,9 @@ enable_debug = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//if keyboard_check_pressed(ord('O'))
-//    enable_debug = not enable_debug;
-    
-if (enable_debug) 
-    debug = (debug + 1) mod 1440;
+            <string>/// Only show when outside
+
+visible = global.player_outside;
 </string>
           </argument>
         </arguments>
@@ -91,8 +86,6 @@ if (enable_debug)
             <string>var color, alpha, diff;
 
 var cur_time = date_get_hour(global.time) * 60 + date_get_minute(global.time);
-
-if enable_debug cur_time = debug
 
 // Between 5 AM and 6:30 AM -- Night -&gt; Sunrise
 if (300 &lt;= cur_time and cur_time &lt; 390)

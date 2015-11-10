@@ -197,7 +197,8 @@ entrance = rect(x - tile_size, bbox_bottom, tile_size, tile_size);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (not struct_house_show_info(id)) exit;
+            <string>/*
+if (not struct_house_show_info(id)) exit;
 
 var scale = 0.5;
 var buffer = 2;
@@ -235,6 +236,7 @@ for (var i = 0; i &lt; occupancy_max; i++)
 }
 
 draw_rectangle(entrance[0], entrance[1], entrance[0] + entrance[2], entrance[1] + entrance[3], true);
+*/
 </string>
           </argument>
         </arguments>

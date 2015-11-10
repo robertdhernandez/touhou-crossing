@@ -731,6 +731,7 @@
       </scripts>
     </scripts>
     <scripts name="Miscellaneous">
+      <script>scripts\change_room.gml</script>
       <script>scripts\create_path.gml</script>
       <script>scripts\iff.gml</script>
       <script>scripts\load_file.gml</script>
@@ -757,7 +758,6 @@
       <script>scripts\sprite_get_9patch.gml</script>
       <script>scripts\string_thousands.gml</script>
       <script>scripts\string_zeroes.gml</script>
-      <script>scripts\change_room.gml</script>
       <script>scripts\validate_json_function.gml</script>
       <script>scripts\vec2.gml</script>
     </scripts>

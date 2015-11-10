@@ -44,11 +44,7 @@ with (argument0)
     if (position_meeting(obj_player.x, obj_player.y, id) 
         and round_direction(obj_player.direction) == 270)
     {
-        var entrance = obj_player.interior_id;
-        var target_x = mean(entrance[0], entrance[0] + entrance[2]);
-        var target_y = mean(entrance[1], entrance[1] + entrance[3]);
-        
-        change_room(rm_demo, target_x, target_y);
+        change_room(rm_demo, obj_player.exit_x, obj_player.exit_y, true);
     }
 }
 
@@ -78,8 +74,10 @@ with (argument0)
         //  -- target (x,y)
         //else if (struct_house_is_player_owned(id))
         //{
-            obj_player.interior_id = id;   
-            change_room(rm_house, 64, 112);
+            obj_player.exit_x = mean(entrance[0], entrance[0] + entrance[2]);
+            obj_player.exit_y = mean(entrance[1], entrance[1] + entrance[3]);
+            
+            change_room(rm_house, 72, 120, false);
         //}
     }
 }
