@@ -161,7 +161,7 @@ var is_letter = (15 &lt;= inv_index);
 
 /// Move the cursor
 
-var displayed = (show and y == show_y);
+displayed = (show and y == show_y);
 
 if (not displayed)
 {
@@ -369,6 +369,10 @@ switch (action)
         curs_grab = true;
     break;
     
+    case "Place":
+        // TODO go to placement mode in interiors
+    break;
+    
     case "Plant":
     case "Drop":    
         if (not inventory_drop_item(inv_index))
@@ -476,11 +480,11 @@ for (var i = 0; i &lt; inventory_size; i++)
     draw_sprite(spr_ui_inventory_slot, 0, xx, yy);
     draw_sprite(item[?"icon"], 0, xx + 4, yy + 4);
     
-    if (not actions_visible and i == inv_index)
+    if (displayed and not actions_visible and i == inv_index)
     {
         draw_set_font(global.font);
     
-        var name = item[? "name"];
+        var name = item[?"name"];
         var width = string_width(name);
         var height = 16;
     
