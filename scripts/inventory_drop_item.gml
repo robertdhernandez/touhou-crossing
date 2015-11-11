@@ -16,13 +16,23 @@ with (global.ui_inventory)
         with (instance_create(xx, yy, obj_item))
         {
             item_id = item;
-            sprite_index = item[?"icon"];
             
-            // workaround for flowers
-            if (item[?"type"] == item_type.flower)
+            switch (item[?"type"])
             {
-                sprite_index = spr_flora_flower;
-                image_index = item[?"image_index"];
+                case item_type.flower:
+                    sprite_index = spr_flora_flower;
+                    image_index = item[?"image_index"];
+                break;
+                
+                case item_type.flower_seed:
+                    item_id = item[?"flower_item"];
+                    sprite_index = spr_flora_flower;
+                    image_index = item_id[?"image_index"];
+                break;
+            
+                default: 
+                    sprite_index = item[?"icon"]; 
+                break;    
             }
         }
             
