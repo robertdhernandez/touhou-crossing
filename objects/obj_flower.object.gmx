@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_item</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,8 +26,24 @@
           <argument>
             <kind>1</kind>
             <string>/// Choose a random flower
+
+event_inherited();
+
 image_speed = 0;
 image_index = irandom(image_number);
+
+switch (image_index)
+{
+    case 0: item_id = item_get("flower_cosmo_w"); break;
+    case 1: item_id = item_get("flower_cosmo_y"); break;
+    case 2: item_id = item_get("flower_cosmo_b"); break;
+    case 3: item_id = item_get("flower_tulip_r"); break;
+    case 4: item_id = item_get("flower_tulip_w"); break;
+    case 5: item_id = item_get("flower_tulip_y"); break;
+    case 6: item_id = item_get("flower_pansy_w"); break;
+    case 7: item_id = item_get("flower_pansy_p"); break;
+    case 8: item_id = item_get("flower_pansy_y"); break;
+}
 </string>
           </argument>
         </arguments>
@@ -50,7 +66,9 @@ image_index = irandom(image_number);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_xscale = min(image_xscale + 0.15, 1);
+            <string>event_inherited();
+
+image_xscale = min(image_xscale + 0.15, 1);
 image_yscale = min(image_yscale + 0.15, 1);
 </string>
           </argument>

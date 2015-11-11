@@ -14,7 +14,10 @@ with (global.ui_inventory)
         var yy = obj_player.y div tile_size * tile_size;
         
         with (instance_create(xx, yy, obj_item))
+        {
             item_id = item;
+            sprite_index = item[?"icon"];
+        }
             
         // TODO only remove item if space is available
     }

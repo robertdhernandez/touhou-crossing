@@ -36,6 +36,9 @@ timer_y = 0;
 
 visibility = 0;
 visibility_rate = 0.15;
+
+image_speed = 0;
+image_index = 0;
 </string>
           </argument>
         </arguments>
@@ -69,10 +72,6 @@ if (timer_active and timer_active != last_active)
     
 // can pickup if player standing on item for one second
 can_pickup = timer_active and get_timer() - timer &gt; 500000;
-
-image_speed = 0;
-image_index = 0;
-sprite_index = item_id[?"icon"];
 
 timer_x = obj_player.x;
 timer_y = obj_player.y;
