@@ -183,7 +183,8 @@ if (displayed)
     // inventory input
     if (not actions_visible)
     {
-        if (input_check_pressed(input.start) and inv_moving == -1)
+        if ((input_check_pressed(input.start) or input_check_pressed(input.b)) and 
+            inv_moving == -1)
         {
             show = false;
             
