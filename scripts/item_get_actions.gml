@@ -5,13 +5,14 @@ var count = 0;
 
 actions[count++] = "Grab";
 
-switch (argument0[? "type"])
+switch (argument0[?"type"])
 {
-    case "furniture":
+    case item_type.furniture:
         actions[count++] = "Drop";
     break;
     
-    case "flower":
+    case item_type.flower:
+    case item_type.flower_seed:
         actions[count++] = "Plant";
     break;
 }
