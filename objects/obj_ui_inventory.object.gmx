@@ -368,6 +368,7 @@ switch (action)
         curs_grab = true;
     break;
     
+    case "Plant":
     case "Drop":
         inventory_drop_item(inv_index);
     break;

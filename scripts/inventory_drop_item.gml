@@ -17,6 +17,13 @@ with (global.ui_inventory)
         {
             item_id = item;
             sprite_index = item[?"icon"];
+            
+            // workaround for flowers
+            if (item[?"type"] == item_type.flower)
+            {
+                sprite_index = spr_flora_flower;
+                image_index = item[?"image_index"];
+            }
         }
             
         // TODO only remove item if space is available
