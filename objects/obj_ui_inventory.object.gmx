@@ -369,8 +369,12 @@ switch (action)
     break;
     
     case "Plant":
-    case "Drop":
-        inventory_drop_item(inv_index);
+    case "Drop":    
+        if (not inventory_drop_item(inv_index))
+        {
+            // TODO tell player could not drop item
+            show_debug_message("Place not free");
+        }
     break;
 }
 </string>

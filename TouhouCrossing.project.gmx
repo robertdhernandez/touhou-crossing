@@ -596,10 +596,10 @@
       <sprite>sprites\spr_item_gyroid</sprite>
       <sprite>sprites\spr_item_hat</sprite>
       <sprite>sprites\spr_item_helmet</sprite>
+      <sprite>sprites\spr_item_seed</sprite>
       <sprite>sprites\spr_item_shirt</sprite>
       <sprite>sprites\spr_item_umbrella</sprite>
       <sprite>sprites\spr_item_wallpaper</sprite>
-      <sprite>sprites\spr_item_seed</sprite>
     </sprites>
     <sprite>sprites\spr_collision</sprite>
     <sprites name="Structure">
