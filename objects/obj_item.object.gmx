@@ -65,7 +65,8 @@ image_index = 0;
 var same_pos = timer_x == obj_player.x and timer_y == obj_player.y;
 
 // active when player standing still on item
-timer_active = global.player_input and same_pos and place_meeting(x, y, obj_player);
+timer_active = global.player_input and same_pos and 
+    point_in_rectangle(obj_player.x, obj_player.y, x, y, x + tile_size, y + tile_size);
 
 if (timer_active and timer_active != last_active)
     timer = get_timer();
@@ -114,7 +115,7 @@ if (can_pickup or visibility &gt; 0)
     var spr = spr_ui_inventory_info;
     
     xx = x - width / 2;
-    yy = y - 26;
+    yy = y - 16;
     
     ninepatch_draw(np, spr, 0, xx, yy, width + 17, height, c_white, visibility);
     
