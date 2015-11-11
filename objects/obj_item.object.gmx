@@ -72,7 +72,7 @@ can_pickup = timer_active and get_timer() - timer &gt; 500000;
 
 image_speed = 0;
 image_index = 0;
-sprite_index = item_get_icon(item_id);
+sprite_index = item_id[?"icon"];
 
 timer_x = obj_player.x;
 timer_y = obj_player.y;

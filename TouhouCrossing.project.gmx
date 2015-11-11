@@ -41,23 +41,6 @@
       </datafile>
     </datafiles>
     <datafile>
-      <name>items.json</name>
-      <exists>-1</exists>
-      <size>463</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>items.json</filename>
-    </datafile>
-    <datafile>
       <name>npc.json</name>
       <exists>-1</exists>
       <size>4</size>
@@ -596,15 +579,26 @@
       <sprite>sprites\spr_interior_table</sprite>
     </sprites>
     <sprites name="Items">
+      <sprites name="Flowers">
+        <sprite>sprites\spr_item_cosmo_b</sprite>
+        <sprite>sprites\spr_item_cosmo_w</sprite>
+        <sprite>sprites\spr_item_cosmo_y</sprite>
+        <sprite>sprites\spr_item_pansy_p</sprite>
+        <sprite>sprites\spr_item_pansy_w</sprite>
+        <sprite>sprites\spr_item_pansy_y</sprite>
+        <sprite>sprites\spr_item_tulip_r</sprite>
+        <sprite>sprites\spr_item_tulip_w</sprite>
+        <sprite>sprites\spr_item_tulip_y</sprite>
+      </sprites>
+      <sprite>sprites\spr_item_accessory</sprite>
+      <sprite>sprites\spr_item_carpet</sprite>
       <sprite>sprites\spr_item_furniture</sprite>
       <sprite>sprites\spr_item_gyroid</sprite>
-      <sprite>sprites\spr_item_wallpaper</sprite>
-      <sprite>sprites\spr_item_carpet</sprite>
+      <sprite>sprites\spr_item_hat</sprite>
+      <sprite>sprites\spr_item_helmet</sprite>
       <sprite>sprites\spr_item_shirt</sprite>
       <sprite>sprites\spr_item_umbrella</sprite>
-      <sprite>sprites\spr_item_hat</sprite>
-      <sprite>sprites\spr_item_accessory</sprite>
-      <sprite>sprites\spr_item_helmet</sprite>
+      <sprite>sprites\spr_item_wallpaper</sprite>
     </sprites>
     <sprite>sprites\spr_collision</sprite>
     <sprites name="Structure">
@@ -723,12 +717,11 @@
       <script>scripts\inventory_is_full.gml</script>
       <script>scripts\inventory_is_shown.gml</script>
       <script>scripts\inventory_show.gml</script>
-      <scripts name="Items">
-        <script>scripts\item_get.gml</script>
-        <script>scripts\item_get_actions.gml</script>
-        <script>scripts\item_get_icon.gml</script>
-        <script>scripts\items_init.gml</script>
-      </scripts>
+    </scripts>
+    <scripts name="Items">
+      <script>scripts\item_get.gml</script>
+      <script>scripts\item_get_actions.gml</script>
+      <script>scripts\items_init.gml</script>
     </scripts>
     <scripts name="Miscellaneous">
       <script>scripts\change_room.gml</script>

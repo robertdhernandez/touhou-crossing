@@ -468,7 +468,7 @@ for (var i = 0; i &lt; inventory_size; i++)
     var yy = inventory_get_item_slot_y(i);
     
     draw_sprite(spr_ui_inventory_slot, 0, xx, yy);
-    draw_sprite(item_get_icon(item), 0, xx + 4, yy + 4);
+    draw_sprite(item[?"icon"], 0, xx + 4, yy + 4);
     
     if (not actions_visible and i == inv_index)
     {
@@ -532,7 +532,7 @@ if (curs_visible)
     if (inv_moving != -1)
     {
         draw_sprite(spr_ui_inventory_slot, 1, curs_x - 26, curs_y);
-        draw_sprite(item_get_icon(inv_moving), 0, curs_x - 24, curs_y + 2);
+        draw_sprite(inv_moving[?"icon"], 0, curs_x - 24, curs_y + 2);
     }
     
     curs_image_index = (curs_image_index + curs_image_speed) mod sprite_get_number(curs_sprite_index);    
