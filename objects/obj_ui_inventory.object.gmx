@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_ui_inventory</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>-1000</depth>
   <persistent>-1</persistent>
   <parentName>obj_ui_base</parentName>
@@ -137,7 +137,9 @@ font_delete(font_money);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var show_y = display_get_gui_height() / 2;
+            <string>if (not visible) exit;
+
+var show_y = display_get_gui_height() / 2;
 var hide_y = display_get_gui_height() + sprite_yoffset;
 var showspeed = (hide_y - show_y) / (room_speed * show_speed);
 
@@ -145,7 +147,7 @@ x = display_get_gui_width() / 2;
 y = clamp(y - showspeed * iff(show, 1, -1), show_y, hide_y);
 
 if (not show and y == hide_y)
-    instance_deactivate_object(global.ui_inventory);
+    visible = false;
 
 /// Setup variables for below
 
