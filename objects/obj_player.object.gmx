@@ -85,7 +85,27 @@ else if (os_type != os_android)
         player_interact(x + lengthdir_x(interact_dist, direction), y + lengthdir_y(interact_dist, direction));
     
     if (input_check(input.b))
-        speed *= 1.5;
+    {
+        var item_obj = instance_position(x, y, obj_item);
+        if (item_obj != noone and item_obj.can_pickup)
+        {
+            if (not inventory_is_full())
+            {
+                with (item_obj)
+                {
+                    inventory_add_item(item_id);
+                    instance_destroy();
+                }
+            }
+            else
+            {
+                // TODO tell player their inventory is full
+                show_debug_message("inventory full");
+            }
+        }
+        else
+            speed *= 1.5;
+    }
     
     if (input_check_pressed(input.start))
         inventory_show();

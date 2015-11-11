@@ -920,6 +920,7 @@
     <object>objects\obj_collision</object>
     <object>objects\obj_debug</object>
     <object>objects\obj_entity</object>
+    <object>objects\obj_item</object>
     <object>objects\obj_newgame</object>
     <object>objects\obj_player</object>
     <object>objects\obj_weather</object>

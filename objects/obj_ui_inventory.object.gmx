@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-1000</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>obj_ui_base</parentName>
   <maskName>spr_ui_inventory_mask</maskName>
   <events>
