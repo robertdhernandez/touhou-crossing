@@ -24,5 +24,6 @@
     <frame index="1">images\spr_ui_dialogue_1.png</frame>
     <frame index="2">images\spr_ui_dialogue_2.png</frame>
     <frame index="3">images\spr_ui_dialogue_3.png</frame>
+    <frame index="4">images\spr_ui_dialogue_4.png</frame>
   </frames>
 </sprite>

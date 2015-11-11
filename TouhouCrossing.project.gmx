@@ -717,9 +717,11 @@
       <script>scripts\inventory_get_letter_pos.gml</script>
       <script>scripts\inventory_is_full.gml</script>
       <script>scripts\inventory_is_shown.gml</script>
+      <script>scripts\inventory_remove_item.gml</script>
       <script>scripts\inventory_show.gml</script>
     </scripts>
     <scripts name="Items">
+      <script>scripts\item_can_drop.gml</script>
       <script>scripts\item_get.gml</script>
       <script>scripts\item_get_actions.gml</script>
       <script>scripts\items_init.gml</script>
