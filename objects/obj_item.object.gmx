@@ -62,13 +62,13 @@ visibility_rate = 0.15;
 var same_pos = timer_x == obj_player.x and timer_y == obj_player.y;
 
 // active when player standing still on item
-timer_active = same_pos and place_meeting(x, y, obj_player);
+timer_active = global.player_input and same_pos and place_meeting(x, y, obj_player);
 
 if (timer_active and timer_active != last_active)
     timer = get_timer();
     
 // can pickup if player standing on item for one second
-can_pickup = timer_active and get_timer() - timer &gt; 1000000;
+can_pickup = timer_active and get_timer() - timer &gt; 500000;
 
 image_speed = 0;
 image_index = 0;
