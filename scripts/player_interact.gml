@@ -77,7 +77,8 @@ with (argument0)
             obj_player.exit_x = mean(entrance[0], entrance[0] + entrance[2]);
             obj_player.exit_y = mean(entrance[1], entrance[1] + entrance[3]);
             
-            change_room(rm_house, 72, 120, false);
+            // TODO set position to position of obj_interior_exit
+            change_room(rm_house_small, 32+8, 96+7, false);
         //}
     }
 }

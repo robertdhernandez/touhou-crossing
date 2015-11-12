@@ -968,6 +968,9 @@
     </rooms>
     <rooms name="Interior">
       <room>rooms\rm_house</room>
+      <room>rooms\rm_house_small</room>
+      <room>rooms\rm_house_medium</room>
+      <room>rooms\rm_house_large</room>
     </rooms>
     <room>rooms\rm_demo</room>
     <room>rooms\rm_demo_intro</room>
