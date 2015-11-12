@@ -99,8 +99,9 @@ else if (os_type != os_android)
             }
             else
             {
-                // TODO tell player their inventory is full
-                show_debug_message("inventory full");
+                dialogue_reset();
+                dialogue_set_message(0, "Oh, I'm carrying too much!");
+                dialogue_show(4);
             }
         }
         else
