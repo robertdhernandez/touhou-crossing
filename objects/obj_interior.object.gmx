@@ -125,7 +125,7 @@ else if (place_active)
     // place object
     if (input_check_pressed(input.a))
     {
-        global.money -= 500;
+        global.money = min(0, global.money-500);
         instance_create(xx, yy, place_obj);
     }
 
@@ -138,7 +138,11 @@ else if (place_active)
     height *= tile_size;
     
     place_valid = (collision_rectangle(xx, yy, xx+width-1, yy+height-1, obj_collision, false, true) == noone)
-        and rectangle_in_rectangle(xx, yy, xx+width-1, yy+height-1, 48, 96, 95, 127) == 0;
+        and rectangle_in_rectangle(
+            xx, yy, 
+            xx+width-1, yy+height-1, 
+            obj_interior_exit.x-16, obj_interior_exit.y-16, 
+            obj_interior_exit.x+31, obj_interior_exit.y+15) == 0;
 }
 
 visible = place_active;
