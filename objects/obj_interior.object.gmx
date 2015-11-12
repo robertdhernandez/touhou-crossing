@@ -61,7 +61,11 @@ place_y = 0;
     global.player_input = true;
     global.ui_clock.can_show = true;
     
+    // reposition the player to the entrance
+    obj_player.direction = 90;
     obj_player.visible = true;
+    obj_player.x = obj_interior_exit.x + tile_size/2;
+    obj_player.y = obj_interior_exit.y;
 }
 
 place_active_last = place_active;
@@ -88,9 +92,6 @@ place_active_last = place_active;
           <argument>
             <kind>1</kind>
             <string>/// Placement mode (only if active)
-
-// TODO make camera follow the placement instead of the invisible player
-// TODO adding lerping
 
 if (place_active)
 {
@@ -133,6 +134,10 @@ if (place_active)
             xx+width, yy+height, 
             obj_interior_exit.x-16, obj_interior_exit.y-16, 
             obj_interior_exit.x+31, obj_interior_exit.y+31) == 0;
+    
+    // reposition the invisible player so the camera follows them
+    obj_player.x = xx + width;
+    obj_player.y = yy + height;
 }
 
 visible = place_active;
@@ -169,12 +174,8 @@ place_y = (obj_player.y div tile_size) - 2;
 global.player_input = false;
 global.ui_clock.can_show = false;
 
-// reposition the player to the entrance
-
-obj_player.direction = 90;
+// turn the player invisible
 obj_player.visible = false;
-obj_player.x = obj_interior_exit.x + tile_size/2;
-obj_player.y = obj_interior_exit.y;
 </string>
           </argument>
         </arguments>
