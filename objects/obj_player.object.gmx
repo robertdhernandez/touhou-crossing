@@ -87,23 +87,24 @@ else if (os_type != os_android)
     if (input_check(input.b))
     {
         var item_obj = instance_position(x, y, obj_item);
+        
+        // pick up an item if possible
         if (item_obj != noone and item_obj.can_pickup)
+            inventory_pickup(item_obj);
+        
+        // interior: pick up a furniture if possible
+        else if (not global.player_outside)
         {
-            if (not inventory_is_full())
-            {
-                with (item_obj)
-                {
-                    inventory_add_item(item_id);
-                    instance_destroy();
-                }
-            }
-            else
-            {
-                dialogue_reset();
-                dialogue_set_message(0, "Oh, I'm carrying too much!");
-                dialogue_show(4);
-            }
+            var xx = x + lengthdir_x(interact_dist, direction);
+            var yy = y + lengthdir_y(interact_dist, direction); 
+            
+            var furniture = collision_line(x, y, xx, yy, obj_interior_base, false, true);
+            
+            if (furniture != noone)
+                inventory_pickup(furniture);                
         }
+        
+        // exterior: run
         else
             speed *= 1.5;
     }

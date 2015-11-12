@@ -29,17 +29,11 @@
 interior_height = 6;
 
 place_active = false;
+place_active_last = false;
 place_obj = -1;
 place_valid = false;
 place_x = 0;
 place_y = 0;
-
-// TEST
-
-test_furn[1] = obj_interior_table;
-test_furn[0] = obj_interior_chair;
-
-test_index = 0;
 </string>
           </argument>
         </arguments>
@@ -62,13 +56,15 @@ test_index = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (not place_active)
+            <string>if (not place_active and place_active != place_active_last)
 {
     global.player_input = true;
     global.ui_clock.can_show = true;
     
     obj_player.visible = true;
 }
+
+place_active_last = place_active;
 </string>
           </argument>
         </arguments>
@@ -93,31 +89,21 @@ test_index = 0;
             <kind>1</kind>
             <string>/// Placement mode (only if active)
 
-// TEST enable placement mode
-if (not place_active and input_check_pressed(input.c))
-    event_user(0);
+// TODO make camera follow the placement instead of the invisible player
+// TODO adding lerping
 
-else if (place_active)
+if (place_active)
 {
-    ui_display_money(true);
-
-    // DEBUG switch test object
-    if (input_check_pressed(input.d))
-    {
-        test_index = (test_index + 1) mod 2;
-        place_obj = test_furn[test_index];
-    }
-
     // move placement object and keep within room bounds
     
     var move_x = input_check_pressed(input.right) - input_check_pressed(input.left);
     var move_y = input_check_pressed(input.down) - input_check_pressed(input.up);
     
-    var width = sprite_get_width(object_get_sprite(place_obj)) div tile_size;
-    var height = sprite_get_height(object_get_sprite(place_obj)) div tile_size;
+    var width = sprite_get_width(object_get_sprite(place_obj)) div tile_size - 1;
+    var height = sprite_get_height(object_get_sprite(place_obj)) div tile_size - 1;
 
-    place_x = clamp(place_x + move_x, 0, interior_width-width);    
-    place_y = clamp(place_y + move_y, 0, interior_height-height);
+    place_x = clamp(place_x + move_x, 0, interior_width-width-1);    
+    place_y = clamp(place_y + move_y, 0, interior_height-height-1);
     
     var xx = place_x * tile_size;
     var yy = (place_y + 2) * tile_size;
@@ -125,24 +111,28 @@ else if (place_active)
     // place object
     if (input_check_pressed(input.a))
     {
-        global.money = min(0, global.money-500);
         instance_create(xx, yy, place_obj);
+        
+        // workaround -- remove current item from inventory
+        // it is assumed that the inventory initiated this
+        var inventory = global.ui_inventory;
+        inventory.inv[inventory.inv_index] = -1;
     }
 
     // cancel placement mode   
-    place_active = not (input_check_pressed(input.a) or input_check_pressed(input.c));
+    place_active = not (input_check_pressed(input.a) or input_check_pressed(input.b));
     
     // check position is valid
     
     width *= tile_size;
     height *= tile_size;
     
-    place_valid = (collision_rectangle(xx, yy, xx+width-1, yy+height-1, obj_collision, false, true) == noone)
+    place_valid = (collision_rectangle(xx, yy, xx+width, yy+height, obj_interior_base, false, true) == noone)
         and rectangle_in_rectangle(
             xx, yy, 
-            xx+width-1, yy+height-1, 
+            xx+width, yy+height, 
             obj_interior_exit.x-16, obj_interior_exit.y-16, 
-            obj_interior_exit.x+31, obj_interior_exit.y+15) == 0;
+            obj_interior_exit.x+31, obj_interior_exit.y+31) == 0;
 }
 
 visible = place_active;
@@ -170,10 +160,9 @@ visible = place_active;
             <kind>1</kind>
             <string>/// Activate placement mode
 
-test_index = 0;
+// NOTE place_obj must be set externally
 
 place_active = true;
-place_obj = test_furn[test_index];
 place_x = 0;
 place_y = 0;
 
@@ -181,6 +170,7 @@ global.player_input = false;
 global.ui_clock.can_show = false;
 
 // reposition the player to the entrance
+
 obj_player.direction = 90;
 obj_player.visible = false;
 obj_player.x = obj_interior_exit.x + tile_size/2;
@@ -216,7 +206,7 @@ if (not place_valid)
 var xx = place_x * tile_size;
 var yy = (place_y + 2) * tile_size;
     
-draw_sprite_ext(sprite, 0, xx, yy, 1, 1, 0, color, 0.75);
+draw_sprite_ext(sprite, 0, xx, yy, 1, 1, 0, color, 0.60);
 </string>
           </argument>
         </arguments>

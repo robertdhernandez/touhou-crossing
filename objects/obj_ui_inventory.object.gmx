@@ -370,7 +370,22 @@ switch (action)
     break;
     
     case "Place":
-        // TODO go to placement mode in interiors
+        if (not instance_exists(obj_interior))
+            show_debug_message("ERROR: obj_interior not found");
+            
+        // NOTE must find way to remove item if placed
+        else 
+        {
+            var item = inv[inv_index];
+
+            with (obj_interior)
+            {
+                place_obj = item[?"object"];
+                event_user(0);
+            }
+            
+            show = false;
+        }
     break;
     
     case "Plant":

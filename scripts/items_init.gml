@@ -2,6 +2,7 @@
 
 enum item_type
 {
+    unknown,
     furniture,
     flower,
     flower_seed,
@@ -18,38 +19,58 @@ items = ds_map_create();
 
 item = ds_map_create();
 item[?"name"] = "Japanese goblin";
-item[?"type"] = item_type.furniture;
+item[?"type"] = item_type.unknown;
 item[?"icon"] = spr_item_furniture;
 item[?"cost"] = 150;
 ds_map_add_map(items, "test", item);
 
 item = ds_map_create();
 item[?"name"] = "Green leaf";
-item[?"type"] = item_type.furniture;
+item[?"type"] = item_type.unknown;
 item[?"icon"] = spr_item_furniture;
 item[?"cost"] = 150;
 ds_map_add_map(items, "test1", item);
 
 item = ds_map_create();
 item[?"name"] = "Precious thing";
-item[?"type"] = item_type.furniture;
+item[?"type"] = item_type.unknown;
 item[?"icon"] = spr_item_furniture;
 item[?"cost"] = 150;
 ds_map_add_map(items, "test2", item);
 
 item = ds_map_create();
 item[?"name"] = "Funny hat";
-item[?"type"] = item_type.furniture;
+item[?"type"] = item_type.unknown;
 item[?"icon"] = spr_item_furniture;
 item[?"cost"] = 150;
 ds_map_add_map(items, "test3", item);
 
 item = ds_map_create();
 item[?"name"] = "Touhou Crossing";
-item[?"type"] = item_type.furniture;
+item[?"type"] = item_type.unknown;
 item[?"icon"] = spr_item_furniture;
 item[?"cost"] = 150;
 ds_map_add_map(items, "test4", item);
+
+///--------------------------
+/// Debug Furniture
+///--------------------------
+
+item = ds_map_create();
+item[?"name"] = "table";
+item[?"type"] = item_type.furniture;
+item[?"icon"] = spr_item_furniture;
+item[?"cost"] = 150;
+item[?"object"] = obj_interior_table;
+ds_map_add_map(items, "test_table", item);
+
+item = ds_map_create();
+item[?"name"] = "chair";
+item[?"type"] = item_type.furniture;
+item[?"icon"] = spr_item_furniture;
+item[?"cost"] = 150;
+item[?"object"] = obj_interior_chair;
+ds_map_add_map(items, "test_chair", item);
 
 ///--------------------------
 /// Flowers
