@@ -902,6 +902,7 @@
       <object>objects\obj_flower</object>
     </objects>
     <objects name="Interior">
+      <object>objects\obj_interior</object>
       <object>objects\obj_interior_chair</object>
       <object>objects\obj_interior_exit</object>
       <object>objects\obj_interior_table</object>
