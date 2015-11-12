@@ -29,6 +29,7 @@
 x = display_get_gui_width() / 2;
 y = display_get_gui_height() + sprite_height;
 
+active = false;
 display = false;
 display_rate = sprite_height / (room_speed * 0.25);
 
@@ -108,7 +109,9 @@ text_width = 173;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var min_y = display_get_gui_height();
+            <string>if (not active) exit;
+
+var min_y = display_get_gui_height();
 var max_y = display_get_gui_height() + sprite_height;
 
 x = display_get_gui_width() / 2;
@@ -119,8 +122,8 @@ visible = (y != max_y);
 
 if (not visible and not display)
 {
-    instance_deactivate_object(global.ui_dialogue);
-    
+    active = false;
+
     global.player_input = true;
     global.ui_clock.can_show = true;
     
