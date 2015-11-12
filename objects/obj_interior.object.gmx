@@ -163,8 +163,8 @@ visible = place_active;
 // NOTE place_obj must be set externally
 
 place_active = true;
-place_x = 0;
-place_y = 0;
+place_x = obj_player.x div tile_size;
+place_y = (obj_player.y div tile_size) - 2;
 
 global.player_input = false;
 global.ui_clock.can_show = false;
