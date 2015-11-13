@@ -14,6 +14,4 @@ with (obj_interior)
             exit;
         }
     }
-    
-    //show_error("Object does not exist in interior", false);
 }

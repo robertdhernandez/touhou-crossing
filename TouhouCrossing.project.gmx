@@ -659,6 +659,7 @@
     <background>background\bg_snow</background>
     <background>background\tile_exterior</background>
     <background>background\tile_interior</background>
+    <background>background\tile_road</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
