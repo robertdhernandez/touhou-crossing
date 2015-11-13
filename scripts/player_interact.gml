@@ -58,28 +58,11 @@ with (argument0)
         
     if (at_entrance)
     {
-        /*if (struct_house_is_unowned(id) and player_is_homeless())
-        {
-            dialogue_reset();
-            dialogue_set_message(0, "Would you like to move in here?");
-            dialogue_set_responses("Sure!", "No thanks");
-            dialogue_set_message(1, "Welcome to your new home!");
-            dialogue_set_endaction(1, endaction_player_movein);
-            dialogue_show(2);
-        }*/
+        obj_player.exit_x = mean(entrance[0], entrance[0] + entrance[2]);
+        obj_player.exit_y = mean(entrance[1], entrance[1] + entrance[3]);
         
-        // TODO enter NPC homes
-        // TODO add variables to enterable buildings to designate:
-        //  -- target room
-        //  -- target (x,y)
-        //else if (struct_house_is_player_owned(id))
-        //{
-            obj_player.exit_x = mean(entrance[0], entrance[0] + entrance[2]);
-            obj_player.exit_y = mean(entrance[1], entrance[1] + entrance[3]);
-            
-            // TODO set position to position of obj_interior_exit
-            change_room(rm_house_small, 32+8, 96+7, false);
-        //}
+        with (change_room(interior_room, interior_room_x, interior_room_y, false))
+            interior = other.interior;
     }
 }
 

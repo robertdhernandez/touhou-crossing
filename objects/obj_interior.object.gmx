@@ -118,6 +118,15 @@ if (place_active)
         // it is assumed that the inventory initiated this
         var inventory = global.ui_inventory;
         inventory.inv[inventory.inv_index] = -1;
+        
+        // save instance to the interior
+        // NOTE only applies to interior objects, not items
+        var info;
+        info[0] = xx;
+        info[1] = yy;
+        info[2] = place_obj;
+        
+        ds_list_add(interior, info);
     }
 
     // cancel placement mode   
@@ -128,7 +137,11 @@ if (place_active)
     width *= tile_size;
     height *= tile_size;
     
-    place_valid = (collision_rectangle(xx, yy, xx+width, yy+height, obj_interior_base, false, true) == noone)
+    var x2 = xx+width;
+    var y2 = yy+height;
+    
+    place_valid = collision_rectangle(xx, yy, x2, y2, obj_interior_base, false, true) == noone
+        and collision_rectangle(xx, yy, x2, y2, obj_item, false, true) == noone
         and rectangle_in_rectangle(
             xx, yy, 
             xx+width, yy+height, 

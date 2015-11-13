@@ -52,8 +52,23 @@ surface = surface_create(512, 512);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fade_in = false;
+            <string>/// "Load" new room
+
+fade_in = false;
 progress = 1;
+
+// create interior objects
+if (not is_outside)
+{
+    obj_interior.interior = interior;
+    
+    var size = ds_list_size(interior);
+    for (var i = 0; i &lt; size; i++)
+    {
+        var inst = interior[|i];
+        instance_create(inst[0], inst[1], inst[2]);
+    }
+}
 </string>
           </argument>
         </arguments>
