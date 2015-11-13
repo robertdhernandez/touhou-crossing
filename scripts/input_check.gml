@@ -11,6 +11,11 @@ enum input
     down,
     left,
     right,
+    hk_1,
+    hk_2,
+    hk_3,
+    hk_4,
+    hk_5,
 }
 
 switch (argument0)
@@ -54,4 +59,19 @@ switch (argument0)
         return keyboard_check(vk_right)
             or gamepad_button_check(0, gp_padr)
             or gamepad_axis_value(0, gp_axislh) > 0;
+            
+    case input.hk_1:
+        return keyboard_check(ord('1'));
+        
+    case input.hk_2:
+        return keyboard_check(ord('2'));
+        
+    case input.hk_3:
+        return keyboard_check(ord('3'));
+        
+    case input.hk_4:
+        return keyboard_check(ord('4'));
+        
+    case input.hk_5:
+        return keyboard_check(ord('5'));
 }

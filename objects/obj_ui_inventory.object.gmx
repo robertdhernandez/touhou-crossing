@@ -40,6 +40,7 @@ surface = undefined;
 
 // Action
 
+action = "";
 actions_actions = 0;
 actions_index = 0;
 actions_np = ninepatch_create(14, 13, 17, 19, 14, 13, 17, 19);
@@ -312,6 +313,9 @@ if (displayed)
         if (input_check_pressed(input.a) or
             (input_check_pressed(input.b) and actions_index == 0))
         {
+            var index = (array_length_1d(actions_actions)-1)-actions_index;
+            action = actions_actions[index];
+            
             event_user(0);
             actions_visible = false;
         }
@@ -355,12 +359,9 @@ if (displayed)
             <kind>1</kind>
             <string>/// Item Action
 
-var index = (array_length_1d(actions_actions)-1)-actions_index;
-var action = actions_actions[index];
-
 switch (action)
 {
-    case "Grab":
+    case item_action.grab:
         inv_moving = inv[inv_index];
         inv[inv_index] = -1;
         
@@ -369,7 +370,7 @@ switch (action)
         curs_grab = true;
     break;
     
-    case "Place":
+    case item_action.place:
         if (not instance_exists(obj_interior))
             show_debug_message("ERROR: obj_interior not found");
             
@@ -388,7 +389,7 @@ switch (action)
         }
     break;
     
-    case "Plant":
+    case item_action.plant:
         var xx = obj_player.x div tile_size * tile_size;
         var yy = obj_player.y div tile_size * tile_size;
         
@@ -403,6 +404,8 @@ switch (action)
                 
                 if (item_id[?"type"] == item_type.flower_seed)
                     item_id = item_id[?"flower_item"];
+                    
+                image_index = item_id[?"image_index"];
             }
             
             inv[inv_index] = -1;
@@ -420,7 +423,7 @@ switch (action)
         }
     break;
     
-    case "Drop":    
+    case item_action.drop:
         if (not inventory_drop_item(inv_index))
         {
             // TODO tell player could not drop item
@@ -562,7 +565,10 @@ if (actions_visible)
     // calculate width, height
     var width = 0, height = len * 16;
     for (var i = 0; i &lt; len; i++)
-        width = max(width, string_width(actions_actions[i]));
+    {
+        var str = item_action_str[actions_actions[i]];
+        width = max(width, string_width(str));
+    }
     
     // draw background
     var wbuffer = 8, hbuffer = 5;
@@ -574,7 +580,10 @@ if (actions_visible)
     // draw commands
     draw_set_color(make_color_rgb(64, 104, 144));
     for (var i = 0; i &lt; len; i++)
-        draw_text(actions_x - 5, actions_y + 3 + 16 * i - height/2, actions_actions[i]);
+    {
+        var str = item_action_str[actions_actions[i]];
+        draw_text(actions_x - 5, actions_y + 3 + 16 * i - height/2, str);
+    }
 }
 
 // Cursor

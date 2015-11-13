@@ -41,4 +41,19 @@ switch (argument0)
         return keyboard_check_pressed(vk_right)
             or gamepad_button_check_pressed(0, gp_padr)
             or (global.axislh_previous < analogue_trigger and gamepad_axis_value(0, gp_axislh) >= analogue_trigger);
+            
+    case input.hk_1:
+        return keyboard_check_pressed(ord('1'));
+    
+    case input.hk_2:
+        return keyboard_check_pressed(ord('2'));
+        
+    case input.hk_3:
+        return keyboard_check_pressed(ord('3'));
+        
+    case input.hk_4:
+        return keyboard_check_pressed(ord('4'));
+        
+    case input.hk_5:
+        return keyboard_check_pressed(ord('5'));
 }

@@ -111,6 +111,21 @@ else if (os_type != os_android)
     
     if (input_check_pressed(input.start))
         inventory_show();
+        
+    if (input_check_pressed(input.hk_1))
+        inventory_quickuse(0);
+
+    if (input_check_pressed(input.hk_2))
+        inventory_quickuse(1);
+        
+    if (input_check_pressed(input.hk_3))
+        inventory_quickuse(2);
+    
+    if (input_check_pressed(input.hk_4))
+        inventory_quickuse(3);
+        
+    if (input_check_pressed(input.hk_5))
+        inventory_quickuse(4);
 }
 else if (os_type == os_android)
 {

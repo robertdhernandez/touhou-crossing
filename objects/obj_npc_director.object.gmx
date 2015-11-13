@@ -99,6 +99,7 @@ else if (automated)
 
 if (not global.debug) exit;
 
+/*
 if (keyboard_check_pressed(ord('1')))
     show_debug_message(string(npc_direct_visit()));
     
@@ -113,6 +114,7 @@ if (keyboard_check_pressed(ord('4')))
     
 if (keyboard_check_pressed(ord('5')))
     automated = not automated;
+*/
 </string>
           </argument>
         </arguments>

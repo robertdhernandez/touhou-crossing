@@ -1,5 +1,21 @@
 /// items_init()
 
+enum item_action
+{
+    drop,
+    grab,
+    place,
+    plant,
+    nevermind,
+}
+
+globalvar item_action_str;
+item_action_str[item_action.nevermind] = "Nevermind";
+item_action_str[item_action.drop] = "Drop";
+item_action_str[item_action.grab] = "Grab";
+item_action_str[item_action.place] = "Place";
+item_action_str[item_action.plant] = "Plant";
+
 enum item_type
 {
     unknown,
