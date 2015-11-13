@@ -89,7 +89,7 @@ else if (os_type != os_android)
         var item_obj = instance_position(x, y, obj_item);
         
         // pick up an item if possible
-        if (item_obj != noone and item_obj.can_pickup)
+        if (item_obj != noone and speed == 0)
             inventory_pickup(item_obj);
         
         // interior: pick up a furniture if possible

@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>can_pickup = false;
+            <string>item_id = -1;
 
-item_id = -1;
+show_name = false;
 
 timer = get_timer();
 timer_active = false;
@@ -71,8 +71,8 @@ timer_active = global.player_input and same_pos and
 if (timer_active and timer_active != last_active)
     timer = get_timer();
     
-// can pickup if player standing on item for one second
-can_pickup = timer_active and get_timer() - timer &gt; 500000;
+// show the name if player standing on item for half a second
+show_name = timer_active and get_timer() - timer &gt; 500000;
 
 timer_x = obj_player.x;
 timer_y = obj_player.y;
@@ -99,11 +99,11 @@ timer_y = obj_player.y;
           <argument>
             <kind>1</kind>
             <string>var dt = delta_time / 1000000;
-var dr = iff(can_pickup, 1, -1);
+var dr = iff(show_name, 1, -1);
 
 visibility = clamp(visibility + dt * dr / visibility_rate, 0, 1);
 
-if (can_pickup or visibility &gt; 0)
+if (show_name or visibility &gt; 0)
 {
     draw_set_font(global.font);
         
