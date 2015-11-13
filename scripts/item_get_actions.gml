@@ -9,21 +9,24 @@ var type = argument0[?"type"];
 switch (type)
 {
     case item_type.furniture:
-        if (global.player_outside)
-            actions[count++] = item_action.drop;
-        else
+        // interior
+        if (instance_exists(obj_interior))
         {
             // TODO check player is in their house
-            
             actions[count++] = item_action.place;
         }
+        
+        // exterior
+        else
+            actions[count++] = item_action.drop;
+        
     break;
     
     case item_type.flower:
     case item_type.flower_seed:
     
         // can only plant when outside
-        if (global.player_outside)
+        if (not instance_exists(obj_interior))
             actions[count++] = item_action.plant;
         
         // can drop seeds as well

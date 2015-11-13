@@ -60,7 +60,7 @@ progress = 1;
 // EVENT LoadInterior
 
 // create interior objects
-if (not is_outside)
+if (instance_exists(obj_interior))
 {
     obj_interior.interior = interior;
     
@@ -105,8 +105,6 @@ if (not is_outside)
     
     obj_player.x = target_x;
     obj_player.y = target_y;
-    
-    global.player_outside = is_outside;
 }
 else if (not fade_in and progress == 0)
 {

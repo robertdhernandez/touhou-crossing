@@ -60,7 +60,7 @@ alpha_night = 102 / 255;
             <kind>1</kind>
             <string>/// Only show when outside
 
-visible = global.player_outside;
+visible = not instance_exists(obj_interior);
 </string>
           </argument>
         </arguments>

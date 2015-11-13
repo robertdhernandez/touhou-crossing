@@ -44,7 +44,7 @@ with (argument0)
     if (position_meeting(obj_player.x, obj_player.y, id) 
         and round_direction(obj_player.direction) == 270)
     {
-        change_room(rm_demo, obj_player.exit_x, obj_player.exit_y, true);
+        change_room(rm_demo, obj_player.exit_x, obj_player.exit_y);
     }
 }
 
@@ -61,7 +61,7 @@ with (argument0)
         obj_player.exit_x = mean(entrance[0], entrance[0] + entrance[2]);
         obj_player.exit_y = mean(entrance[1], entrance[1] + entrance[3]);
         
-        with (change_room(interior_room, interior_room_x, interior_room_y, false))
+        with (change_room(interior_room, interior_room_x, interior_room_y))
             interior = other.interior;
     }
 }

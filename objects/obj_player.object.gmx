@@ -93,7 +93,7 @@ else if (os_type != os_android)
             inventory_pickup(item_obj);
         
         // interior: pick up a furniture if possible
-        else if (not global.player_outside and input_check_pressed(input.b))
+        else if (instance_exists(obj_interior) and input_check_pressed(input.b))
         {
             var xx = x + lengthdir_x(interact_dist, direction);
             var yy = y + lengthdir_y(interact_dist, direction); 
