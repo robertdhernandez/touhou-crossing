@@ -211,11 +211,27 @@ if (instance_exists(obj_water))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>inventory_add_item(item_get("test"));
+            <string>/*
+inventory_add_item(item_get("test"));
 inventory_add_item(item_get("test1"));
 inventory_add_item(item_get("test2"));
 inventory_add_item(item_get("test3"));
 inventory_add_item(item_get("test4"));
+*/
+
+inventory_add_item(item_get("test_table"));
+inventory_add_item(item_get("test_chair"));
+inventory_add_item(item_get("test_chair"));
+
+inventory_add_item(item_get("seed_cosmo_w"));
+inventory_add_item(item_get("seed_cosmo_y"));
+inventory_add_item(item_get("seed_cosmo_b"));
+//inventory_add_item(item_get("seed_tulip_r"));
+//inventory_add_item(item_get("seed_tulip_w"));
+//inventory_add_item(item_get("seed_tulip_y"));
+//inventory_add_item(item_get("seed_pansy_w"));
+//inventory_add_item(item_get("seed_pansy_p"));
+//inventory_add_item(item_get("seed_pansy_y"));
 </string>
           </argument>
         </arguments>

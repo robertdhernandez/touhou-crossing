@@ -112,7 +112,7 @@
     <instance objName="obj_npc_fairy" x="272" y="272" name="inst_D517CDA8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_weather" x="64" y="0" name="inst_852725A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_struct_house" x="144" y="144" name="inst_09802051" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_item" x="160" y="224" name="inst_684D36E9" locked="0" code="item_id = item_get(&quot;test4&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_struct_house" x="400" y="272" name="inst_596F418F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
