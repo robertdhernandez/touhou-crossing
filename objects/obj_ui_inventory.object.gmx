@@ -381,7 +381,9 @@ switch (action)
 
             with (obj_interior)
             {
+                inv_index = other.inv_index;
                 place_obj = item[?"object"];
+                
                 event_user(0);
             }
             

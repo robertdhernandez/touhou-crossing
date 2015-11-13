@@ -28,6 +28,8 @@
             <string>interior_width = 11;
 interior_height = 6;
 
+inv_index = -1;
+
 place_active = false;
 place_active_last = false;
 place_obj = -1;
@@ -117,7 +119,7 @@ if (place_active)
         // workaround -- remove current item from inventory
         // it is assumed that the inventory initiated this
         var inventory = global.ui_inventory;
-        inventory.inv[inventory.inv_index] = -1;
+        inventory.inv[inv_index] = -1;
         
         // save instance to the interior
         // NOTE only applies to interior objects, not items

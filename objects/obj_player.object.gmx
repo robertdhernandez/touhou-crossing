@@ -101,7 +101,13 @@ else if (os_type != os_android)
             var furniture = collision_line(x, y, xx, yy, obj_interior_base, false, true);
             
             if (furniture != noone)
-                inventory_pickup(furniture);                
+            {   
+                // remove the furniture from the interior
+                interior_pickup(furniture);
+                
+                // add furniture to inventory
+                inventory_pickup(furniture);
+            }
         }
         
         // exterior: run

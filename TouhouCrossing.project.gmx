@@ -709,6 +709,9 @@
       <script>scripts\input_get_direction.gml</script>
       <script>scripts\input_get_distance.gml</script>
     </scripts>
+    <scripts name="Interior">
+      <script>scripts\interior_pickup.gml</script>
+    </scripts>
     <scripts name="Inventory">
       <script>scripts\inventory_add_item.gml</script>
       <script>scripts\inventory_drop_item.gml</script>
