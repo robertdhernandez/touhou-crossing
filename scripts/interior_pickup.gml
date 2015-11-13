@@ -15,5 +15,5 @@ with (obj_interior)
         }
     }
     
-    show_error("Object does not exist in interior", false);
+    //show_error("Object does not exist in interior", false);
 }
