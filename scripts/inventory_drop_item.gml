@@ -17,23 +17,7 @@ with (global.ui_inventory)
     if (not item_can_drop(xx, yy))
         return false;
     
-    with (instance_create(xx, yy, obj_item))
-    {
-        item_id = item;
-        sprite_index = item[?"icon"];
-    }
-    
-    // if inside, add to interior
-    with (obj_interior)
-    {
-        var info;
-        info[0] = xx;
-        info[1] = yy;
-        info[2] = obj_item;
-        info[3] = obj_item.item_id;
-        
-        ds_list_add(interior, info);
-    }
+    item_create(xx, yy, item);
         
     inv[argument0] = -1;
     return true;

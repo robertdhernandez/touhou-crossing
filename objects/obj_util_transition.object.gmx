@@ -68,14 +68,11 @@ if (not is_outside)
     for (var i = 0; i &lt; size; i++)
     {
         var info = interior[|i];
-        var inst = instance_create(info[0], info[1], info[2]);
         
         if (info[2] == obj_item)
-            with (inst)
-            {
-                item_id = info[3];
-                sprite_index = item_id[?"icon"];
-            }
+            item_create(info[0], info[1], info[3]);
+        else
+            instance_create(info[0], info[1], info[2]);
     }
 }
 </string>

@@ -727,6 +727,7 @@
     </scripts>
     <scripts name="Items">
       <script>scripts\item_can_drop.gml</script>
+      <script>scripts\item_create.gml</script>
       <script>scripts\item_get.gml</script>
       <script>scripts\item_get_actions.gml</script>
       <script>scripts\items_init.gml</script>
