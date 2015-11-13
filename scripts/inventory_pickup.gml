@@ -2,6 +2,8 @@
 
 if (inventory_add_item(argument0.item_id))
 {
+    interior_pickup(argument0);
+
     with (argument0)
         instance_destroy();
 }

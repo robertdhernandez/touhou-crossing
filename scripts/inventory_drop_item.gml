@@ -22,6 +22,18 @@ with (global.ui_inventory)
         item_id = item;
         sprite_index = item[?"icon"];
     }
+    
+    // if inside, add to interior
+    with (obj_interior)
+    {
+        var info;
+        info[0] = xx;
+        info[1] = yy;
+        info[2] = obj_item;
+        info[3] = obj_item.item_id;
+        
+        ds_list_add(interior, info);
+    }
         
     inv[argument0] = -1;
     return true;

@@ -8,7 +8,7 @@ with (obj_interior)
     for (var i = 0; i < size; i++)
     {
         var info = interior[|i];
-        if (obj.x == info[0] and obj.y == info[1])
+        if (obj.x == info[0] and obj.y == info[1] and obj.object_index == info[2])
         {
             ds_list_delete(interior, i);
             exit;

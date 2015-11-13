@@ -57,6 +57,8 @@ surface = surface_create(512, 512);
 fade_in = false;
 progress = 1;
 
+// EVENT LoadInterior
+
 // create interior objects
 if (not is_outside)
 {
@@ -65,8 +67,15 @@ if (not is_outside)
     var size = ds_list_size(interior);
     for (var i = 0; i &lt; size; i++)
     {
-        var inst = interior[|i];
-        instance_create(inst[0], inst[1], inst[2]);
+        var info = interior[|i];
+        var inst = instance_create(info[0], info[1], info[2]);
+        
+        if (info[2] == obj_item)
+            with (inst)
+            {
+                item_id = info[3];
+                sprite_index = item_id[?"icon"];
+            }
     }
 }
 </string>
