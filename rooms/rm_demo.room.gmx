@@ -96,22 +96,23 @@
     <instance objName="obj_flower" x="448" y="208" name="inst_25D24BD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flower" x="432" y="112" name="inst_2D2191F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flower" x="560" y="48" name="inst_43991DBF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_dirt_b" x="48" y="48" name="inst_D934AF7E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_dirt_d" x="176" y="112" name="inst_7D4EEEA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_dirt_a" x="432" y="96" name="inst_EB720C0C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_dirt_c" x="512" y="96" name="inst_2128AF8E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_dirt_d" x="416" y="240" name="inst_48470E77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_dirt_a" x="304" y="304" name="inst_1057E773" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_dirt_c" x="48" y="240" name="inst_6A2FEB8D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_dirt_b" x="160" y="368" name="inst_09F4B453" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_dirt_a" x="416" y="416" name="inst_48F285C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="272" y="224" name="inst_6DCFB38E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_npc_fairy" x="272" y="272" name="inst_D517CDA8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_struct_house" x="144" y="144" name="inst_09802051" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_struct_house" x="400" y="272" name="inst_596F418F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_village" x="0" y="0" name="inst_4B993923" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
-  <tiles/>
+  <tiles>
+    <tile bgName="tile_dirt_c" x="48" y="240" w="112" h="96" xo="0" yo="0" id="10001711" name="inst_C4128749" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_dirt_c" x="512" y="96" w="112" h="96" xo="0" yo="0" id="10001712" name="inst_4910B3C9" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_dirt_a" x="400" y="64" w="64" h="64" xo="0" yo="0" id="10001713" name="inst_9F5699B2" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_dirt_a" x="272" y="272" w="64" h="64" xo="0" yo="0" id="10001714" name="inst_C8E05A87" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_dirt_a" x="384" y="384" w="64" h="64" xo="0" yo="0" id="10001715" name="inst_3A7396AC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_dirt_b" x="160" y="368" w="64" h="80" xo="0" yo="0" id="10001717" name="inst_2C823813" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_dirt_b" x="48" y="48" w="64" h="80" xo="0" yo="0" id="10001718" name="inst_D9F28FA7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_dirt_d" x="176" y="112" w="96" h="112" xo="0" yo="0" id="10001719" name="inst_8BB6518D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_dirt_d" x="416" y="240" w="96" h="112" xo="0" yo="0" id="10001720" name="inst_CDCA5EBC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+  </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
   <PhysicsWorldLeft>0</PhysicsWorldLeft>

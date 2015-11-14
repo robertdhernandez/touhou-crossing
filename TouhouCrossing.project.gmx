@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="90" name="datafiles">
-    <datafiles number="90" name="Dialogue">
+  <datafiles number="91" name="datafiles">
+    <datafiles number="91" name="Dialogue">
       <datafile>
         <name>dialogue_fairy.json</name>
         <exists>-1</exists>
@@ -60,7 +60,7 @@
     <datafile>
       <name>Road_Diagram.png</name>
       <exists>-1</exists>
-      <size>627077</size>
+      <size>630116</size>
       <exportAction>2</exportAction>
       <exportDir></exportDir>
       <overwrite>0</overwrite>
@@ -677,6 +677,10 @@
     <background>background\tile_exterior</background>
     <background>background\tile_interior</background>
     <background>background\tile_road</background>
+    <background>background\tile_dirt_a</background>
+    <background>background\tile_dirt_b</background>
+    <background>background\tile_dirt_c</background>
+    <background>background\tile_dirt_d</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
