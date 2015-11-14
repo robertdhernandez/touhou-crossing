@@ -156,7 +156,8 @@ player_init();
 instance_create(0, 0, obj_debug);
 instance_create(0, 0, obj_util_tint);
 
-global.time = date_current_datetime();
+// DEBUG start at noon
+global.time = date_create_datetime(current_year, current_month, current_day, 12, 0, 0);//date_current_datetime();
 global.time_realtime = false;           // time is set based on the real time
 global.time_paused = false;             // pauses time (only if not in realtime mode)
 global.time_scale = 1;                  // in-game minutes per real-time second
