@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="89" name="datafiles">
-    <datafiles number="89" name="Dialogue">
+  <datafiles number="90" name="datafiles">
+    <datafiles number="90" name="Dialogue">
       <datafile>
         <name>dialogue_fairy.json</name>
         <exists>-1</exists>
@@ -56,6 +56,23 @@
         </Config>
       </ConfigOptions>
       <filename>npc.json</filename>
+    </datafile>
+    <datafile>
+      <name>Road_Diagram.png</name>
+      <exists>-1</exists>
+      <size>627077</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>0</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Road_Diagram.png</filename>
     </datafile>
     <datafile>
       <name>structures.json</name>
@@ -929,6 +946,7 @@
     <object>objects\obj_item</object>
     <object>objects\obj_newgame</object>
     <object>objects\obj_player</object>
+    <object>objects\obj_village</object>
     <object>objects\obj_weather</object>
     <objects name="Structures">
       <object>objects\obj_struct_base</object>
