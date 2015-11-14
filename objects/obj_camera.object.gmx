@@ -148,16 +148,22 @@ if (scale &gt; 0)
             <kind>1</kind>
             <string>/// Update aspect ratio
 
-var aspect = window_get_width() / window_get_height();
+var window_width = window_get_width();
+var window_height = window_get_height();
 
-var view_height = min(base_height, window_get_height());
+if (window_width == 0 or window_height == 0)
+    exit;
+
+var aspect = window_width / window_height;
+
+var view_height = min(base_height, window_height);
 var view_width = view_height * aspect;
 
 width = round(view_width);
 height = round(view_height);
 
-view_wport[0] = window_get_width();
-view_hport[0] = window_get_height();
+view_wport[0] = window_width;
+view_hport[0] = window_height;
 
 display_set_gui_size(width, height);
 </string>
