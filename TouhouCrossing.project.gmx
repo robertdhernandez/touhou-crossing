@@ -587,8 +587,15 @@
     </sprites>
     <sprites name="Flora">
       <sprite>sprites\spr_flora_flower</sprite>
-      <sprite>sprites\spr_flora_stump</sprite>
+      <sprite>sprites\spr_flora_sapling</sprite>
       <sprite>sprites\spr_flora_tree</sprite>
+      <sprites name="Tree">
+        <sprite>sprites\spr_flora_tree_top0</sprite>
+        <sprite>sprites\spr_flora_tree_top1</sprite>
+        <sprite>sprites\spr_flora_tree_top2</sprite>
+        <sprite>sprites\spr_flora_tree_top3</sprite>
+        <sprite>sprites\spr_flora_tree_base</sprite>
+      </sprites>
     </sprites>
     <sprites name="Interior">
       <sprite>sprites\spr_interior_chair</sprite>
@@ -606,6 +613,14 @@
         <sprite>sprites\spr_item_tulip_r</sprite>
         <sprite>sprites\spr_item_tulip_w</sprite>
         <sprite>sprites\spr_item_tulip_y</sprite>
+      </sprites>
+      <sprites name="Fruits">
+        <sprite>sprites\spr_item_apple</sprite>
+        <sprite>sprites\spr_item_cherry</sprite>
+        <sprite>sprites\spr_item_coconut</sprite>
+        <sprite>sprites\spr_item_orange</sprite>
+        <sprite>sprites\spr_item_peach</sprite>
+        <sprite>sprites\spr_item_pear</sprite>
       </sprites>
       <sprite>sprites\spr_item_accessory</sprite>
       <sprite>sprites\spr_item_carpet</sprite>
@@ -928,6 +943,7 @@
     </objects>
     <objects name="Flora">
       <object>objects\obj_tree</object>
+      <object>objects\obj_tree2</object>
       <object>objects\obj_flower</object>
     </objects>
     <objects name="Interior">
