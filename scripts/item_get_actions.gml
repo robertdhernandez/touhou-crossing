@@ -24,13 +24,14 @@ switch (type)
     
     case item_type.flower:
     case item_type.flower_seed:
+    case item_type.sapling:
     
         // can only plant when outside
         if (not instance_exists(obj_interior))
             actions[count++] = item_action.plant;
         
-        // can drop seeds as well
-        if (type == item_type.flower_seed)
+        // can drop saplings and seeds as well
+        if (type != item_type.flower)
             actions[count++] = item_action.drop;
     break;
 }

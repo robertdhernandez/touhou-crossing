@@ -22,6 +22,7 @@ enum item_type
     furniture,
     flower,
     flower_seed,
+    sapling,
 }
 
 globalvar items;
@@ -77,7 +78,7 @@ item[?"name"] = "table";
 item[?"type"] = item_type.furniture;
 item[?"icon"] = spr_item_furniture;
 item[?"cost"] = 150;
-item[?"object"] = obj_interior_table;
+item[?"object_index"] = obj_interior_table;
 ds_map_add_map(items, "test_table", item);
 
 item = ds_map_create();
@@ -85,7 +86,7 @@ item[?"name"] = "chair";
 item[?"type"] = item_type.furniture;
 item[?"icon"] = spr_item_furniture;
 item[?"cost"] = 150;
-item[?"object"] = obj_interior_chair;
+item[?"object_index"] = obj_interior_chair;
 ds_map_add_map(items, "test_chair", item);
 
 ///--------------------------
@@ -165,8 +166,16 @@ item[?"image_index"] = 8;
 ds_map_add_map(items, "flower_pansy_y", item);
 
 ///--------------------------
-/// Flower Seeds
+/// Sapling and Seeds
 ///--------------------------
+
+item = ds_map_create();
+item[?"name"] = "sapling";
+item[?"type"] = item_type.sapling;
+item[?"icon"] = spr_item_sapling;
+item[?"cost"] = 50;
+//item[?"object_index"] = obj_flora_sapling;
+ds_map_add_map(items, "seed_sapling", item);
 
 item = ds_map_create();
 item[?"name"] = "white cosmo bag";

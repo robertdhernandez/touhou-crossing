@@ -26,6 +26,7 @@ with (global.ui_inventory)
         break;
         
         case item_type.flower_seed:
+        case item_type.sapling:
             if (array_contains(actions, item_action.plant))
                 action = item_action.plant;
             else

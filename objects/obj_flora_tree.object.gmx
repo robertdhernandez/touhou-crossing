@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fruit = -1;
+            <string>fruit = irandom_range(-1,4);//-1;
+fruit_growth = 1;
 stage = 0;
 
 image_index = stage;
@@ -60,12 +61,13 @@ time = get_timer();
 image_index = stage;
 
 // DEBUG grow every 10 seconds
-if (stage &lt; 3 and get_timer() - time &gt; 1000000)
+if (get_timer() - time &gt; 5000000)
 {
-    stage++;
     time = get_timer();
+    event_user(0);
 }
 
+/*
 // DEBUG reset growth
 if (keyboard_check_pressed(ord('T')))
 { 
@@ -78,6 +80,35 @@ if (keyboard_check_pressed(ord('Y')))
 {
     fruit = (fruit + 1) mod 4;
 }
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Update
+
+if (stage &lt; 3)
+    stage++;
+else if (fruit_growth &gt; 0)
+    fruit_growth--;
 </string>
           </argument>
         </arguments>
@@ -117,7 +148,7 @@ draw_sprite(top, 0, x, y);
 
 // draw the fruits (optional)
 
-if (stage == 3 and fruit != -1)
+if (stage == 3 and fruit != -1 and fruit_growth == 0)
 {
     switch (fruit)
     {

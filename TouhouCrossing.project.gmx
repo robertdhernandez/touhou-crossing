@@ -634,6 +634,7 @@
       <sprite>sprites\spr_item_gyroid</sprite>
       <sprite>sprites\spr_item_hat</sprite>
       <sprite>sprites\spr_item_helmet</sprite>
+      <sprite>sprites\spr_item_sapling</sprite>
       <sprite>sprites\spr_item_seed</sprite>
       <sprite>sprites\spr_item_shirt</sprite>
       <sprite>sprites\spr_item_umbrella</sprite>
@@ -948,9 +949,10 @@
       <object>objects\obj_fx_expression</object>
     </objects>
     <objects name="Flora">
+      <object>objects\obj_flora_flower</object>
+      <object>objects\obj_flora_sapling</object>
+      <object>objects\obj_flora_tree</object>
       <object>objects\obj_tree</object>
-      <object>objects\obj_tree2</object>
-      <object>objects\obj_flower</object>
     </objects>
     <objects name="Interior">
       <object>objects\obj_interior</object>
