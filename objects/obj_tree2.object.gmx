@@ -76,7 +76,7 @@ if (keyboard_check_pressed(ord('T')))
 // DEBUG change fruit
 if (keyboard_check_pressed(ord('Y')))
 {
-    fruit = (fruit + 1) mod 5;
+    fruit = (fruit + 1) mod 4;
 }
 </string>
           </argument>
@@ -119,20 +119,18 @@ draw_sprite(top, 0, x, y);
 
 if (stage == 3 and fruit != -1)
 {
-    var spr;
     switch (fruit)
     {
-        case 0: spr = spr_item_apple;   break;
-        case 1: spr = spr_item_cherry;  break
-        case 2: spr = spr_item_coconut; break;
-        case 3: spr = spr_item_orange;  break;
-        case 4: spr = spr_item_peach;   break;
-        case 5: spr = spr_item_pear;    break;
+        case 0: spr = spr_item_apple_w;   break;
+        case 1: spr = spr_item_cherry_w;  break
+        case 2: spr = spr_item_orange_w;  break;
+        case 3: spr = spr_item_peach_w;   break;
+        case 4: spr = spr_item_pear_w;    break;
     }
     
-    draw_sprite_ext(spr, 0, x-12, y-20, 0.5, 0.5, 0, c_white, 1);
-    draw_sprite_ext(spr, 0, x, y-32, 0.5, 0.5, 0, c_white, 1);
-    draw_sprite_ext(spr, 0, x+12, y-20, 0.5, 0.5, 0, c_white, 1);
+    draw_sprite_ext(spr, 0, x-10, y-20, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(spr, 0, x+1, y-32, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(spr, 0, x+12, y-20, 1, 1, 0, c_white, 1);
 }
 </string>
           </argument>
