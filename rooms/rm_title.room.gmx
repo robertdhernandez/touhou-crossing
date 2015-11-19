@@ -52,13 +52,13 @@
   </views>
   <instances>
     <instance objName="obj_flora_flower" x="208" y="448" name="inst_F99E7668" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="32" y="32" name="inst_26AEBF17" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="224" y="48" name="inst_7061B894" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="288" y="64" name="inst_E6EF7B77" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="272" y="192" name="inst_84B87533" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="224" y="128" name="inst_22995A54" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="16" y="128" name="inst_8EC27810" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="32" y="208" name="inst_7B80135B" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="32" y="32" name="inst_26AEBF17" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="224" y="48" name="inst_7061B894" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="288" y="64" name="inst_E6EF7B77" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="272" y="192" name="inst_84B87533" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="224" y="128" name="inst_22995A54" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="16" y="128" name="inst_8EC27810" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="32" y="208" name="inst_7B80135B" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="64" y="80" name="inst_C5C422B0" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="64" y="128" name="inst_FF322F1E" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="112" y="128" name="inst_A3A8B5E6" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -69,12 +69,12 @@
     <instance objName="obj_flora_flower" x="160" y="176" name="inst_7D3C7506" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="96" y="16" name="inst_6D984101" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="96" y="208" name="inst_A2408926" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="80" y="96" name="inst_361B5D65" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="16" y="304" name="inst_EB2DD0D8" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="224" y="256" name="inst_3D2F10A1" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="288" y="288" name="inst_E70523CC" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="80" y="96" name="inst_361B5D65" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="16" y="304" name="inst_EB2DD0D8" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="224" y="256" name="inst_3D2F10A1" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="288" y="288" name="inst_E70523CC" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="288" y="16" name="inst_654F4459" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="80" y="352" name="inst_78B0DDA4" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="80" y="352" name="inst_78B0DDA4" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="160" y="256" name="inst_976A9C0F" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="16" y="272" name="inst_4C799173" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="48" y="352" name="inst_288A8D12" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -86,15 +86,15 @@
     <instance objName="obj_flora_flower" x="112" y="288" name="inst_BEBE3E46" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="16" y="64" name="inst_0BF468D5" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="304" y="128" name="inst_681DB6ED" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="80" y="272" name="inst_8544392B" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="80" y="272" name="inst_8544392B" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_title_character" x="176" y="172" name="inst_28F10776" locked="0" code="sprite_index = spr_maribel_270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_title_character" x="128" y="172" name="inst_58E2E90F" locked="0" code="sprite_index = spr_renko_270;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="128" y="416" name="inst_22CEEB7A" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_title" x="160" y="68" name="inst_DE5535C4" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_flora_flower" x="192" y="384" name="inst_87C4B5A2" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="48" y="448" name="inst_A045ED51" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="224" y="384" name="inst_6D068292" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree" x="288" y="448" name="inst_EF01046F" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="48" y="448" name="inst_A045ED51" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="224" y="384" name="inst_6D068292" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_flora_tree_placeholder" x="288" y="448" name="inst_EF01046F" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_dirt_c" x="96" y="0" name="inst_E8F15223" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_dirt_b" x="16" y="80" name="inst_81361717" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_dirt_d" x="128" y="256" name="inst_AAE26E5A" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="270"/>

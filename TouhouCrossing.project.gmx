@@ -952,7 +952,7 @@
       <object>objects\obj_flora_flower</object>
       <object>objects\obj_flora_sapling</object>
       <object>objects\obj_flora_tree</object>
-      <object>objects\obj_tree</object>
+      <object>objects\obj_flora_tree_placeholder</object>
     </objects>
     <objects name="Interior">
       <object>objects\obj_interior</object>

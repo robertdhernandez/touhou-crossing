@@ -92,7 +92,12 @@ var y2 = y + tile_size;
 if (collision_rectangle(x1, y1, x2, y2, obj_flora_tree, false, true) == noone and
     collision_rectangle(x1, y1, x2, y2, obj_struct_base, false, true) == noone)
 {
-    instance_create(x, y, obj_flora_tree);
+    with (instance_create(x, y, obj_flora_tree))
+    {
+        fruit = irandom_range(-1, 4); // DEBUG select random fruit
+        stage = 0;
+    }
+        
     instance_destroy();
 }
 else
