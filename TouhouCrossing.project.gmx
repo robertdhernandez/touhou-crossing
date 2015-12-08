@@ -94,8 +94,12 @@
   </datafiles>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\snd_dialogue</sound>
     <sound>sound\mus_title</sound>
+    <sound>sound\snd_cancel</sound>
+    <sound>sound\snd_cursor</sound>
+    <sound>sound\snd_message</sound>
+    <sound>sound\snd_ok</sound>
+    <sound>sound\snd_pause</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Bridge">

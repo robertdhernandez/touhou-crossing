@@ -71,6 +71,8 @@ with (argument0)
 
 with (argument0)
 {
+    audio_play_sound(snd_ok, false, 0);
+
     can_think = false;
     direction = point_direction(x, y, obj_player.x, obj_player.y);
     

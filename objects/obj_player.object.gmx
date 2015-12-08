@@ -90,7 +90,10 @@ else if (os_type != os_android)
         
         // pick up an item if possible
         if (item_obj != noone and speed == 0)
+        {
+            //audio_play_sound(snd_pickup, 0, false);
             inventory_pickup(item_obj);
+        }
         
         // interior: pick up a furniture if possible
         else if (instance_exists(obj_interior) and input_check_pressed(input.b))

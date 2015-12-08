@@ -191,10 +191,13 @@ if (displayed)
             
             global.player_input = true;
             global.ui_clock.can_show = true;
+            
+            audio_play_sound(snd_cancel, 0, false);
         }
     
         if (input_check_pressed(input.a))
         {
+            audio_play_sound(snd_ok, 0, false);
             if (is_item)
             {
                 if (inv_moving == -1)
@@ -225,6 +228,7 @@ if (displayed)
     
         if (input_check_pressed(input.left))
         {    
+            audio_play_sound(snd_cursor, 0, false);
             if (is_item and item_col != 0)
                 inv_index--;
             else if (is_letter)
@@ -255,6 +259,7 @@ if (displayed)
         
         if (input_check_pressed(input.right))
         {
+            audio_play_sound(snd_cursor, 0, false);
             if (is_item)
             {
                 if (item_col &lt; 4)
@@ -275,6 +280,7 @@ if (displayed)
         
         if (input_check_pressed(input.up))
         {    
+            audio_play_sound(snd_cursor, 0, false);
             if (is_item)
             {
                 if (item_row != 0)
@@ -286,6 +292,7 @@ if (displayed)
         
         if (input_check_pressed(input.down))
         {   
+            audio_play_sound(snd_cursor, 0, false);
             if (is_item)
             {
                 if (item_row != 2)
@@ -305,10 +312,16 @@ if (displayed)
     else
     {
         if (input_check_pressed(input.up))
+        {
             actions_index = min(actions_index+1, array_length_1d(actions_actions)-1);    
+            audio_play_sound(snd_cursor, 0, false);
+        }
         
         if (input_check_pressed(input.down))
+        {
             actions_index = max(actions_index-1, 0);
+            audio_play_sound(snd_cursor, 0, false);
+        }
         
         if (input_check_pressed(input.a) or
             (input_check_pressed(input.b) and actions_index == 0))
@@ -318,10 +331,16 @@ if (displayed)
             
             event_user(0);
             actions_visible = false;
+            
+            if (input_check_pressed(input.a))
+                audio_play_sound(snd_ok, 0, false);
         }
         
         if (input_check_pressed(input.b))
+        {
             actions_index = 0;
+            audio_play_sound(snd_cancel, 0, false);
+        }
         
         // update cursor
         

@@ -137,18 +137,22 @@ if (resp_visible)
 {
     if (input_check_pressed(input.down))
     {
+        audio_play_sound(snd_cursor, 0, false);
         curs_image_index = 0;
         resp_index = min(resp_index + 1, global.dialogue_num_responses - 1);
     }
         
     if (input_check_pressed(input.up))
     {
+        audio_play_sound(snd_cursor, 0, false);
         curs_image_index = 0;
         resp_index = max(resp_index - 1, 0)
     }
     
     if (input_check_pressed(input.a))
     {
+        audio_play_sound(snd_ok, 0, false);    
+    
         message_index = resp_index + 1;
         event_user(0);
         
@@ -162,7 +166,10 @@ if (resp_visible)
 if (cont_visible)
 {
     if (input_check_pressed(input.a) or mouse_check_button_pressed(mb_left))
+    {
+        audio_play_sound(snd_message, 0, false);
         event_user(0);
+    }
 }
 
 cont_visible = text_display == 1 and not resp_visible;
