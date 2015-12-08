@@ -100,6 +100,7 @@
     <sound>sound\snd_message</sound>
     <sound>sound\snd_ok</sound>
     <sound>sound\snd_pause</sound>
+    <sound>sound\snd_warp</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Bridge">

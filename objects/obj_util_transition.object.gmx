@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>progress = 0;
-progress_rate = 1 / (room_speed * 0.35);
+progress_rate = 1 / (room_speed * 0.20);
 fade_in = true;
 
 surface = surface_create(512, 512);
